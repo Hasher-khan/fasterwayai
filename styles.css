@@ -20,6 +20,41 @@
   --header-height: 56px;
 }
 
+/* Shared brand lockup: keeps the mark optically aligned with the wordmark
+   everywhere it appears (header, auth, footer, and compact mobile layouts). */
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: max-content;
+}
+
+.brand-mark {
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 4px 8px rgb(37 99 235 / .14));
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.brand-lockup:hover .brand-mark {
+  transform: scale(1.05);
+  filter: drop-shadow(0 5px 10px rgb(37 99 235 / .22));
+}
+
+.brand-name {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .brand-mark { width: 2rem; height: 2rem; }
+  .brand-name { font-size: 1rem; }
+}
+
 /* =====================================================
    BASE RESET & GLOBAL MOBILE RULES
    ===================================================== */
@@ -1139,4 +1174,3 @@ html.dark .bg-surface-container-lowest {
   background-color: #0f172a !important;
   border-color: #1e293b !important;
 }
-
