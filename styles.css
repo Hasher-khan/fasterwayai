@@ -1037,3 +1037,106 @@ main {
     display: none;
   }
 }
+
+/* =====================================================
+   FAQ ACCORDION & LANDING PAGE ANIMATIONS
+   ===================================================== */
+.faq-toggle {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.faq-toggle:hover {
+  background-color: var(--color-surface-container-low);
+}
+
+.faq-item.open .faq-toggle .material-symbols-outlined {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq-answer {
+  transition: all 0.3s ease-in-out;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* =====================================================
+   DARK THEME SYSTEM & OVERRIDES
+   ===================================================== */
+html.dark {
+  --color-surface: #0f172a;
+  --color-surface-container: #1e293b;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container-high: #334155;
+  --color-surface-lowest: #1e293b;
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #94a3b8;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+html.dark .glass-nav {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom-color: rgba(51, 65, 85, 0.6);
+}
+
+html.dark #bottom-nav {
+  background: rgba(15, 23, 42, 0.96);
+  border-top-color: #334155;
+}
+
+html.dark .mobile-nav-link:active,
+html.dark .mobile-nav-link.active {
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+html.dark #mobile-nav-drawer {
+  background: #0f172a;
+  border-bottom-color: #334155;
+}
+
+html.dark .card,
+html.dark .bg-surface-lowest,
+html.dark .modal-panel {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+html.dark .bg-surface-container-low,
+html.dark .bg-surface-container {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+html.dark input, 
+html.dark select, 
+html.dark textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark .text-on-surface {
+  color: #f8fafc !important;
+}
+
+html.dark .text-on-surface-variant {
+  color: #cbd5e1 !important;
+}
+
+html.dark .bg-surface-container-lowest {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+

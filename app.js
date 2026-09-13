@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAuthUI();
   initMobileNav();
   initNavigation();
+  initLandingPageView();
   initEmailGeneratorView();
   initGrammarCheckerView();
   initTemplatesView();
@@ -1598,3 +1599,220 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+/* LANDING PAGE INTERACTIVITY */
+function initLandingPageView() {
+  // 1. FAQ Accordion Toggle
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const toggleBtn = item.querySelector('.faq-toggle');
+    const answer = item.querySelector('.faq-answer');
+    if (toggleBtn && answer) {
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        // Close all other items for clean accordion behavior
+        faqItems.forEach(other => {
+          other.classList.remove('open');
+          const otherAns = other.querySelector('.faq-answer');
+          if (otherAns) otherAns.classList.add('hidden');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.classList.remove('hidden');
+        }
+      });
+    }
+  });
+
+  // 2. Interactive Sandbox Preview Tab Switcher
+  const btnEmailTab = document.getElementById('sandbox-tab-email');
+  const btnGrammarTab = document.getElementById('sandbox-tab-grammar');
+  const contentEmail = document.getElementById('sandbox-content-email');
+  const contentGrammar = document.getElementById('sandbox-content-grammar');
+
+  if (btnEmailTab && btnGrammarTab && contentEmail && contentGrammar) {
+    btnEmailTab.addEventListener('click', () => {
+      btnEmailTab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-primary bg-surface-lowest shadow-xs flex items-center gap-1.5';
+      btnGrammarTab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface flex items-center gap-1.5';
+      contentEmail.classList.remove('hidden');
+      contentGrammar.classList.add('hidden');
+    });
+
+    btnGrammarTab.addEventListener('click', () => {
+      btnGrammarTab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-emerald-700 bg-surface-lowest shadow-xs flex items-center gap-1.5';
+      btnEmailTab.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface flex items-center gap-1.5';
+      contentGrammar.classList.remove('hidden');
+      contentEmail.classList.add('hidden');
+    });
+  }
+
+  // 3. Interactive Sandbox Presets
+  const presetData = {
+    interview: {
+      topic: 'Follow up after Software Engineer interview',
+      recipient: 'Hiring Manager (Tech Lead)',
+      tone: 'Confident',
+      output: `Subject: Thank You for the Senior Developer Interview\n\nDear Hiring Manager,\n\nThank you for taking the time to discuss the Senior Engineer role with me yesterday. I really enjoyed learning more about your team's upcoming architecture migration.\n\nWith my 5 years of full-stack engineering experience, I am confident I can make an immediate contribution to your sprint goals. Please let me know if you need any additional code samples or references.\n\nBest regards,\nHasher Khan`
+    },
+    sales: {
+      topic: 'Introduce AI Productivity SaaS Platform',
+      recipient: 'VP of Marketing',
+      tone: 'Persuasive',
+      output: `Subject: Boost Your Marketing Team's Email Productivity by 40%\n\nDear VP of Marketing,\n\nI hope this email finds you well. I am reaching out to introduce growfasting.ai, an AI assistant designed to streamline high-impact business communication.\n\nOur platform automates email drafting and real-time grammar audits while guaranteeing zero factual hallucinations. Would you be open to a 10-minute demo next Tuesday at 10 AM?\n\nBest regards,\nHasher Khan`
+    },
+    extension: {
+      topic: 'Request a 3-day assignment extension',
+      recipient: 'Course Professor',
+      tone: 'Formal',
+      output: `Subject: Request for Assignment Extension - CS 101\n\nDear Professor,\n\nI am writing to respectfully request a 3-day extension for the Research Paper assignment originally due this Friday. Due to a brief illness earlier this week, I require extra time to complete my work to full academic standards.\n\nI can provide a medical note if necessary and commit to submitting the final paper by Monday at 5 PM. Thank you for your consideration.\n\nRespectfully,\nHasher Khan`
+    }
+  };
+
+  const presetBtns = document.querySelectorAll('.sandbox-preset-btn');
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      presetBtns.forEach(b => {
+        b.className = 'sandbox-preset-btn px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-lg text-xs font-semibold';
+      });
+      btn.className = 'sandbox-preset-btn active px-3 py-1 bg-primary text-on-primary rounded-lg text-xs font-semibold';
+
+      const key = btn.dataset.preset;
+      const data = presetData[key];
+      if (data) {
+        document.getElementById('sandbox-input-topic').textContent = data.topic;
+        document.getElementById('sandbox-input-recipient').textContent = data.recipient;
+        document.getElementById('sandbox-input-tone').textContent = data.tone;
+        document.getElementById('sandbox-output-text').textContent = data.output;
+      }
+    });
+  });
+
+  // 4. Quick-Use Template Buttons on Landing Page
+  const quickTemplateBtns = document.querySelectorAll('.quick-use-template-btn');
+  quickTemplateBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const templateId = btn.dataset.templateId;
+      const t = TEMPLATES_DATABASE.find(item => item.id === templateId);
+      if (t) {
+        switchView('email-generator');
+        const purposeInput = document.getElementById('email-purpose');
+        const audienceInput = document.getElementById('email-audience');
+        const toneSelect = document.getElementById('email-tone-select');
+        const promptTextarea = document.getElementById('email-custom-prompt');
+
+        if (purposeInput) purposeInput.value = t.purpose || '';
+        if (audienceInput) audienceInput.value = t.audience || '';
+        if (toneSelect) toneSelect.value = t.tone || 'professional';
+        if (promptTextarea) promptTextarea.value = t.customPrompt || '';
+
+        // Select tone pill if matched
+        const tonePills = document.querySelectorAll('.tone-pill');
+        tonePills.forEach(pill => {
+          if (pill.dataset.tone === t.tone) {
+            pill.className = 'tone-pill bg-primary text-on-primary border-primary';
+          } else {
+            pill.className = 'tone-pill bg-surface-container-low text-on-surface-variant hover:bg-surface-container';
+          }
+        });
+
+        showToast(`Loaded "${t.title}" template into Email Generator!`, 'success');
+      }
+    });
+  });
+}
+
+/* =====================================================
+   SETTINGS & THEME ENGINE (DARK / LIGHT THEME)
+   ===================================================== */
+function initSettingsModal() {
+  const modal = document.getElementById('settings-modal');
+  const btnOpenDesktop = document.getElementById('btn-open-settings');
+  const btnOpenMobile = document.getElementById('btn-open-settings-mobile');
+  const btnClose = document.getElementById('btn-close-settings');
+  const btnSave = document.getElementById('btn-save-settings');
+
+  const btnThemeLight = document.getElementById('btn-theme-light');
+  const btnThemeDark = document.getElementById('btn-theme-dark');
+  const btnHeaderTheme = document.getElementById('btn-header-theme');
+
+  function openModal() {
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+    }
+  }
+
+  if (btnOpenDesktop) btnOpenDesktop.addEventListener('click', openModal);
+  if (btnOpenMobile) btnOpenMobile.addEventListener('click', openModal);
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+  if (btnSave) btnSave.addEventListener('click', closeModal);
+
+  // Load initial theme from localStorage or OS setting
+  const savedTheme = localStorage.getItem('gf_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  setAppTheme(savedTheme);
+
+  if (btnThemeLight) {
+    btnThemeLight.addEventListener('click', () => {
+      setAppTheme('light');
+      showToast('Switched to Light (White) theme', 'info');
+    });
+  }
+
+  if (btnThemeDark) {
+    btnThemeDark.addEventListener('click', () => {
+      setAppTheme('dark');
+      showToast('Switched to Dark theme', 'info');
+    });
+  }
+
+  if (btnHeaderTheme) {
+    btnHeaderTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      const nextTheme = isDark ? 'light' : 'dark';
+      setAppTheme(nextTheme);
+      showToast(`Switched to ${nextTheme === 'dark' ? 'Dark' : 'Light (White)'} theme`, 'info');
+    });
+  }
+}
+
+function setAppTheme(theme) {
+  const html = document.documentElement;
+  const btnThemeLight = document.getElementById('btn-theme-light');
+  const btnThemeDark = document.getElementById('btn-theme-dark');
+  const btnHeaderTheme = document.getElementById('btn-header-theme');
+
+  if (theme === 'dark') {
+    html.classList.add('dark');
+    localStorage.setItem('gf_theme', 'dark');
+
+    if (btnThemeDark && btnThemeLight) {
+      btnThemeDark.className = 'px-4 py-3 rounded-2xl border border-primary bg-primary/10 text-primary flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-xs';
+      btnThemeLight.className = 'px-4 py-3 rounded-2xl border border-outline-variant bg-surface-container text-on-surface-variant flex items-center justify-center gap-2 text-xs font-bold transition-all';
+    }
+    if (btnHeaderTheme) {
+      btnHeaderTheme.innerHTML = '<span class="material-symbols-outlined text-[20px] text-amber-400">light_mode</span>';
+      btnHeaderTheme.title = 'Switch to Light Theme';
+    }
+  } else {
+    html.classList.remove('dark');
+    localStorage.setItem('gf_theme', 'light');
+
+    if (btnThemeLight && btnThemeDark) {
+      btnThemeLight.className = 'px-4 py-3 rounded-2xl border border-primary bg-primary/10 text-primary flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-xs';
+      btnThemeDark.className = 'px-4 py-3 rounded-2xl border border-outline-variant bg-surface-container text-on-surface-variant flex items-center justify-center gap-2 text-xs font-bold transition-all';
+    }
+    if (btnHeaderTheme) {
+      btnHeaderTheme.innerHTML = '<span class="material-symbols-outlined text-[20px]">dark_mode</span>';
+      btnHeaderTheme.title = 'Switch to Dark Theme';
+    }
+  }
+}
+
+
