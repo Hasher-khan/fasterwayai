@@ -737,6 +737,19 @@ main {
   transform: scale(0.95);
 }
 
+/* Generated email copy sits on a light reading surface even when the app
+   chrome is dark. Keep the text explicitly tied to the surface token so it
+   cannot inherit the dark card's near-white color. */
+.output-email-body {
+  color: var(--color-on-surface) !important;
+  background-color: var(--color-surface) !important;
+}
+
+html.dark .output-email-body {
+  color: #191c1e !important;
+  background-color: #f7f9fb !important;
+}
+
 /* =====================================================
    GRAMMAR CHECKER - MOBILE
    ===================================================== */
