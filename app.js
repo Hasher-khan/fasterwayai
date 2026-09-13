@@ -601,7 +601,11 @@ function renderEmailOutput(result) {
   outputResult.classList.remove('hidden');
 
   document.getElementById('output-email-subject').innerText = result.subject || 'Generated Subject';
-  document.getElementById('output-email-body').innerText = result.email || '';
+      const outputEmailBody = document.getElementById('output-email-body');
+      outputEmailBody.innerText = result.email || '';
+      // Keep generated copy readable on the light email paper in dark mode.
+      outputEmailBody.style.setProperty('color', '#191c1e', 'important');
+      outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
 
   const altContainer = document.getElementById('output-subject-alternatives');
   if (altContainer) {
@@ -1814,5 +1818,4 @@ function setAppTheme(theme) {
     }
   }
 }
-
 
