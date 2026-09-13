@@ -893,9 +893,9 @@ async function checkGrammar(silent = false) {
     });
 
     if (!silent) {
-      showToast('✅ Linguistic analysis complete!', 'success');
+      showToast('Linguistic analysis complete!', 'success');
     } else {
-      showToast('⚡ Auto-check complete!', 'success');
+      showToast('Auto-check complete!', 'success');
     }
 
   } catch (err) {
@@ -1074,14 +1074,14 @@ function renderTemplatesList() {
   };
 
   const toneLabels = {
-    professional: '💼 Professional',
-    formal:       '🎩 Formal',
-    warm:         '🤝 Warm',
-    concise:      '⚡ Concise',
-    persuasive:   '🎯 Persuasive',
-    apologetic:   '🙏 Apologetic',
-    confident:    '💪 Confident',
-    neutral:      '⚖️ Neutral'
+    professional: 'Professional',
+    formal:       'Formal',
+    warm:         'Warm',
+    concise:      'Concise',
+    persuasive:   'Persuasive',
+    apologetic:   'Apologetic',
+    confident:    'Confident',
+    neutral:      'Neutral'
   };
 
   if (filtered.length === 0) {
