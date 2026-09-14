@@ -222,8 +222,11 @@ function startServer(port) {
 // Export app for Vercel Serverless Function deployment
 module.exports = app;
 
+// Firebase Cloud Functions discovers exported handlers from the module entrypoint.
+// The same Express app remains usable with `npm start` locally.
+exports.api = app;
+
 // Run standalone server when executing locally
-if (!process.env.VERCEL) {
+if (require.main === module && !process.env.VERCEL) {
   startServer(PORT);
 }
-

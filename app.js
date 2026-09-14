@@ -602,10 +602,9 @@ function renderEmailOutput(result) {
 
   document.getElementById('output-email-subject').innerText = result.subject || 'Generated Subject';
       const outputEmailBody = document.getElementById('output-email-body');
-      outputEmailBody.innerText = result.email || '';
-      // Keep generated copy readable on the light email paper in dark mode.
-      outputEmailBody.style.setProperty('color', '#191c1e', 'important');
-      outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
+      if (outputEmailBody) {
+        outputEmailBody.innerText = result.email || '';
+      }
 
   const altContainer = document.getElementById('output-subject-alternatives');
   if (altContainer) {
