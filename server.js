@@ -222,9 +222,17 @@ function startServer(port) {
 // Export app for Vercel Serverless Function deployment
 module.exports = app;
 
-// Firebase Cloud Functions discovers exported handlers from the module entrypoint.
-// The same Express app remains usable with `npm start` locally.
-exports.api = app;
+// Firebase Hosting rewrites /api requests to this handler. The Gemini key is
+// provided by Firebase Secret Manager and is never sent to the browser.
+try {
+  const firebaseFunctions = require('firebase-functions');
+  module.exports.api = firebaseFunctions
+    .runWith({ secrets: ['GEMINI_API_KEY'] })
+    .https.onRequest(app);
+} catch (error) {
+  // Keep `npm start` usable before Firebase dependencies are installed.
+  module.exports.api = app;
+}
 
 // Run standalone server when executing locally
 if (require.main === module && !process.env.VERCEL) {
