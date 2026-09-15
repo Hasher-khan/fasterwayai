@@ -617,6 +617,10 @@ function renderEmailOutput(result) {
       const outputEmailBody = document.getElementById('output-email-body');
       if (outputEmailBody) {
         outputEmailBody.innerText = result.email || '';
+        const isDarkTheme = document.documentElement.classList.contains('dark');
+        outputEmailBody.style.color = isDarkTheme ? '#f8fafc' : '#191c1e';
+        outputEmailBody.style.backgroundColor = isDarkTheme ? '#0f172a' : '#f7f9fb';
+        outputEmailBody.style.borderColor = isDarkTheme ? '#334155' : '#eceef0';
       }
 
   const altContainer = document.getElementById('output-subject-alternatives');
@@ -1803,9 +1807,15 @@ function setAppTheme(theme) {
   const btnThemeLight = document.getElementById('btn-theme-light');
   const btnThemeDark = document.getElementById('btn-theme-dark');
   const btnHeaderTheme = document.getElementById('btn-header-theme');
+  const outputEmailBody = document.getElementById('output-email-body');
 
   if (theme === 'dark') {
     html.classList.add('dark');
+    if (outputEmailBody) {
+      outputEmailBody.style.color = '#f8fafc';
+      outputEmailBody.style.backgroundColor = '#0f172a';
+      outputEmailBody.style.borderColor = '#334155';
+    }
     localStorage.setItem('gf_theme', 'dark');
 
     if (btnThemeDark && btnThemeLight) {
@@ -1818,6 +1828,11 @@ function setAppTheme(theme) {
     }
   } else {
     html.classList.remove('dark');
+    if (outputEmailBody) {
+      outputEmailBody.style.color = '#191c1e';
+      outputEmailBody.style.backgroundColor = '#f7f9fb';
+      outputEmailBody.style.borderColor = '#eceef0';
+    }
     localStorage.setItem('gf_theme', 'light');
 
     if (btnThemeLight && btnThemeDark) {
