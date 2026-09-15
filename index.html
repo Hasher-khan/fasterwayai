@@ -17,7 +17,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: "class",
       theme: {
         extend: {
           colors: {
@@ -108,11 +107,6 @@
 
       <!-- Right Controls -->
       <div class="flex items-center gap-2">
-        <!-- Quick Theme Toggle Button -->
-        <button id="btn-header-theme" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Toggle Theme (Dark / Light)">
-          <span class="material-symbols-outlined text-[20px]">dark_mode</span>
-        </button>
-
         <!-- AI Status Badge (desktop) -->
         <button id="btn-open-settings"
           class="hidden lg:flex px-2.5 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant rounded-xl text-body-sm font-medium transition-colors items-center gap-1.5"
@@ -1725,22 +1719,6 @@ Hasher Khan</div>
       </div>
 
       <div class="space-y-5 mb-6">
-        <!-- Theme Mode Selection Option -->
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2.5">
-            App Color Theme
-          </label>
-          <div class="grid grid-cols-2 gap-3">
-            <button id="btn-theme-light" type="button" class="px-4 py-3 rounded-2xl border border-primary bg-primary/10 text-primary flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-xs">
-              <span class="material-symbols-outlined text-[18px]">light_mode</span>
-              Light (White)
-            </button>
-            <button id="btn-theme-dark" type="button" class="px-4 py-3 rounded-2xl border border-outline-variant bg-surface-container text-on-surface-variant flex items-center justify-center gap-2 text-xs font-bold transition-all">
-              <span class="material-symbols-outlined text-[18px]">dark_mode</span>
-              Dark Mode
-            </button>
-          </div>
-        </div>
       </div>
 
       <div class="flex justify-end pt-3 border-t border-surface-container">

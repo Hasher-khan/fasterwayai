@@ -737,32 +737,18 @@ main {
   transform: scale(0.95);
 }
 
-/* Email Content output area styling for light and dark modes */
+/* Email Content output area styling */
 .output-email-body {
   color: var(--color-on-surface);
   background-color: var(--color-surface);
   border-color: var(--color-surface-container);
 }
 
-html.dark .output-email-body {
-  color: #f8fafc !important;
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
-}
-
-/* The preview also carries Tailwind utility classes. Keep the result panel
-   readable when those utilities are generated after the theme overrides. */
+/* Keep the result panel readable regardless of utility class order. */
 #output-email-body {
   color: var(--color-on-surface) !important;
   background-color: var(--color-surface) !important;
   border-color: var(--color-surface-container) !important;
-}
-
-html.dark #output-email-body {
-  /* The preview intentionally stays paper-white in dark mode. */
-  color: #191c1e !important;
-  background-color: #f7f9fb !important;
-  border-color: #cbd5e1 !important;
 }
 
 /* =====================================================
@@ -1125,98 +1111,4 @@ html.dark #output-email-body {
 
 .shadow-xs {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-/* =====================================================
-   DARK THEME SYSTEM & OVERRIDES
-   ===================================================== */
-html.dark {
-  --color-surface: #0f172a;
-  --color-surface-container: #1e293b;
-  --color-surface-container-low: #0f172a;
-  --color-surface-container-high: #334155;
-  --color-surface-lowest: #1e293b;
-  --color-on-surface: #f8fafc;
-  --color-on-surface-variant: #94a3b8;
-  --color-outline: #64748b;
-  --color-outline-variant: #334155;
-}
-
-html.dark body {
-  background-color: #0f172a;
-  color: #f8fafc;
-}
-
-html.dark .glass-nav {
-  background: rgba(15, 23, 42, 0.92);
-  border-bottom-color: rgba(51, 65, 85, 0.6);
-}
-
-html.dark #bottom-nav {
-  background: rgba(15, 23, 42, 0.96);
-  border-top-color: #334155;
-}
-
-html.dark .mobile-nav-link:active,
-html.dark .mobile-nav-link.active {
-  background: #1e293b;
-  color: #38bdf8;
-}
-
-html.dark #mobile-nav-drawer {
-  background: #0f172a;
-  border-bottom-color: #334155;
-}
-
-html.dark .card,
-html.dark .bg-surface-lowest,
-html.dark .modal-panel {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
-html.dark .bg-surface-container-low,
-html.dark .bg-surface-container {
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
-}
-
-html.dark input, 
-html.dark select, 
-html.dark textarea {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-  border-color: #334155 !important;
-}
-
-html.dark .text-on-surface {
-  color: #f8fafc !important;
-}
-
-html.dark .text-on-surface-variant {
-  color: #cbd5e1 !important;
-}
-
-html.dark .bg-surface-container-lowest {
-  background-color: #0f172a !important;
-  border-color: #1e293b !important;
-}
-
-html.dark .bg-amber-50 {
-  background-color: rgba(245, 158, 11, 0.15) !important;
-  border-color: rgba(245, 158, 11, 0.3) !important;
-}
-
-html.dark .text-amber-800,
-html.dark .text-amber-900 {
-  color: #fef08a !important;
-}
-
-html.dark #output-email-notes .text-amber-900 {
-  color: #fde68a !important;
-}
-
-html.dark #output-email-notes .text-amber-600 {
-  color: #fbbf24 !important;
 }

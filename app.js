@@ -617,10 +617,9 @@ function renderEmailOutput(result) {
       const outputEmailBody = document.getElementById('output-email-body');
       if (outputEmailBody) {
         outputEmailBody.innerText = result.email || '';
-        const isDarkTheme = document.documentElement.classList.contains('dark');
         outputEmailBody.style.setProperty('color', '#191c1e', 'important');
         outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
-        outputEmailBody.style.setProperty('border-color', isDarkTheme ? '#cbd5e1' : '#eceef0', 'important');
+        outputEmailBody.style.setProperty('border-color', '#eceef0', 'important');
       }
 
   const altContainer = document.getElementById('output-subject-alternatives');
@@ -1742,7 +1741,7 @@ function initLandingPageView() {
 }
 
 /* =====================================================
-   SETTINGS & THEME ENGINE (DARK / LIGHT THEME)
+   SETTINGS ENGINE
    ===================================================== */
 function initSettingsModal() {
   const modal = document.getElementById('settings-modal');
@@ -1751,9 +1750,6 @@ function initSettingsModal() {
   const btnClose = document.getElementById('btn-close-settings');
   const btnSave = document.getElementById('btn-save-settings');
 
-  const btnThemeLight = document.getElementById('btn-theme-light');
-  const btnThemeDark = document.getElementById('btn-theme-dark');
-  const btnHeaderTheme = document.getElementById('btn-header-theme');
 
   function openModal() {
     if (modal) {
@@ -1774,74 +1770,4 @@ function initSettingsModal() {
   if (btnClose) btnClose.addEventListener('click', closeModal);
   if (btnSave) btnSave.addEventListener('click', closeModal);
 
-  // Load initial theme from localStorage or OS setting
-  const savedTheme = localStorage.getItem('gf_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  setAppTheme(savedTheme);
-
-  if (btnThemeLight) {
-    btnThemeLight.addEventListener('click', () => {
-      setAppTheme('light');
-      showToast('Switched to Light (White) theme', 'info');
-    });
-  }
-
-  if (btnThemeDark) {
-    btnThemeDark.addEventListener('click', () => {
-      setAppTheme('dark');
-      showToast('Switched to Dark theme', 'info');
-    });
-  }
-
-  if (btnHeaderTheme) {
-    btnHeaderTheme.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      const nextTheme = isDark ? 'light' : 'dark';
-      setAppTheme(nextTheme);
-      showToast(`Switched to ${nextTheme === 'dark' ? 'Dark' : 'Light (White)'} theme`, 'info');
-    });
-  }
-}
-
-function setAppTheme(theme) {
-  const html = document.documentElement;
-  const btnThemeLight = document.getElementById('btn-theme-light');
-  const btnThemeDark = document.getElementById('btn-theme-dark');
-  const btnHeaderTheme = document.getElementById('btn-header-theme');
-  const outputEmailBody = document.getElementById('output-email-body');
-
-  if (theme === 'dark') {
-    html.classList.add('dark');
-    if (outputEmailBody) {
-      outputEmailBody.style.setProperty('color', '#191c1e', 'important');
-      outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
-      outputEmailBody.style.setProperty('border-color', '#cbd5e1', 'important');
-    }
-    localStorage.setItem('gf_theme', 'dark');
-
-    if (btnThemeDark && btnThemeLight) {
-      btnThemeDark.className = 'px-4 py-3 rounded-2xl border border-primary bg-primary/10 text-primary flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-xs';
-      btnThemeLight.className = 'px-4 py-3 rounded-2xl border border-outline-variant bg-surface-container text-on-surface-variant flex items-center justify-center gap-2 text-xs font-bold transition-all';
-    }
-    if (btnHeaderTheme) {
-      btnHeaderTheme.innerHTML = '<span class="material-symbols-outlined text-[20px] text-amber-400">light_mode</span>';
-      btnHeaderTheme.title = 'Switch to Light Theme';
-    }
-  } else {
-    html.classList.remove('dark');
-    if (outputEmailBody) {
-      outputEmailBody.style.setProperty('color', '#191c1e', 'important');
-      outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
-      outputEmailBody.style.setProperty('border-color', '#eceef0', 'important');
-    }
-    localStorage.setItem('gf_theme', 'light');
-
-    if (btnThemeLight && btnThemeDark) {
-      btnThemeLight.className = 'px-4 py-3 rounded-2xl border border-primary bg-primary/10 text-primary flex items-center justify-center gap-2 text-xs font-bold transition-all shadow-xs';
-      btnThemeDark.className = 'px-4 py-3 rounded-2xl border border-outline-variant bg-surface-container text-on-surface-variant flex items-center justify-center gap-2 text-xs font-bold transition-all';
-    }
-    if (btnHeaderTheme) {
-      btnHeaderTheme.innerHTML = '<span class="material-symbols-outlined text-[20px]">dark_mode</span>';
-      btnHeaderTheme.title = 'Switch to Dark Theme';
-    }
-  }
 }
