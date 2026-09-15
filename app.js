@@ -617,9 +617,10 @@ function renderEmailOutput(result) {
       const outputEmailBody = document.getElementById('output-email-body');
       if (outputEmailBody) {
         outputEmailBody.innerText = result.email || '';
-        outputEmailBody.style.setProperty('color', '#191c1e', 'important');
-        outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
-        outputEmailBody.style.setProperty('border-color', '#eceef0', 'important');
+        // Remove hardcoded light-theme colors so dark theme CSS applies correctly
+        outputEmailBody.style.removeProperty('color');
+        outputEmailBody.style.removeProperty('background-color');
+        outputEmailBody.style.removeProperty('border-color');
       }
 
   const altContainer = document.getElementById('output-subject-alternatives');

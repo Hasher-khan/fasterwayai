@@ -746,9 +746,69 @@ main {
 
 /* Keep the result panel readable regardless of utility class order. */
 #output-email-body {
-  color: var(--color-on-surface) !important;
-  background-color: var(--color-surface) !important;
-  border-color: var(--color-surface-container) !important;
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
+  border-color: var(--color-surface-container);
+}
+
+/* =====================================================
+   DARK MODE SUPPORT (OS-level dark theme)
+   ===================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #7ca4ff;
+    --color-primary-container: #2563eb;
+    --color-on-primary: #001e6e;
+    --color-surface: #1a1c1e;
+    --color-surface-container: #2d2f31;
+    --color-surface-container-low: #222426;
+    --color-surface-container-high: #383a3c;
+    --color-surface-lowest: #111315;
+    --color-on-surface: #e2e2e6;
+    --color-on-surface-variant: #c4c6d4;
+    --color-outline: #8e9099;
+    --color-outline-variant: #44475a;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  /* Email output body: ensure text is light on dark background */
+  #output-email-body {
+    color: var(--color-on-surface) !important;
+    background-color: var(--color-surface-container-low) !important;
+    border-color: var(--color-surface-container-high) !important;
+  }
+
+  /* Nav & header surfaces */
+  .glass-nav {
+    background: rgba(26, 28, 30, 0.92);
+  }
+
+  .glass-card {
+    background: rgba(30, 32, 34, 0.92);
+    border-color: rgba(68, 71, 90, 0.4);
+  }
+
+  /* Bottom nav dark */
+  #bottom-nav {
+    background: rgba(17, 19, 21, 0.96);
+    border-top-color: var(--color-outline-variant);
+  }
+
+  /* Mobile nav drawer */
+  #mobile-nav-drawer {
+    background: var(--color-surface-lowest);
+    border-bottom-color: var(--color-outline-variant);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--color-surface-lowest);
+    border-color: var(--color-surface-container);
+  }
 }
 
 /* =====================================================
