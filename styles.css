@@ -759,9 +759,10 @@ html.dark .output-email-body {
 }
 
 html.dark #output-email-body {
-  color: #f8fafc !important;
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
+  /* The preview intentionally stays paper-white in dark mode. */
+  color: #191c1e !important;
+  background-color: #f7f9fb !important;
+  border-color: #cbd5e1 !important;
 }
 
 /* =====================================================
