@@ -750,6 +750,20 @@ html.dark .output-email-body {
   border-color: #334155 !important;
 }
 
+/* The preview also carries Tailwind utility classes. Keep the result panel
+   readable when those utilities are generated after the theme overrides. */
+#output-email-body {
+  color: var(--color-on-surface) !important;
+  background-color: var(--color-surface) !important;
+  border-color: var(--color-surface-container) !important;
+}
+
+html.dark #output-email-body {
+  color: #f8fafc !important;
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
 /* =====================================================
    GRAMMAR CHECKER - MOBILE
    ===================================================== */
@@ -1196,4 +1210,12 @@ html.dark .bg-amber-50 {
 html.dark .text-amber-800,
 html.dark .text-amber-900 {
   color: #fef08a !important;
+}
+
+html.dark #output-email-notes .text-amber-900 {
+  color: #fde68a !important;
+}
+
+html.dark #output-email-notes .text-amber-600 {
+  color: #fbbf24 !important;
 }

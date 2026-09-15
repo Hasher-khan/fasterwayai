@@ -547,7 +547,20 @@ async function generateEmail() {
       body: JSON.stringify({ senderName, recipientName, purpose, audience, tone, length, customPrompt })
     });
 
-    const data = await response.json();
+    const responseType = response.headers.get('content-type') || '';
+    const responseText = await response.text();
+    let data;
+
+    try {
+      data = responseText ? JSON.parse(responseText) : {};
+    } catch (parseError) {
+      const isHtmlResponse = responseType.includes('text/html') || /<\s*!doctype|<\s*html/i.test(responseText);
+      throw new Error(
+        isHtmlResponse
+          ? `The AI API route returned a webpage instead of JSON (HTTP ${response.status}). Please start the backend server or deploy the /api rewrite.`
+          : `The AI API returned invalid JSON (HTTP ${response.status}).`
+      );
+    }
 
     if (!response.ok) {
       throw new Error(data.error || 'Failed to generate email via backend AI.');
@@ -1817,4 +1830,3 @@ function setAppTheme(theme) {
     }
   }
 }
-
