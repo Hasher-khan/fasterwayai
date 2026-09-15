@@ -618,9 +618,9 @@ function renderEmailOutput(result) {
       if (outputEmailBody) {
         outputEmailBody.innerText = result.email || '';
         const isDarkTheme = document.documentElement.classList.contains('dark');
-        outputEmailBody.style.color = isDarkTheme ? '#f8fafc' : '#191c1e';
-        outputEmailBody.style.backgroundColor = isDarkTheme ? '#0f172a' : '#f7f9fb';
-        outputEmailBody.style.borderColor = isDarkTheme ? '#334155' : '#eceef0';
+        outputEmailBody.style.setProperty('color', isDarkTheme ? '#f8fafc' : '#191c1e', 'important');
+        outputEmailBody.style.setProperty('background-color', isDarkTheme ? '#0f172a' : '#f7f9fb', 'important');
+        outputEmailBody.style.setProperty('border-color', isDarkTheme ? '#334155' : '#eceef0', 'important');
       }
 
   const altContainer = document.getElementById('output-subject-alternatives');
@@ -1812,9 +1812,9 @@ function setAppTheme(theme) {
   if (theme === 'dark') {
     html.classList.add('dark');
     if (outputEmailBody) {
-      outputEmailBody.style.color = '#f8fafc';
-      outputEmailBody.style.backgroundColor = '#0f172a';
-      outputEmailBody.style.borderColor = '#334155';
+      outputEmailBody.style.setProperty('color', '#f8fafc', 'important');
+      outputEmailBody.style.setProperty('background-color', '#0f172a', 'important');
+      outputEmailBody.style.setProperty('border-color', '#334155', 'important');
     }
     localStorage.setItem('gf_theme', 'dark');
 
@@ -1829,9 +1829,9 @@ function setAppTheme(theme) {
   } else {
     html.classList.remove('dark');
     if (outputEmailBody) {
-      outputEmailBody.style.color = '#191c1e';
-      outputEmailBody.style.backgroundColor = '#f7f9fb';
-      outputEmailBody.style.borderColor = '#eceef0';
+      outputEmailBody.style.setProperty('color', '#191c1e', 'important');
+      outputEmailBody.style.setProperty('background-color', '#f7f9fb', 'important');
+      outputEmailBody.style.setProperty('border-color', '#eceef0', 'important');
     }
     localStorage.setItem('gf_theme', 'light');
 
