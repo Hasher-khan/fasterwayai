@@ -747,21 +747,43 @@ main {
 
 /* =====================================================
    DARK MODE SUPPORT (OS-level & Class-level dark theme)
+/* =====================================================
+   DARK MODE OVERRIDES & VARIABLE SUPPORT
    ===================================================== */
+:root.dark,
+:root.dark-theme,
+[data-theme="dark"],
+body.dark,
+body.dark-theme,
+body.dark-mode {
+  --color-primary: #3b82f6;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
+  --color-surface: #121418;
+  --color-surface-container: #212429;
+  --color-surface-container-low: #16181c;
+  --color-surface-container-high: #2d3036;
+  --color-surface-lowest: #0b0c0e;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #7ca4ff;
+    --color-primary: #3b82f6;
     --color-primary-container: #2563eb;
-    --color-on-primary: #001e6e;
+    --color-on-primary: #ffffff;
     --color-surface: #121418;
     --color-surface-container: #212429;
     --color-surface-container-low: #16181c;
     --color-surface-container-high: #2d3036;
     --color-surface-lowest: #0b0c0e;
-    --color-on-surface: #e2e2e6;
-    --color-on-surface-variant: #c4c6d4;
-    --color-outline: #8e9099;
-    --color-outline-variant: #44475a;
+    --color-on-surface: #f1f5f9;
+    --color-on-surface-variant: #cbd5e1;
+    --color-outline: #64748b;
+    --color-outline-variant: #334155;
   }
 
   body {
