@@ -129,6 +129,133 @@ input, select, textarea {
 }
 
 /* =====================================================
+   DYNAMIC AMBIENT LIGHTING & GLOW ANIMATIONS
+   ===================================================== */
+@keyframes ambientOrbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.45; }
+  50% { transform: translate(40px, -30px) scale(1.15); opacity: 0.75; }
+}
+
+@keyframes ambientOrbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+  50% { transform: translate(-50px, 40px) scale(1.2); opacity: 0.65; }
+}
+
+@keyframes ambientOrbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(35px, 35px) scale(1.1); opacity: 0.6; }
+}
+
+.ambient-glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-glow-orb.orb-1 {
+  top: -8rem;
+  left: -6rem;
+  width: 26rem;
+  height: 26rem;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.38) 0%, rgba(56, 189, 248, 0.15) 70%, transparent 100%);
+  animation: ambientOrbFloat1 8s infinite ease-in-out;
+}
+
+.ambient-glow-orb.orb-2 {
+  top: 35%;
+  right: -8rem;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(129, 140, 248, 0.2) 70%, transparent 100%);
+  animation: ambientOrbFloat2 10s infinite ease-in-out;
+}
+
+.ambient-glow-orb.orb-3 {
+  bottom: -6rem;
+  left: 30%;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(37, 99, 235, 0.12) 70%, transparent 100%);
+  animation: ambientOrbFloat3 9s infinite ease-in-out;
+}
+
+/* Animated Light Sweep Text Gradient */
+@keyframes textLightSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-light-gradient {
+  background: linear-gradient(135deg, #004ac6 0%, #2563eb 25%, #38bdf8 50%, #818cf8 75%, #004ac6 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textLightSweep 6s ease infinite;
+}
+
+/* Light Beam Card Aura */
+@keyframes cardBeamGlow {
+  0%, 100% { box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.25), 0 0 15px rgba(56, 189, 248, 0.15); }
+  50% { box-shadow: 0 15px 40px -5px rgba(37, 99, 235, 0.45), 0 0 25px rgba(56, 189, 248, 0.35); }
+}
+
+.light-beam-card {
+  animation: cardBeamGlow 4s infinite ease-in-out;
+  position: relative;
+}
+
+/* Glowing Lighting CTA Button */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.4), 0 4px 14px rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 28px rgba(56, 189, 248, 0.65), 0 6px 20px rgba(37, 99, 235, 0.5); }
+}
+
+.glow-button-lighting {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Full Home Page Card Hover Lighting Effect */
+.glow-card-hover {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glow-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.45) !important;
+  box-shadow: 0 12px 32px -8px rgba(37, 99, 235, 0.25), 0 0 16px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Bottom CTA Banner Lighting Animation */
+@keyframes bannerGlowPulse {
+  0%, 100% {
+    box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 25px 65px -5px rgba(56, 189, 248, 0.55), inset 0 0 60px rgba(255, 255, 255, 0.25);
+  }
+}
+
+.animated-banner-lighting {
+  animation: bannerGlowPulse 5s infinite ease-in-out;
+}
+
+/* Step Number Lighting Glow */
+.step-number-glow {
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-number-glow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.7);
+}
+
+/* =====================================================
    HEADER - MOBILE FIRST
    ===================================================== */
 header {
