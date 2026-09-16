@@ -1,6 +1,7 @@
 [build]
-  command = "npm install"
+  command = "echo 'No build step required'"
   publish = "."
+
 
 [functions]
   node_bundler = "esbuild"
