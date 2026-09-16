@@ -854,30 +854,12 @@ body.light-theme {
 }
 
 /* =====================================================
-   DARK MODE OVERRIDES & VARIABLE SUPPORT
+   BULLETPROOF THEME OVERRIDES & SPECIFICITY
    ===================================================== */
-:root.dark,
-:root.dark-theme,
-[data-theme="dark"],
-body.dark,
-body.dark-theme,
-body.dark-mode {
-  --color-primary: #3b82f6;
-  --color-primary-container: #2563eb;
-  --color-on-primary: #ffffff;
-  --color-surface: #121418;
-  --color-surface-container: #212429;
-  --color-surface-container-low: #16181c;
-  --color-surface-container-high: #2d3036;
-  --color-surface-lowest: #0b0c0e;
-  --color-on-surface: #f1f5f9;
-  --color-on-surface-variant: #cbd5e1;
-  --color-outline: #64748b;
-  --color-outline-variant: #334155;
-}
 
+/* 1. System Dark Mode (only active when OS is dark AND user hasn't forced .light mode) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.light-theme) {
     --color-primary: #3b82f6;
     --color-primary-container: #2563eb;
     --color-on-primary: #ffffff;
@@ -892,60 +874,145 @@ body.dark-mode {
     --color-outline-variant: #334155;
   }
 
-  body {
-    background-color: var(--color-surface);
-    color: var(--color-on-surface);
+  body:not(.light):not(.light-theme) {
+    background-color: #121418 !important;
+    color: #f1f5f9 !important;
   }
 
-  /* Email output body: ensure text is light on dark background */
-  .output-email-body,
-  #output-email-body {
-    color: #e2e2e6 !important;
-    background-color: #0b0c0e !important;
-    border-color: #2d3036 !important;
+  body:not(.light):not(.light-theme) .glass-nav {
+    background: rgba(18, 20, 24, 0.94) !important;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.8) !important;
   }
 
-  /* Nav & header surfaces */
-  .glass-nav {
-    background: rgba(18, 20, 24, 0.92);
+  body:not(.light):not(.light-theme) .glass-card {
+    background: rgba(22, 24, 28, 0.95) !important;
+    border: 1px solid rgba(51, 65, 85, 0.8) !important;
   }
 
-  .glass-card {
-    background: rgba(22, 24, 28, 0.92);
-    border-color: rgba(68, 71, 90, 0.4);
+  body:not(.light):not(.light-theme) #bottom-nav {
+    background: rgba(11, 12, 14, 0.96) !important;
+    border-top-color: #334155 !important;
   }
 
-  /* Bottom nav dark */
-  #bottom-nav {
-    background: rgba(11, 12, 14, 0.96);
-    border-top-color: var(--color-outline-variant);
+  body:not(.light):not(.light-theme) #mobile-nav-drawer {
+    background: #0b0c0e !important;
+    border-bottom-color: #334155 !important;
   }
 
-  /* Mobile nav drawer */
-  #mobile-nav-drawer {
-    background: var(--color-surface-lowest);
-    border-bottom-color: var(--color-outline-variant);
-  }
-
-  /* Cards */
-  .card {
-    background: var(--color-surface-lowest);
-    border-color: var(--color-surface-container);
+  body:not(.light):not(.light-theme) .card {
+    background: #0b0c0e !important;
+    border-color: #212429 !important;
   }
 }
 
-/* Explicit class-based Dark Mode support (.dark, .dark-theme, [data-theme="dark"]) */
-.dark .output-email-body,
-.dark #output-email-body,
-.dark-theme .output-email-body,
-.dark-theme #output-email-body,
-[data-theme="dark"] .output-email-body,
-[data-theme="dark"] #output-email-body,
-body.dark-mode .output-email-body,
-body.dark-mode #output-email-body {
+/* 2. Explicit Dark Mode (.dark, .dark-theme, [data-theme="dark"]) */
+:root.dark,
+:root.dark-theme,
+[data-theme="dark"],
+html.dark,
+body.dark,
+body.dark-theme {
+  --color-primary: #3b82f6 !important;
+  --color-primary-container: #2563eb !important;
+  --color-on-primary: #ffffff !important;
+  --color-surface: #121418 !important;
+  --color-surface-container: #212429 !important;
+  --color-surface-container-low: #16181c !important;
+  --color-surface-container-high: #2d3036 !important;
+  --color-surface-lowest: #0b0c0e !important;
+  --color-on-surface: #f1f5f9 !important;
+  --color-on-surface-variant: #cbd5e1 !important;
+  --color-outline: #64748b !important;
+  --color-outline-variant: #334155 !important;
+}
+
+body.dark,
+body.dark-theme,
+[data-theme="dark"] body {
+  background-color: #121418 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark .glass-nav,
+body.dark-theme .glass-nav {
+  background: rgba(18, 20, 24, 0.94) !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.8) !important;
+}
+
+body.dark .glass-card,
+body.dark-theme .glass-card {
+  background: rgba(22, 24, 28, 0.95) !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+}
+
+body.dark .card,
+body.dark-theme .card {
+  background: #0b0c0e !important;
+  border-color: #212429 !important;
+}
+
+body.dark .output-email-body,
+body.dark #output-email-body,
+body.dark-theme .output-email-body,
+body.dark-theme #output-email-body {
   color: #e2e2e6 !important;
   background-color: #0b0c0e !important;
   border-color: #2d3036 !important;
+}
+
+/* 3. Explicit Light Mode (.light, .light-theme, [data-theme="light"]) - Highest Specificity */
+:root.light,
+:root.light-theme,
+[data-theme="light"],
+html.light,
+body.light,
+body.light-theme {
+  --color-primary: #004ac6 !important;
+  --color-primary-container: #2563eb !important;
+  --color-on-primary: #ffffff !important;
+  --color-surface: #f8fafc !important;
+  --color-surface-container: #f1f5f9 !important;
+  --color-surface-container-low: #ffffff !important;
+  --color-surface-container-high: #e2e8f0 !important;
+  --color-surface-lowest: #ffffff !important;
+  --color-on-surface: #0f172a !important;
+  --color-on-surface-variant: #475569 !important;
+  --color-outline: #94a3b8 !important;
+  --color-outline-variant: #cbd5e1 !important;
+}
+
+body.light,
+body.light-theme,
+[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+body.light .glass-nav,
+body.light-theme .glass-nav {
+  background: rgba(248, 250, 252, 0.96) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+}
+
+body.light .glass-card,
+body.light-theme .glass-card {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(226, 232, 240, 0.9) !important;
+}
+
+body.light .card,
+body.light-theme .card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+body.light .output-email-body,
+body.light #output-email-body,
+body.light-theme .output-email-body,
+body.light-theme #output-email-body {
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
 }
 
 /* =====================================================

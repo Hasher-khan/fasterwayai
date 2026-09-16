@@ -401,10 +401,10 @@ async function checkBackendConfig() {
       if (badge) {
         if (data.aiEngineActive) {
           badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block mr-1.5"></span>Real-Time AI Active`;
-          badge.className = "flex items-center text-xs font-semibold text-emerald-800";
+          badge.className = "flex items-center text-xs font-bold text-emerald-600 dark:text-emerald-400";
         } else {
           badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 inline-block mr-1.5"></span>API Key Missing`;
-          badge.className = "flex items-center text-xs font-semibold text-amber-800";
+          badge.className = "flex items-center text-xs font-bold text-amber-600 dark:text-amber-400";
         }
       }
       if (mobileStatus) {
