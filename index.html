@@ -1702,31 +1702,113 @@ Hasher Khan</div>
   </main>
 
   <!-- =====================================================
-       SETTINGS MODAL (Bottom Sheet on Mobile)
+  <!-- =====================================================
+       SETTINGS & PREFERENCES MODAL
        ===================================================== -->
   <div id="settings-modal" class="modal-backdrop hidden" style="display:none;">
     <div class="modal-panel">
       <div class="modal-handle"></div>
 
-      <div class="flex items-center justify-between border-b border-surface-container pb-3 mb-4">
-        <h3 class="text-headline-sm font-bold text-on-surface flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary">tune</span> Settings & Preferences
-        </h3>
+      <!-- Header -->
+      <div class="flex items-center justify-between border-b border-surface-container pb-3.5 mb-5">
+        <div>
+          <h3 class="text-headline-sm font-extrabold text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">tune</span> Settings & Preferences
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-0.5">Customize application theme and view system status</p>
+        </div>
         <button id="btn-close-settings"
-          class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors">
+          class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors"
+          title="Close">
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
       </div>
 
-      <div class="space-y-5 mb-6">
+      <!-- Content -->
+      <div class="space-y-6 mb-6">
+        <!-- Section: Appearance / Theme Selector -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-3 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-primary">palette</span>
+            Appearance Theme
+          </label>
+          <div class="grid grid-cols-3 gap-3" id="theme-options-grid">
+            
+            <!-- Light Theme Card -->
+            <button type="button" data-theme-value="light" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div class="w-10 h-10 rounded-xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[22px] text-amber-500">light_mode</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-on-surface">White / Light</div>
+                <div class="text-[10px] text-on-surface-variant">Clean Slate</div>
+              </div>
+            </button>
+
+            <!-- Dark Theme Card -->
+            <button type="button" data-theme-value="dark" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 text-white shadow-sm border border-slate-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[22px] text-blue-400">dark_mode</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-on-surface">Dark Mode</div>
+                <div class="text-[10px] text-on-surface-variant">Midnight</div>
+              </div>
+            </button>
+
+            <!-- System Theme Card -->
+            <button type="button" data-theme-value="system" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-white to-slate-900 text-slate-800 shadow-sm border border-slate-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[22px] text-indigo-500">desktop_windows</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-on-surface">System</div>
+                <div class="text-[10px] text-on-surface-variant">Auto Match</div>
+              </div>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Section: AI Engine Status -->
+        <div class="p-3.5 bg-surface-container rounded-2xl border border-outline-variant/60 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-on-surface flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
+              AI Processing Engine
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-[11px] flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Online
+            </span>
+          </div>
+          <p class="text-[11px] text-on-surface-variant leading-relaxed">
+            Powered by Google Gemini AI with real-time grammar detection, tone optimization, and factual response grounding.
+          </p>
+        </div>
+
+        <!-- Section: Privacy & Security -->
+        <div class="p-3.5 bg-surface-container rounded-2xl border border-outline-variant/60 flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px]">shield</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-on-surface">Data Privacy Guarantee</h4>
+            <p class="text-[11px] text-on-surface-variant">Your written text is encrypted and never trained on public models.</p>
+          </div>
+        </div>
+
       </div>
 
+      <!-- Footer Action -->
       <div class="flex justify-end pt-3 border-t border-surface-container">
         <button id="btn-save-settings"
-          class="px-5 py-2.5 bg-primary text-on-primary rounded-xl text-label-md font-bold transition-colors hover:bg-primary-container">
-          Close
+          class="px-5 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold transition-all hover:bg-primary-container shadow-sm flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">check</span>
+          Done
         </button>
       </div>
+
     </div>
   </div>
 

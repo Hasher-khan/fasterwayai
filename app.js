@@ -184,6 +184,7 @@ const GRAMMAR_SAMPLES = [
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initAuthUI();
   initMobileNav();
   initNavigation();
@@ -272,6 +273,69 @@ function syncMobileNavActive(viewName) {
   });
 }
 
+/* =====================================================
+   THEME & PREFERENCES ENGINE (Light / Dark / System)
+   ===================================================== */
+function initTheme() {
+  const savedTheme = localStorage.getItem('growfasting_theme') || 'system';
+  applyTheme(savedTheme);
+
+  // Listen for OS system theme updates
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    const current = localStorage.getItem('growfasting_theme') || 'system';
+    if (current === 'system') {
+      applyTheme('system');
+    }
+  });
+}
+
+function applyTheme(theme) {
+  localStorage.setItem('growfasting_theme', theme);
+  const root = document.documentElement;
+  const body = document.body;
+
+  root.classList.remove('dark', 'light', 'dark-theme', 'light-theme');
+  body.classList.remove('dark', 'light', 'dark-theme', 'light-theme');
+  root.removeAttribute('data-theme');
+  body.removeAttribute('data-theme');
+
+  if (theme === 'dark') {
+    root.classList.add('dark-theme', 'dark');
+    body.classList.add('dark-theme', 'dark');
+    root.setAttribute('data-theme', 'dark');
+  } else if (theme === 'light') {
+    root.classList.add('light-theme', 'light');
+    body.classList.add('light-theme', 'light');
+    root.setAttribute('data-theme', 'light');
+  } else {
+    // System match
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      root.classList.add('dark-theme', 'dark');
+      body.classList.add('dark-theme', 'dark');
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.classList.add('light-theme', 'light');
+      body.classList.add('light-theme', 'light');
+      root.setAttribute('data-theme', 'light');
+    }
+  }
+
+  updateThemeOptionsUI(theme);
+}
+
+function updateThemeOptionsUI(activeTheme) {
+  const buttons = document.querySelectorAll('.theme-option-btn');
+  buttons.forEach(btn => {
+    const themeVal = btn.getAttribute('data-theme-value');
+    if (themeVal === activeTheme) {
+      btn.className = 'theme-option-btn p-3 rounded-2xl border-2 border-primary bg-primary/10 transition-all flex flex-col items-center gap-2 text-center group cursor-pointer shadow-sm';
+    } else {
+      btn.className = 'theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary/50 transition-all flex flex-col items-center gap-2 text-center group cursor-pointer';
+    }
+  });
+}
+
 /* Settings Modal - Mobile Bottom Sheet & Desktop Modal */
 function initSettingsModal() {
   const modal = document.getElementById('settings-modal');
@@ -283,12 +347,15 @@ function initSettingsModal() {
   const saveBtn = document.getElementById('btn-save-settings');
 
   function openModal() {
+    if (!modal) return;
     modal.style.display = 'flex';
     modal.classList.remove('hidden');
-    setTimeout(() => modal.style.opacity = '1', 10);
+    const savedTheme = localStorage.getItem('growfasting_theme') || 'system';
+    updateThemeOptionsUI(savedTheme);
   }
 
   function closeModal() {
+    if (!modal) return;
     modal.style.display = 'none';
     modal.classList.add('hidden');
   }
@@ -306,6 +373,18 @@ function initSettingsModal() {
       if (e.target === modal) closeModal();
     });
   }
+
+  // Theme option clicks
+  const themeBtns = document.querySelectorAll('.theme-option-btn');
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const themeVal = btn.getAttribute('data-theme-value');
+      if (themeVal) {
+        applyTheme(themeVal);
+        showToast(`Theme changed to ${themeVal.toUpperCase()} mode!`, 'success');
+      }
+    });
+  });
 }
 
 // Check Backend AI Engine Health

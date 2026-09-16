@@ -746,7 +746,113 @@ main {
 }
 
 /* =====================================================
-   DARK MODE SUPPORT (OS-level & Class-level dark theme)
+   LIGHT MODE OVERRIDES & VARIABLE SUPPORT
+   ===================================================== */
+:root.light,
+:root.light-theme,
+[data-theme="light"],
+body.light,
+body.light-theme {
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-lowest: #ffffff;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-outline: #94a3b8;
+  --color-outline-variant: #cbd5e1;
+}
+
+:root.light body,
+:root.light-theme body,
+[data-theme="light"] body,
+body.light,
+body.light-theme {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+:root.light .glass-nav,
+:root.light-theme .glass-nav,
+[data-theme="light"] .glass-nav {
+  background: rgba(248, 250, 252, 0.94);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+:root.light .glass-card,
+:root.light-theme .glass-card,
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+:root.light .output-email-body,
+:root.light #output-email-body,
+:root.light-theme .output-email-body,
+:root.light-theme #output-email-body,
+[data-theme="light"] .output-email-body,
+[data-theme="light"] #output-email-body {
+  color: #0f172a !important;
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* =====================================================
+   SETTINGS MODAL & BACKDROP STYLES
+   ===================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: opacity 0.25s ease;
+}
+
+.modal-panel {
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 480px;
+  padding: 1.5rem;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--color-outline-variant);
+  border-radius: 9999px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .modal-handle {
+    display: none;
+  }
+}
+
 /* =====================================================
    DARK MODE OVERRIDES & VARIABLE SUPPORT
    ===================================================== */
