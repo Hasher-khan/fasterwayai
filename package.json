@@ -1,7 +1,7 @@
 {
-  "name": "growfasting-ai-saas",
+  "name": "fasterway-ai-saas",
   "version": "1.0.0",
-  "description": "growfasting AI Email Generator and Grammar Checker SaaS Platform",
+  "description": "fasterwayai AI Email Generator and Grammar Checker SaaS Platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

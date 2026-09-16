@@ -1,6 +1,6 @@
 /**
  * firebase-config.js
- * growfasting.ai - Firebase Auth, Firestore & Analytics Engine
+ * fasterway.ai - Firebase Auth, Firestore & Analytics Engine
  * Provides: Authentication, User-Isolated Database Storage, & Analytics
  */
 
@@ -188,7 +188,7 @@ function logEvent(eventName, params = {}) {
   try {
     if (analytics) {
       analytics.logEvent(eventName, {
-        app: 'growfasting.ai',
+        app: 'fasterway.ai',
         timestamp: new Date().toISOString(),
         ...params
       });

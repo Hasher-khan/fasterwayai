@@ -17,7 +17,7 @@ function getSystemPrompt() {
   if (fs.existsSync(promptPath)) {
     return fs.readFileSync(promptPath, 'utf-8');
   }
-  return `You are growfasting, a professional English writing assistant that helps users write and improve emails.`;
+  return `You are fasterwayai, a professional English writing assistant that helps users write and improve emails.`;
 }
 
 // Helper to call Google Gemini API securely using backend key
@@ -86,7 +86,7 @@ app.get('/api/config', (req, res) => {
   const hasKey = Boolean(process.env.GEMINI_API_KEY);
   res.json({
     status: 'online',
-    brand: 'growfasting.ai',
+    brand: 'fasterway.ai',
     aiEngineActive: hasKey,
     apiKeyConfigured: hasKey ? 'Key ending in ...' + process.env.GEMINI_API_KEY.slice(-6) : 'Not configured'
   });
@@ -204,7 +204,7 @@ app.get('*', (req, res) => {
 function startServer(port) {
   const server = app.listen(port, () => {
     console.log(`=================================================`);
-    console.log(`🚀 growfasting AI Server running on http://localhost:${port}`);
+    console.log(`🚀 fasterwayai AI Server running on http://localhost:${port}`);
     console.log(`🔑 Real-Time AI Backend active with .env key`);
     console.log(`=================================================`);
   });
