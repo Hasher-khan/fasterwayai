@@ -217,6 +217,17 @@ function initMobileNav() {
     menuBtn.innerHTML = '<span class="material-symbols-outlined text-[22px]">menu</span>';
   }
 
+  const avatarBtn = document.getElementById('mobile-header-avatar');
+  if (avatarBtn) {
+    avatarBtn.addEventListener('click', () => {
+      if (drawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
   if (menuBtn) {
     menuBtn.addEventListener('click', () => {
       if (drawer.classList.contains('open')) {
@@ -1606,16 +1617,17 @@ function initAuthUI() {
   if (heroBtnGoogleAuth) heroBtnGoogleAuth.addEventListener('click', handleGoogleSignIn);
 
   // Sign Out
-  if (btnSignOut) {
-    btnSignOut.addEventListener('click', async () => {
-      try {
-        await signOutUser();
-        showToast('Signed out successfully.', 'info');
-      } catch (err) {
-        showToast('Error signing out.', 'error');
-      }
-    });
-  }
+  const handleSignOut = async () => {
+    try {
+      await signOutUser();
+      showToast('Signed out successfully.', 'info');
+    } catch (err) {
+      showToast('Error signing out.', 'error');
+    }
+  };
+
+  if (btnSignOut) btnSignOut.addEventListener('click', handleSignOut);
+  document.getElementById('mobile-btn-sign-out')?.addEventListener('click', handleSignOut);
 
   // Firebase Auth State Observer
   if (typeof onAuthChange === 'function') {
@@ -1624,9 +1636,21 @@ function initAuthUI() {
       const userEmailEl = document.getElementById('user-display-email');
       const userAvatarEl = document.getElementById('user-avatar-circle');
 
+      // Mobile Drawer Profile Elements
+      const mobileUserBar = document.getElementById('mobile-user-profile-bar');
+      const mobileUserName = document.getElementById('mobile-user-display-name');
+      const mobileUserEmail = document.getElementById('mobile-user-display-email');
+      const mobileUserAvatar = document.getElementById('mobile-user-avatar-circle');
+      const mobileHeaderAvatar = document.getElementById('mobile-header-avatar');
+
       if (user) {
         state.currentUser = user;
         if (userBar) userBar.classList.remove('hidden');
+        if (mobileUserBar) mobileUserBar.classList.remove('hidden');
+        if (mobileHeaderAvatar) {
+          mobileHeaderAvatar.innerText = ((user.displayName || user.email || 'U')[0] || 'U').toUpperCase();
+          mobileHeaderAvatar.classList.remove('hidden');
+        }
         if (authModalOverlay) authModalOverlay.classList.add('hidden');
 
         // Hero Cards state switch
@@ -1636,6 +1660,11 @@ function initAuthUI() {
         const nameOrEmail = user.displayName || user.email || 'User';
         if (userEmailEl) userEmailEl.innerText = nameOrEmail;
         if (userAvatarEl) userAvatarEl.innerText = (nameOrEmail[0] || 'U').toUpperCase();
+        
+        if (mobileUserName) mobileUserName.innerText = user.displayName || nameOrEmail.split('@')[0];
+        if (mobileUserEmail) mobileUserEmail.innerText = user.email || '';
+        if (mobileUserAvatar) mobileUserAvatar.innerText = (nameOrEmail[0] || 'U').toUpperCase();
+
         if (landingUserWelcome) landingUserWelcome.innerText = `Welcome Back, ${user.displayName || nameOrEmail.split('@')[0]}!`;
         if (landingUserEmail) landingUserEmail.innerText = user.email || '';
 
@@ -1653,6 +1682,8 @@ function initAuthUI() {
       } else {
         state.currentUser = null;
         if (userBar) userBar.classList.add('hidden');
+        if (mobileUserBar) mobileUserBar.classList.add('hidden');
+        if (mobileHeaderAvatar) mobileHeaderAvatar.classList.add('hidden');
 
         // Hero Cards state switch
         if (landingAuthCard) landingAuthCard.classList.remove('hidden');

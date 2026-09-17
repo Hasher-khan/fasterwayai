@@ -17,6 +17,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
       theme: {
         extend: {
           colors: {
@@ -86,13 +87,13 @@
   <!-- =====================================================
        FIXED HEADER
        ===================================================== -->
-  <header class="fixed top-0 w-full z-50 glass-nav border-b border-surface-container/60 shadow-sm">
+  <header class="fixed top-0 left-0 right-0 w-full z-50 glass-nav border-b border-surface-container/60 shadow-sm">
     <div class="header-inner">
 
       <!-- Brand Logo -->
-      <a class="brand-lockup cursor-pointer group" data-path="landing" href="#" aria-label="fasterway.ai home">
+      <a class="brand-lockup cursor-pointer group shrink-0" data-path="landing" href="#" aria-label="fasterway.ai home">
         <img src="logo.png" alt="" class="brand-mark" />
-        <span class="brand-name text-lg md:text-xl text-on-surface">fasterway<span
+        <span class="brand-name text-base sm:text-lg md:text-xl text-on-surface">fasterway<span
             class="text-primary">.ai</span></span>
       </a>
 
@@ -106,7 +107,7 @@
       </nav>
 
       <!-- Right Controls -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
         <!-- AI Status Badge (desktop) -->
         <button id="btn-open-settings"
           class="hidden lg:flex px-2.5 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant rounded-xl text-body-sm font-medium transition-colors items-center gap-1.5"
@@ -118,8 +119,8 @@
           <span class="material-symbols-outlined text-[18px]">settings</span>
         </button>
 
-        <!-- User Profile Bar (When Logged In) -->
-        <div id="user-profile-bar" class="hidden flex items-center gap-2">
+        <!-- User Profile Bar (Desktop Only - strictly hidden on mobile header to prevent overcrowding) -->
+        <div id="user-profile-bar" class="hidden md:flex items-center gap-2">
           <div
             class="flex items-center gap-2 bg-surface-container border border-outline-variant/60 rounded-xl px-2.5 py-1 text-xs font-semibold text-on-surface">
             <div id="user-avatar-circle"
@@ -136,16 +137,21 @@
           </button>
         </div>
 
+        <!-- Mobile: Compact User Avatar (Visible only when logged in) -->
+        <button id="mobile-header-avatar"
+          class="hidden md:hidden w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shrink-0 cursor-pointer shadow-xs border border-white/20"
+          title="Open Profile Menu">U</button>
+
         <!-- Mobile: Settings icon -->
         <button id="btn-open-settings-mobile"
-          class="flex md:hidden w-9 h-9 items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface-variant"
+          class="flex md:hidden w-8 h-8 sm:w-9 sm:h-9 items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface-variant shrink-0"
           title="Settings">
-          <span class="material-symbols-outlined text-[20px]">settings</span>
+          <span class="material-symbols-outlined text-[19px]">settings</span>
         </button>
 
         <!-- Mobile: Hamburger Menu Button -->
-        <button id="btn-mobile-menu" aria-label="Open navigation menu">
-          <span class="material-symbols-outlined text-[22px]">menu</span>
+        <button id="btn-mobile-menu" aria-label="Open navigation menu" class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
         </button>
       </div>
     </div>
@@ -157,6 +163,22 @@
   <!-- Mobile Slide-Down Nav Drawer -->
   <div id="mobile-nav-drawer">
     <div class="mobile-nav-links">
+
+      <!-- Mobile User Profile Card (When Logged In) -->
+      <div id="mobile-user-profile-bar" class="hidden p-3 mb-2 bg-surface-container-low dark:bg-surface-container rounded-2xl border border-outline-variant/60 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <div id="mobile-user-avatar-circle" class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">U</div>
+          <div class="truncate">
+            <p id="mobile-user-display-name" class="text-xs font-bold text-on-surface truncate">User Name</p>
+            <p id="mobile-user-display-email" class="text-[10px] text-on-surface-variant truncate">user@example.com</p>
+          </div>
+        </div>
+        <button id="mobile-btn-sign-out" class="px-2.5 py-1.5 rounded-xl bg-red-50 dark:bg-red-950/40 hover:bg-red-100 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 transition-colors flex items-center gap-1 text-xs font-bold shrink-0" title="Sign Out">
+          <span class="material-symbols-outlined text-[16px]">logout</span>
+          <span>Sign Out</span>
+        </button>
+      </div>
+
       <button class="mobile-nav-link active" data-path="landing">
         <span class="material-symbols-outlined">home</span>
         <span>Home</span>
@@ -180,9 +202,9 @@
 
       <!-- Mobile Status Badge Inside Drawer -->
       <div class="mt-2 pt-3 border-t border-surface-container px-1">
-        <div id="mobile-ai-status" class="flex items-center gap-2 px-3 py-2 bg-emerald-50 rounded-xl">
+        <div id="mobile-ai-status" class="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/40 rounded-xl border border-emerald-200 dark:border-emerald-800/60">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
-          <span class="text-xs font-semibold text-emerald-800">Real-Time AI Active</span>
+          <span class="text-xs font-semibold text-emerald-800 dark:text-emerald-300">Real-Time AI Active</span>
         </div>
       </div>
     </div>
@@ -196,31 +218,31 @@
       <div class="nav-icon-bg">
         <span class="material-symbols-outlined">home</span>
       </div>
-      <span>Home</span>
+      <span class="nav-label">Home</span>
     </button>
     <button class="bottom-nav-item" data-path="email-generator" id="bn-email-generator">
       <div class="nav-icon-bg">
         <span class="material-symbols-outlined">mail</span>
       </div>
-      <span>Email</span>
+      <span class="nav-label">Email</span>
     </button>
     <button class="bottom-nav-item" data-path="grammar-checker" id="bn-grammar-checker">
       <div class="nav-icon-bg">
         <span class="material-symbols-outlined">spellcheck</span>
       </div>
-      <span>Grammar</span>
+      <span class="nav-label">Grammar</span>
     </button>
     <button class="bottom-nav-item" data-path="templates" id="bn-templates">
       <div class="nav-icon-bg">
         <span class="material-symbols-outlined">library_books</span>
       </div>
-      <span>Templates</span>
+      <span class="nav-label">Templates</span>
     </button>
     <button class="bottom-nav-item" data-path="dashboard" id="bn-dashboard">
       <div class="nav-icon-bg">
         <span class="material-symbols-outlined">dashboard</span>
       </div>
-      <span>Dashboard</span>
+      <span class="nav-label">Dashboard</span>
     </button>
   </nav>
 
@@ -247,42 +269,42 @@
           <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
             
             <!-- Glowing Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-bold tracking-wide uppercase shadow-sm backdrop-blur-md">
-              <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
-              <span class="material-symbols-outlined text-[16px]">bolt</span>
-              Next-Gen AI Email & Linguistic Engine
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-[11px] sm:text-xs font-bold tracking-wide uppercase shadow-sm backdrop-blur-md max-w-full">
+              <span class="w-2 h-2 rounded-full bg-primary animate-ping shrink-0"></span>
+              <span class="material-symbols-outlined text-[16px] shrink-0">bolt</span>
+              <span class="truncate">Next-Gen AI Email & Linguistic Engine</span>
             </div>
 
             <!-- Title with Animated Light Sweep -->
-            <h1 class="font-headline font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-on-surface leading-[1.12]">
+            <h1 class="font-headline font-extrabold text-2xl sm:text-5xl lg:text-6xl tracking-tight text-on-surface leading-[1.14]">
               Write Flawless, High-Impact Emails in 
               <span class="animated-light-gradient block sm:inline">Seconds.</span>
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-on-surface-variant text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+            <p class="text-on-surface-variant text-sm sm:text-lg leading-relaxed max-w-2xl font-normal">
               <strong>fasterway.ai</strong> empowers job seekers, students, and professionals to craft persuasive emails, audit grammar in real time, and securely store cloud history isolated per user UID.
             </p>
 
-            <!-- Quick Action CTA Row with Lighting Glow -->
-            <div class="flex flex-wrap items-center gap-3 w-full pt-1">
-              <button data-path="email-generator" class="px-6 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-bold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2">
+            <!-- Quick Action CTA Row with Lighting Glow (Mobile-first stacked, desktop row) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full pt-1">
+              <button data-path="email-generator" class="w-full sm:w-auto px-6 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-bold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
-                Try Email Generator Free
+                <span>Try Email Generator Free</span>
               </button>
-              <button data-path="grammar-checker" class="px-5 py-3.5 bg-surface-container-high hover:bg-surface-dim text-on-surface font-semibold text-sm rounded-2xl border border-outline-variant/60 transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2">
+              <button data-path="grammar-checker" class="w-full sm:w-auto px-5 py-3.5 bg-surface-container-high hover:bg-surface-dim text-on-surface font-semibold text-sm rounded-2xl border border-outline-variant/60 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-[20px]">spellcheck</span>
-                Check Grammar Live
+                <span>Check Grammar Live</span>
               </button>
-              <button data-path="templates" class="px-4 py-3.5 text-primary hover:bg-primary/10 font-bold text-sm rounded-2xl transition-colors flex items-center gap-1.5">
+              <button data-path="templates" class="w-full sm:w-auto px-4 py-3.5 text-primary hover:bg-primary/10 font-bold text-sm rounded-2xl transition-colors flex items-center justify-center gap-1.5">
                 <span class="material-symbols-outlined text-[20px]">library_books</span>
-                View Templates
+                <span>View Templates</span>
               </button>
             </div>
 
             <!-- Feature Highlights Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full pt-3">
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/50 shadow-xs hover:border-primary/50 hover:shadow-md transition-all">
+              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-primary/50 hover:shadow-md transition-all">
                 <div class="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-primary flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">mark_email_read</span>
                 </div>
@@ -292,7 +314,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/50 shadow-xs hover:border-emerald-500/50 hover:shadow-md transition-all">
+              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-emerald-500/50 hover:shadow-md transition-all">
                 <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">spellcheck</span>
                 </div>
@@ -302,7 +324,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/50 shadow-xs hover:border-sky-500/50 hover:shadow-md transition-all">
+              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-sky-500/50 hover:shadow-md transition-all">
                 <div class="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">cloud_done</span>
                 </div>
@@ -312,7 +334,7 @@
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/50 shadow-xs hover:border-purple-500/50 hover:shadow-md transition-all">
+              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-purple-500/50 hover:shadow-md transition-all">
                 <div class="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">verified</span>
                 </div>
@@ -681,7 +703,7 @@ Hasher Khan</div>
       </div>
 
       <!-- "HOW IT WORKS" 3-STEP SECTION WITH LIGHTING CONNECTORS -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative overflow-hidden">
         <div class="ambient-glow-orb orb-3 opacity-40"></div>
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 relative z-10">
           <span class="px-3.5 py-1 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Simple Workflow</span>
@@ -781,7 +803,7 @@ Hasher Khan</div>
       </div>
 
       <!-- TESTIMONIALS & REVIEWS SECTION WITH LIGHTING HOVER -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative overflow-hidden">
         <div class="ambient-glow-orb orb-1 opacity-30"></div>
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 relative z-10">
           <span class="px-3.5 py-1 bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">User Feedback</span>
