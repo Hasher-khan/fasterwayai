@@ -75,6 +75,9 @@
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
 
+  <!-- html2canvas – client-side screenshot/download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -1164,6 +1167,12 @@ Hasher Khan</div>
                       <span class="hidden sm:inline">Copy Email</span>
                       <span class="sm:hidden">Copy</span>
                     </button>
+                    <button id="btn-download-email-image"
+                      class="btn-action-sm bg-primary text-on-primary hover:bg-primary/90 shadow-sm">
+                      <span class="material-symbols-outlined text-[15px]">download</span>
+                      <span class="hidden sm:inline">Download Image</span>
+                      <span class="sm:hidden">Image</span>
+                    </button>
                     <button id="btn-send-to-grammar"
                       class="btn-action-sm bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary">
                       <span class="material-symbols-outlined text-[15px]">spellcheck</span>
@@ -1309,10 +1318,16 @@ Hasher Khan</div>
                   <span class="material-symbols-outlined text-[16px] text-emerald-600">auto_fix_high</span>
                   Full AI Corrected Text
                 </span>
-                <button id="btn-copy-corrected" type="button"
-                  class="text-xs text-emerald-700 hover:text-emerald-900 font-bold flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">content_copy</span> Copy
-                </button>
+                <div class="flex items-center gap-2">
+                  <button id="btn-copy-corrected" type="button"
+                    class="text-xs text-emerald-700 hover:text-emerald-900 font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">content_copy</span> Copy
+                  </button>
+                  <button id="btn-download-corrected-image" type="button"
+                    class="text-xs text-emerald-700 hover:text-emerald-900 font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">download</span> Image
+                  </button>
+                </div>
               </div>
               <p id="corrected-text-preview"
                 class="text-xs text-emerald-950 whitespace-pre-wrap font-medium leading-relaxed bg-white/80 p-3 rounded-lg border border-emerald-200/60">
