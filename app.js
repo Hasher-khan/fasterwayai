@@ -16,7 +16,7 @@ const state = {
   emailWorkspaceTab: 'form'  // 'form' | 'preview'
 };
 
-// Templates Database - 12 Professional Templates
+// Templates Database - 27 Professional Templates
 const TEMPLATES_DATABASE = [
   // ---- CAREER ----
   {
@@ -167,6 +167,224 @@ const TEMPLATES_DATABASE = [
     tone: 'professional',
     length: 'concise',
     customPrompt: 'Request a 30-minute meeting to discuss the Q4 project kickoff. Propose 2 time slots: Tuesday 10 AM or Thursday 2 PM. Include a brief agenda: goals review, timeline alignment, and next steps. Keep it clear and actionable.'
+  },
+
+  // ---- CAREER (NEW) ----
+  {
+    id: 'promotion-request',
+    title: 'Promotion Request Letter',
+    category: 'career',
+    icon: 'trending_up',
+    description: 'Confident, data-driven promotion request backed by measurable achievements and growth.',
+    purpose: 'Request a promotion from Senior Developer to Engineering Lead.',
+    audience: 'Direct Manager / Department Head',
+    tone: 'confident',
+    length: 'standard',
+    customPrompt: 'Highlight 2 years of consistent performance at the Senior Developer level. Mention leading 3 cross-functional projects and improving deployment speed by 35%. Reference market compensation data. Respectfully request a meeting to discuss the promotion timeline.'
+  },
+  {
+    id: 'resignation-letter',
+    title: 'Professional Resignation Letter',
+    category: 'career',
+    icon: 'exit_to_app',
+    description: 'Graceful, professional resignation letter that preserves relationships and maintains reputation.',
+    purpose: 'Submit a 2-week notice resignation from the Marketing Manager role.',
+    audience: 'Direct Manager / HR Department',
+    tone: 'formal',
+    length: 'standard',
+    customPrompt: 'Express sincere gratitude for the opportunities and growth provided. State the last working day as 2 weeks from today. Offer to assist with the transition by training a replacement or documenting processes. Close on a positive, forward-looking note.'
+  },
+  {
+    id: 'reference-request',
+    title: 'Reference Letter Request',
+    category: 'career',
+    icon: 'recommend',
+    description: 'Polite, professional request for a reference letter from a former manager.',
+    purpose: 'Request a professional reference letter for a senior product manager job application.',
+    audience: 'Former Manager / Mentor',
+    tone: 'warm',
+    length: 'concise',
+    customPrompt: 'Remind them of the 2-year collaboration on the e-commerce platform project. Mention the specific role being applied for: Senior Product Manager at a fintech firm. Express confidence they can speak to leadership and strategic thinking skills. Attach a brief bio for their convenience.'
+  },
+
+  // ---- SALES (NEW) ----
+  {
+    id: 'partnership-proposal',
+    title: 'Strategic Partnership Proposal',
+    category: 'sales',
+    icon: 'handshake',
+    description: 'Compelling partnership proposal email outlining mutual benefits and a clear collaboration vision.',
+    purpose: 'Propose a co-marketing partnership between two SaaS companies.',
+    audience: 'CEO / Head of Partnerships',
+    tone: 'persuasive',
+    length: 'standard',
+    customPrompt: 'Open with a compelling shared-market insight. Propose a co-marketing campaign targeting the SME segment. Highlight potential reach of 50,000 combined users. Suggest a discovery call to explore specifics. Keep tone executive and results-focused.'
+  },
+  {
+    id: 'sales-demo-request',
+    title: 'Product Demo Booking Request',
+    category: 'sales',
+    icon: 'present_to_all',
+    description: 'Confident outreach requesting a product demo booking with a clear value proposition.',
+    purpose: 'Invite a prospect to book a live product demo of our CRM software.',
+    audience: 'Sales Director / Operations Manager',
+    tone: 'persuasive',
+    length: 'concise',
+    customPrompt: 'Lead with a pain point: managing leads across 5 disconnected tools. Present the CRM as the solution with one clear benefit: 40% faster deal closure. Propose a 20-minute demo and include a Calendly-style booking link placeholder. Use a confident, low-pressure tone.'
+  },
+  {
+    id: 'price-increase-notice',
+    title: 'Price Increase Notification',
+    category: 'sales',
+    icon: 'price_change',
+    description: 'Professional and empathetic notice informing clients of an upcoming subscription price increase.',
+    purpose: 'Inform existing clients of a 12% subscription price increase effective next quarter.',
+    audience: 'Existing Client / Account Holder',
+    tone: 'professional',
+    length: 'standard',
+    customPrompt: 'Acknowledge their loyalty as a customer. Clearly state the new pricing effective date and percentage change. Justify the increase with recent infrastructure and feature investments. Offer an annual lock-in option at the current rate as an incentive. Thank them for their continued support.'
+  },
+
+  // ---- NETWORKING (NEW) ----
+  {
+    id: 'speaking-invitation',
+    title: 'Event Speaking Invitation',
+    category: 'networking',
+    icon: 'mic',
+    description: 'Professional and flattering invitation for an industry expert to speak at a conference or webinar.',
+    purpose: 'Invite a fintech thought leader to speak at our annual innovation summit.',
+    audience: 'Industry Expert / Thought Leader',
+    tone: 'professional',
+    length: 'standard',
+    customPrompt: 'Open by acknowledging their expertise in decentralized finance. Describe the event: 500-attendee innovation summit in March. State the speaking slot: 30-minute keynote. Outline the honorarium and travel support offered. Express genuine enthusiasm for their participation.'
+  },
+  {
+    id: 'mentor-request',
+    title: 'Mentorship Request',
+    category: 'networking',
+    icon: 'diversity_3',
+    description: 'Sincere, well-structured request for mentorship from an experienced professional.',
+    purpose: 'Request a 3-month mentorship from a senior UX Director to advance in product design.',
+    audience: 'Senior Professional / Director',
+    tone: 'warm',
+    length: 'standard',
+    customPrompt: 'Express genuine admiration for their career path in UX leadership. Share current career stage: 2 years as a junior designer seeking to move into product design management. Propose a monthly 30-minute check-in structure. Be specific about what guidance is sought: portfolio review, career roadmap, and leadership skills.'
+  },
+
+  // ---- SUPPORT (NEW) ----
+  {
+    id: 'service-escalation',
+    title: 'Service Issue Escalation',
+    category: 'support',
+    icon: 'escalator_warning',
+    description: 'Firm but professional email escalating an unresolved service issue to senior management.',
+    purpose: 'Escalate a 10-day unresolved server downtime issue affecting business operations.',
+    audience: 'Customer Success Manager / VP of Support',
+    tone: 'confident',
+    length: 'standard',
+    customPrompt: 'State the issue clearly: server downtime since [Date] causing $8,000 in lost revenue. Reference 3 prior support tickets without resolution. Demand a senior engineer review and a resolution plan within 24 hours. Remain firm but avoid hostile language. Request a call from senior leadership.'
+  },
+  {
+    id: 'feedback-response',
+    title: 'Positive Customer Feedback Response',
+    category: 'support',
+    icon: 'sentiment_very_satisfied',
+    description: 'Warm, personal response to a customer who left a glowing review or positive feedback.',
+    purpose: 'Thank a customer for their 5-star review and positive feedback about the onboarding experience.',
+    audience: 'Happy Customer / Reviewer',
+    tone: 'warm',
+    length: 'concise',
+    customPrompt: 'Express genuine gratitude for the kind feedback. Mention that the onboarding team will be thrilled to hear it. Offer a loyalty discount code as a thank-you gesture. Invite them to share their experience on social media or refer a friend.'
+  },
+  {
+    id: 'contract-renewal',
+    title: 'Service Contract Renewal',
+    category: 'support',
+    icon: 'autorenew',
+    description: 'Professional contract renewal reminder with a summary of delivered value and next steps.',
+    purpose: 'Initiate renewal discussion for an annual SaaS service contract expiring in 30 days.',
+    audience: 'Account Manager / Procurement Contact',
+    tone: 'professional',
+    length: 'standard',
+    customPrompt: 'Summarize key milestones delivered in the past year: 99.9% uptime, 3 major feature releases, and dedicated support SLA. Present the renewal offer with an early-bird 10% discount. Propose a renewal call within the next 2 weeks. Express commitment to continued partnership.'
+  },
+
+  // ---- ACADEMIC (NEW) ----
+  {
+    id: 'scholarship-application',
+    title: 'Scholarship Application Email',
+    category: 'academic',
+    icon: 'emoji_events',
+    description: 'Compelling scholarship application email showcasing academic merit and financial need.',
+    purpose: 'Apply for a merit-based scholarship for the Masters in Data Science program.',
+    audience: 'Scholarship Committee / Academic Dean',
+    tone: 'formal',
+    length: 'detailed',
+    customPrompt: 'Introduce academic background: 3.9 GPA Computer Science undergraduate. Express passion for data science and AI research. State financial constraints as a first-generation college student. Highlight extracurricular leadership: hackathon winner and coding club president. Articulate how the scholarship will enable completing the Masters program.'
+  },
+  {
+    id: 'research-collaboration',
+    title: 'Research Collaboration Request',
+    category: 'academic',
+    icon: 'science',
+    description: 'Professional email proposing a research collaboration between two academic institutions.',
+    purpose: 'Propose a joint AI ethics research collaboration with a professor at MIT.',
+    audience: 'Professor / Research Lead',
+    tone: 'formal',
+    length: 'standard',
+    customPrompt: 'Reference their published paper on algorithmic bias in hiring systems. Introduce own research focus: fairness in NLP models. Propose a collaborative paper or shared dataset project. Suggest a 30-minute Zoom call to explore alignment. Attach a brief research profile overview.'
+  },
+
+  // ---- GENERAL (NEW) ----
+  {
+    id: 'project-status-update',
+    title: 'Project Status Update',
+    category: 'general',
+    icon: 'analytics',
+    description: 'Clear, concise project status update email keeping stakeholders informed on progress and blockers.',
+    purpose: 'Send a weekly project status update to executive stakeholders for the website relaunch project.',
+    audience: 'Executive Team / Project Stakeholders',
+    tone: 'professional',
+    length: 'standard',
+    customPrompt: 'Open with an overall status: On Track. Summarize this week\'s completed milestones: design handoff and API integration. List 2 active risks: delayed vendor delivery and pending legal review. State next week\'s priorities. Use a structured, scannable format with clear sections.'
+  },
+  {
+    id: 'onboarding-welcome',
+    title: 'New Employee Welcome Email',
+    category: 'general',
+    icon: 'waving_hand',
+    description: 'Warm, structured welcome email for a new team member joining the company.',
+    purpose: 'Welcome a new Software Engineer joining the product team on Monday.',
+    audience: 'New Employee / Team Member',
+    tone: 'warm',
+    length: 'standard',
+    customPrompt: 'Welcome them enthusiastically to the team. Outline what to expect on Day 1: IT setup at 9 AM, team intro lunch at noon, and manager 1:1 at 3 PM. Share key tools: Slack, Jira, and Notion. Assign a buddy: Sarah from the frontend team. Express excitement about what they will build together.'
+  },
+
+  // ---- LEGAL ----
+  {
+    id: 'legal-nda-request',
+    title: 'NDA Signing Request',
+    category: 'legal',
+    icon: 'gavel',
+    description: 'Professional email requesting a potential partner to sign a Non-Disclosure Agreement before sharing sensitive information.',
+    purpose: 'Request an NDA signing before sharing proprietary product roadmap details with a prospective partner.',
+    audience: 'Business Partner / Legal Contact',
+    tone: 'formal',
+    length: 'concise',
+    customPrompt: 'Explain that the upcoming discussion involves confidential IP and trade secrets. State that a standard mutual NDA needs to be signed before proceeding. Attach the NDA document placeholder. Request signature by a specific date. Maintain a cooperative and professional tone throughout.'
+  },
+  {
+    id: 'legal-dispute-notice',
+    title: 'Formal Dispute Notice',
+    category: 'legal',
+    icon: 'report',
+    description: 'Firm, legally-worded formal notice letter regarding a contractual dispute or unpaid obligation.',
+    purpose: 'Issue a formal notice for an outstanding unpaid invoice of $15,000 overdue by 45 days.',
+    audience: 'Counterparty / Accounts Payable',
+    tone: 'formal',
+    length: 'standard',
+    customPrompt: 'Reference the specific contract date and invoice number. State the outstanding amount: $15,000 overdue since [Date]. Cite the payment terms clause in the original agreement. Request full payment within 7 business days. State that failure to pay may result in legal action or referral to a collections agency. Maintain a firm but professional tone.'
   }
 ];
 
@@ -1396,7 +1614,8 @@ function renderTemplatesList() {
     networking: { bg: 'bg-purple-100', text: 'text-purple-800', icon: 'text-purple-600', ring: 'bg-purple-50' },
     support:    { bg: 'bg-emerald-100',text: 'text-emerald-800',icon: 'text-emerald-600',ring: 'bg-emerald-50' },
     academic:   { bg: 'bg-amber-100',  text: 'text-amber-800',  icon: 'text-amber-600',  ring: 'bg-amber-50' },
-    general:    { bg: 'bg-slate-100',  text: 'text-slate-800',  icon: 'text-slate-600',  ring: 'bg-slate-50' }
+    general:    { bg: 'bg-slate-100',  text: 'text-slate-800',  icon: 'text-slate-600',  ring: 'bg-slate-50' },
+    legal:      { bg: 'bg-rose-100',   text: 'text-rose-800',   icon: 'text-rose-600',   ring: 'bg-rose-50'  }
   };
 
   const toneLabels = {
