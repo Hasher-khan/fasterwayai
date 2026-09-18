@@ -996,6 +996,33 @@ Hasher Khan</div>
           <div class="card">
             <form id="email-generator-form" class="space-y-4">
 
+              <!-- Custom AI Prompt -->
+              <div>
+                <label class="form-label flex items-center justify-between">
+                  <span>Custom AI Prompt</span>
+                  <span class="text-label-sm text-primary font-semibold bg-primary-fixed px-2 py-0.5 rounded-full">Quick Generate</span>
+                </label>
+                <textarea id="email-custom-prompt" rows="3"
+                  placeholder="e.g. Highlight my 5 years experience, mention Marketing Manager role, propose a 15-minute call..."
+                  class="form-input resize-none" style="min-height:80px"></textarea>
+              </div>
+
+              <!-- Quick Generate Hint Notification -->
+              <div id="quick-generate-hint"
+                class="flex items-start gap-2.5 px-3.5 py-3 rounded-xl border border-primary/30 bg-primary/8 text-on-surface"
+                style="background:rgba(var(--md-sys-color-primary-rgb,99,102,241),.09);">
+                <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">tips_and_updates</span>
+                <div class="flex-1 min-w-0">
+                  <p class="text-label-md font-semibold text-primary leading-tight mb-0.5">Quick Generate Tip</p>
+                  <p class="text-body-sm text-on-surface-variant leading-snug">First add your prompt in the <strong class="text-on-surface font-semibold">Quick Generate</strong> field above, then click Generate Email.</p>
+                </div>
+                <button type="button" onclick="document.getElementById('quick-generate-hint').style.display='none'"
+                  class="shrink-0 text-on-surface-variant hover:text-on-surface transition-colors p-0.5 rounded-lg hover:bg-surface-container-high"
+                  aria-label="Dismiss hint">
+                  <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+              </div>
+
               <!-- Sender & Recipient Row -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
@@ -1067,32 +1094,7 @@ Hasher Khan</div>
                 </div>
               </div>
 
-              <!-- Custom AI Prompt -->
-              <div>
-                <label class="form-label flex items-center justify-between">
-                  <span>Custom AI Prompt</span>
-                  <span class="text-label-sm text-primary font-semibold bg-primary-fixed px-2 py-0.5 rounded-full">Quick Generate</span>
-                </label>
-                <textarea id="email-custom-prompt" rows="3"
-                  placeholder="e.g. Highlight my 5 years experience, mention Marketing Manager role, propose a 15-minute call..."
-                  class="form-input resize-none" style="min-height:80px"></textarea>
-              </div>
 
-              <!-- Quick Generate Hint Notification -->
-              <div id="quick-generate-hint"
-                class="flex items-start gap-2.5 px-3.5 py-3 rounded-xl border border-primary/30 bg-primary/8 text-on-surface"
-                style="background:rgba(var(--md-sys-color-primary-rgb,99,102,241),.09);">
-                <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">tips_and_updates</span>
-                <div class="flex-1 min-w-0">
-                  <p class="text-label-md font-semibold text-primary leading-tight mb-0.5">Quick Generate Tip</p>
-                  <p class="text-body-sm text-on-surface-variant leading-snug">First add your prompt in the <strong class="text-on-surface font-semibold">Quick Generate</strong> field above, then click Generate Email.</p>
-                </div>
-                <button type="button" onclick="document.getElementById('quick-generate-hint').style.display='none'"
-                  class="shrink-0 text-on-surface-variant hover:text-on-surface transition-colors p-0.5 rounded-lg hover:bg-surface-container-high"
-                  aria-label="Dismiss hint">
-                  <span class="material-symbols-outlined text-[18px]">close</span>
-                </button>
-              </div>
 
               <!-- Submit Button -->
               <button id="btn-generate-email" type="submit" class="btn-generate">
