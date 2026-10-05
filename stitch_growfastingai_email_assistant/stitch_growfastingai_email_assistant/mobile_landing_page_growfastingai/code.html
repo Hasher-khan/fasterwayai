@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary-fixed": "#dbe1ff", "surface": "#faf8ff", "surface-container": "#eaedff", "outline": "#737686", "surface-tint": "#0053db", "on-secondary": "#ffffff", "on-error-container": "#93000a", "background": "#faf8ff", "surface-container-high": "#e2e7ff", "inverse-on-surface": "#eef0ff", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "tertiary": "#006058", "inverse-surface": "#283044", "on-tertiary-container": "#b3fff3", "on-surface": "#131b2e", "surface-bright": "#faf8ff", "secondary": "#006398", "on-tertiary": "#ffffff", "secondary-container": "#5bb8fe", "on-secondary-fixed-variant": "#004b73", "tertiary-fixed-dim": "#6bd8cb", "error": "#ba1a1a", "surface-dim": "#d2d9f4", "on-primary-container": "#eeefff", "on-primary-fixed": "#00174b", "surface-variant": "#dae2fd", "secondary-fixed": "#cce5ff", "primary": "#004ac6", "on-tertiary-fixed-variant": "#005049", "error-container": "#ffdad6", "on-primary-fixed-variant": "#003ea8", "on-surface-variant": "#434655", "on-error": "#ffffff", "primary-container": "#2563eb", "on-primary": "#ffffff", "on-secondary-fixed": "#001d31", "inverse-primary": "#b4c5ff", "secondary-fixed-dim": "#93ccff", "tertiary-container": "#007b71", "outline-variant": "#c3c6d7", "on-secondary-container": "#00476e", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#b4c5ff", "tertiary-fixed": "#89f5e7", "surface-container-highest": "#dae2fd" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-desktop": "1.5rem", "margin-desktop": "3rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-md": "1rem", "margin-tablet": "2rem", "space-3xl": "4rem", "space-2xs": "0.25rem", "space-lg": "1.5rem", "max-container": "80rem" }, fontFamily: { "caption": ["Inter"], "display-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, fontSize: { "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }], "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><img alt="growfastingAI Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-primary tracking-tight leading-none">growfastingAI</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-none mt-space-2xs">Home</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center gap-1 bg-surface-container-high/80 px-space-xs py-1 rounded-full text-primary"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-caption text-caption font-semibold text-on-surface">142</span></div><button aria-label="User Profile" class="min-h-[44px] min-w-[44px] flex items-center justify-center" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvx-8pK1U6NeR_AFHl62ZKNn4hbOC8q9Ywaq76vhYuQ4Czwq19KSmzqfZMRqSGIF5xIswJDeUfE3H6s1UVs8SfBYjOtCcUi3JV2FqXxKX0-IIYxzfzOgC6eiVKBNrUMsaCSOp2H5JKsJ1uGpcYKDyzmIR1YX2cvoOrnoY3ul_nk3z89yuYqgRW2kSCKzfMVWSRcO-Lw24R9lhHRh51ePMwk5b9Gb6rdy1yG7RTa-mmwZ1GDP6pdR26DQ"/></button></div></div></header><main class="flex flex-col flex-1 relative w-full pt-16 pb-24 px-margin-mobile bg-surface"><div class="flex flex-col w-full gap-y-space-xl">
+<!-- Eyebrow & Value Prop Header -->
+<section class="flex flex-col items-center text-center px-space-xs pt-space-xs">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high text-primary mb-space-sm shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-[16px]">arrow_back_ios_new</span>
+<span class="font-caption text-caption uppercase tracking-wider font-semibold">AI Communication v2.4 • 120k+ Users</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight max-w-sm">
+      Write better emails. Communicate with confidence.
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xs">
+      Draft high-impact professional correspondence in seconds, fix tone and grammar mistakes in real-time.
+    </p>
+<!-- CTAs Stacked -->
+<div class="flex flex-col w-full gap-space-xs mt-space-lg">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+        Generate an Email
+      </button>
+<button class="w-full h-12 rounded-xl bg-surface-container-low text-primary font-label-md text-label-md flex items-center justify-center gap-space-xs active:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">spellcheck</span>
+        Check My Writing
+      </button>
+</div>
+</section>
+<!-- Interactive Live Preview Playground -->
+<section class="flex flex-col w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-ping"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Interactive Studio Sample</span>
+</div>
+<div class="flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-caption text-caption font-semibold">98% Impact Score</span>
+</div>
+</div>
+<!-- Tone Selector Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-space-xs no-scrollbar">
+<button class="tone-pill px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center gap-1 transition-all" id="tone-confident" onclick="switchTone('confident')" type="button">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+        Confident
+      </button>
+<button class="tone-pill px-space-sm py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-all" id="tone-polite" onclick="switchTone('polite')" type="button">
+<span class="material-symbols-outlined text-[14px]">favorite</span>
+        Polite
+      </button>
+<button class="tone-pill px-space-sm py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-all" id="tone-direct" onclick="switchTone('direct')" type="button">
+<span class="material-symbols-outlined text-[14px]">send</span>
+        Direct
+      </button>
+</div>
+<!-- Live Preview Email Bubble -->
+<div class="bg-surface-container-low rounded-xl p-space-sm mt-space-xs relative group">
+<div class="flex items-center justify-between text-on-surface-variant text-caption font-caption mb-1">
+<span id="preview-subject">Subject: Quick sync on Q3 roadmap review</span>
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Perfect
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed" id="preview-body">
+        Hi Marcus, I reviewed the updated deliverables and have outlined three high-impact optimizations for the Q3 pipeline. Let's touch base for 10 minutes tomorrow morning to finalize next steps.
+      </p>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs border-t-0">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[14px] text-primary">psychology</span>
+<span>Polished with growfastingAI</span>
+</div>
+<button class="flex items-center gap-1 px-space-xs py-1 rounded-lg bg-surface-container-lowest text-primary shadow-sm active:scale-95 transition-all" id="copy-btn" onclick="copySnippet()" type="button">
+<span class="material-symbols-outlined text-[14px]" id="copy-icon">content_copy</span>
+<span class="font-label-sm text-label-sm" id="copy-label">Copy</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Popular Quick Templates -->
+<section class="flex flex-col w-full">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Popular Presets</h3>
+<a class="font-label-sm text-label-sm text-primary flex items-center" href="#">
+        Explore 80+ <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col justify-between active:scale-[0.98] transition-transform">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Executive Intro</span>
+<span class="font-caption text-caption text-on-surface-variant">Cold pitch to leadership</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col justify-between active:scale-[0.98] transition-transform">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Urgent Follow-Up</span>
+<span class="font-caption text-caption text-on-surface-variant">Polite nudge on pending items</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col justify-between active:scale-[0.98] transition-transform">
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">work</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Job Application</span>
+<span class="font-caption text-caption text-on-surface-variant">Standout recruiter pitch</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col justify-between active:scale-[0.98] transition-transform">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Salary Negotiation</span>
+<span class="font-caption text-caption text-on-surface-variant">Tactful counter-offers</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Built for Every Communicator (Horizontal Cards) -->
+<section class="flex flex-col w-full">
+<div class="mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tailored for Your Workflow</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Adaptive intelligence trained on real-world communication.</p>
+</div>
+<div class="flex gap-space-sm overflow-x-auto pb-space-xs no-scrollbar -mx-margin-mobile px-margin-mobile">
+<!-- Card 1: Job Seekers -->
+<div class="w-64 flex-shrink-0 bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="relative h-28 w-full rounded-xl overflow-hidden mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="A focused job seeker smiling during a video call interview in a brightly lit modern office with blue and crisp neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMYsXoAXGDWwHOLE8UjyJbxp_YGWMdSAZkxP4PZW6rRU8tAx8L-30YIumr75-sW7mdGqIS6Crd0qathgeD7udJiVBOp63bRc0SKSVqM32L7eqDZaajqQdqiu3OTMZA7iLui3SLEsMOupyGRK5xrbEVE3D2ZO-ZJoA4O4TyudZ8tSC2pG7F4e0w1aDwEEdbdwc9BWy8XqzaAYHNEqr-HwdUWIgswgnJc7HCxY1IDDRS5pIHuv3xRe2F1g"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-sm text-primary font-caption text-caption font-semibold">
+            Job Seekers
+          </div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Ace Application Notes</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Convert bulleted resumes into compelling cover notes and recruiter follow-ups.</p>
+</div>
+</div>
+<!-- Card 2: Business Professionals -->
+<div class="w-64 flex-shrink-0 bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="relative h-28 w-full rounded-xl overflow-hidden mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Corporate strategist analyzing analytics on a sleek tablet screen in a bright high-rise conference room with cool glass reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwmGI6_ZeiyRCRtIq4MMFTKwGhQBSKhScJZq3u51Ard3TxUB8ndWeOGCFv7tpnFRVtrYtDSYnaAgRs40Td_OavuqyzWpKXQlk987azdgk2s2wNbFdZBIMJGS7u6P-Lq0Utc3uyr8wzbJ-K48g0Kg4X1ExTW5qF2WSLW00g2LHw-F3rOm_nijjS0lo56IZBZRR_WG8z2wNECuNhAxXS5DJsdByK6RRvxPM4TmI4T2xjbgmcpt0POC5HPg"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-sm text-primary font-caption text-caption font-semibold">
+            Professionals
+          </div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Executive Diplomacy</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">De-escalate tough conversations and drive fast stakeholder approvals.</p>
+</div>
+</div>
+<!-- Card 3: Students & Grads -->
+<div class="w-64 flex-shrink-0 bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="relative h-28 w-full rounded-xl overflow-hidden mb-space-xs">
+<img class="w-full h-full object-cover" data-alt="Young college student in a clean sunny university library writing email requests to professors on a laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAQtnjAXxwSEF-eQGmZBsKzts4CeFANJ57iGnMEqredBiXVcq2Kvm8Hlb-Dzga8lsrzlQMysQDozjlkMrfWM710qYMKN2cIvTCUnKbwEJ0S1l7FiB-LAvlV7saqDAPbw_V4I4erGHqhcUSiihxeteMfT8U80pf8MfQ9mw_EQH0rRrafD_ECzhVB5lVGq2y3aKtAleIWR-LxeiiQEPAA73lhXrLSnK11pU8mibw6TqLGcATHibwXJZTIw"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-surface/90 backdrop-blur-sm text-primary font-caption text-caption font-semibold">
+            Students
+          </div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Academic Inquiries</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Request letters of recommendation and thesis reviews with clarity.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Capabilities Feature Stack -->
+<section class="flex flex-col w-full gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Three Powerful Engines</h3>
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">quickreply</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Bullet-to-Email Synthesizer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Jot down 3 messy bullet points. Receive a pristine, coherent memo aligned with your voice.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Tone &amp; Empathy Calibration</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Catch unintended hostility, over-apologetic phrasing, or passive aggression before hitting send.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Cross-Device Seamless Sync</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Draft on your morning commute on mobile, polish on desktop inside your email client instantly.</p>
+</div>
+</div>
+</section>
+<!-- Trust, Privacy & Badges -->
+<section class="bg-surface-container-low rounded-2xl p-space-md flex flex-col items-center text-center">
+<div class="flex items-center gap-1 text-primary mb-space-xs">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="font-label-sm text-label-sm text-on-surface ml-1 font-bold">4.9/5 Rating</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Trusted by communication leaders across top companies</span>
+<div class="flex items-center justify-center gap-space-md mt-space-md w-full">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock</span>
+<span class="font-caption text-caption font-semibold">Zero Model Training</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">shield</span>
+<span class="font-caption text-caption font-semibold">SOC2 Type II</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">encrypted</span>
+<span class="font-caption text-caption font-semibold">End-to-End</span>
+</div>
+</div>
+</section>
+<!-- Bottom Sticky-Feel Callout Card -->
+<section class="bg-gradient-to-r from-primary to-primary-container rounded-2xl p-space-md text-on-primary shadow-lg flex flex-col items-center text-center">
+<h3 class="font-headline-md text-headline-md">Elevate every message.</h3>
+<p class="font-body-sm text-body-sm opacity-90 mt-1 max-w-xs">
+      Join over 120,000 professionals drafting with growfastingAI today.
+    </p>
+<button class="w-full mt-space-md h-12 rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md shadow-md active:scale-95 transition-transform flex items-center justify-center gap-1" type="button">
+      Start Writing Free
+      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</section>
+</div>
+<script>
+  const toneData = {
+    confident: {
+      subject: "Subject: Quick sync on Q3 roadmap review",
+      body: "Hi Marcus, I reviewed the updated deliverables and have outlined three high-impact optimizations for the Q3 pipeline. Let's touch base for 10 minutes tomorrow morning to finalize next steps."
+    },
+    polite: {
+      subject: "Subject: Touching base regarding Q3 milestones",
+      body: "Good morning Marcus, hope you are having a productive week. Whenever your schedule allows, I would truly appreciate your thoughts on the updated Q3 roadmap so we can align seamlessly."
+    },
+    direct: {
+      subject: "Subject: Action required: Q3 deliverables approval",
+      body: "Marcus, the Q3 milestones are ready for your sign-off. Please review the attached items before 11:00 AM tomorrow so our engineering rollout stays on schedule."
+    }
+  };
+
+  function switchTone(tone) {
+    const tones = ['confident', 'polite', 'direct'];
+    tones.forEach(t => {
+      const btn = document.getElementById('tone-' + t);
+      if (t === tone) {
+        btn.className = 'tone-pill px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center gap-1 transition-all';
+      } else {
+        btn.className = 'tone-pill px-space-sm py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-all';
+      }
+    });
+
+    const preview = toneData[tone];
+    document.getElementById('preview-subject').innerText = preview.subject;
+    document.getElementById('preview-body').innerText = preview.body;
+  }
+
+  function copySnippet() {
+    const text = document.getElementById('preview-body').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const icon = document.getElementById('copy-icon');
+      const label = document.getElementById('copy-label');
+      icon.innerText = 'check';
+      label.innerText = 'Copied!';
+      setTimeout(() => {
+        icon.innerText = 'content_copy';
+        label.innerText = 'Copy';
+      }, 2000);
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(19,27,46,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-2xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 transition-colors text-primary font-bold" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-caption text-caption mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="email-studio" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-caption text-caption mt-0.5">Studio</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="grammar-tone-checker" href="#"><span class="material-symbols-outlined text-[22px]">spellcheck</span><span class="font-caption text-caption mt-0.5">Checker</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="template-directory" href="#"><span class="material-symbols-outlined text-[22px]">folder_copy</span><span class="font-caption text-caption mt-0.5">Templates</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="dashboard-metrics" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-caption text-caption mt-0.5">Dashboard</span></a></div></nav></body></html>

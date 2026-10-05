@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#dbe1ff","surface":"#faf8ff","surface-container":"#eaedff","outline":"#737686","surface-tint":"#0053db","on-secondary":"#ffffff","on-error-container":"#93000a","background":"#faf8ff","surface-container-high":"#e2e7ff","inverse-on-surface":"#eef0ff","on-background":"#131b2e","surface-container-lowest":"#ffffff","tertiary":"#006058","inverse-surface":"#283044","on-tertiary-container":"#b3fff3","on-surface":"#131b2e","surface-bright":"#faf8ff","secondary":"#006398","on-tertiary":"#ffffff","secondary-container":"#5bb8fe","on-secondary-fixed-variant":"#004b73","tertiary-fixed-dim":"#6bd8cb","error":"#ba1a1a","surface-dim":"#d2d9f4","on-primary-container":"#eeefff","on-primary-fixed":"#00174b","surface-variant":"#dae2fd","secondary-fixed":"#cce5ff","primary":"#004ac6","on-tertiary-fixed-variant":"#005049","error-container":"#ffdad6","on-primary-fixed-variant":"#003ea8","on-surface-variant":"#434655","on-error":"#ffffff","primary-container":"#2563eb","on-primary":"#ffffff","on-secondary-fixed":"#001d31","inverse-primary":"#b4c5ff","secondary-fixed-dim":"#93ccff","tertiary-container":"#007b71","outline-variant":"#c3c6d7","on-secondary-container":"#00476e","on-tertiary-fixed":"#00201d","surface-container-low":"#f2f3ff","primary-fixed-dim":"#b4c5ff","tertiary-fixed":"#89f5e7","surface-container-highest":"#dae2fd"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-desktop":"1.5rem","margin-desktop":"3rem","space-xs":"0.5rem","margin-mobile":"1rem","gutter-mobile":"1rem","space-sm":"0.75rem","space-2xl":"3rem","space-xl":"2rem","space-md":"1rem","margin-tablet":"2rem","space-3xl":"4rem","space-2xs":"0.25rem","space-lg":"1.5rem","max-container":"80rem"},"fontFamily":{"caption":["Inter"],"display-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"display":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"caption":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"display":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-max-container mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="features" href="#"><img alt="growfastingAI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">growfasting<span class="text-primary">AI</span></span></a><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary font-bold"><a aria-current="page" class="transition-colors py-1 text-primary font-bold" data-path="features" href="#">Features</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="email-generator" href="#">Email Generator</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="grammar-checker" href="#">Grammar Checker</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="templates" href="#">Templates</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="pricing" href="#">Pricing</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="user-dashboard" href="#">User Dashboard</a></nav></div><div class="flex items-center gap-space-sm"><div class="hidden md:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-tertiary-container"></span><span class="font-label-sm text-label-sm text-on-surface">Pro Free Trial</span><span class="font-caption text-caption text-on-surface-variant bg-surface-container-lowest px-1.5 py-0.5 rounded-full shadow-sm">85/100 Credits</span></div><a class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-xs py-space-xs transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center font-label-md text-label-md bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded-lg transition-colors shadow-sm" data-path="email-generator" href="#">Start Writing</a><div class="flex items-center pl-1"><button class="flex rounded-full ring-2 ring-transparent hover:ring-outline-variant focus:outline-none transition-all" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvx-8pK1U6NeR_AFHl62ZKNn4hbOC8q9Ywaq76vhYuQ4Czwq19KSmzqfZMRqSGIF5xIswJDeUfE3H6s1UVs8SfBYjOtCcUi3JV2FqXxKX0-IIYxzfzOgC6eiVKBNrUMsaCSOp2H5JKsJ1uGpcYKDyzmIR1YX2cvoOrnoY3ul_nk3z89yuYqgRW2kSCKzfMVWSRcO-Lw24R9lhHRh51ePMwk5b9Gb6rdy1yG7RTa-mmwZ1GDP6pdR26DQ"/></button></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface py-space-3xl">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[360px] bg-gradient-to-b from-primary-fixed/40 via-secondary-fixed/20 to-transparent rounded-full blur-3xl pointer-events-none -z-0"></div>
+<div class="absolute top-1/4 right-0 w-[420px] h-[420px] bg-tertiary-fixed-dim/20 rounded-full blur-3xl pointer-events-none -z-0"></div>
+<div class="relative z-10 max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop flex flex-col items-center text-center">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-1.5 rounded-full shadow-sm mb-space-lg">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+</span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide uppercase">AI-Powered Communication v2.4</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Trusted by 120,000+ writers</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display text-display max-w-4xl text-on-background tracking-tight">
+        Write better emails. <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">
+          Communicate with confidence.
+        </span>
+</h1>
+<!-- Supporting Copy -->
+<p class="mt-space-md font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Draft high-impact professional correspondence in seconds, fix tone and grammar mistakes in real-time, and impress clients, recruiters, and professors.
+      </p>
+<!-- Action Buttons -->
+<div class="mt-space-xl flex flex-col sm:flex-row items-center gap-space-md w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container transition-all hover:-translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span>Generate an Email</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-tertiary">check_circle</span>
+<span>Check My Writing</span>
+</a>
+</div>
+<div class="mt-space-sm flex items-center gap-space-xs text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>No credit card required • 14-day free pro trial</span>
+</div>
+<!-- Hero Interactive Preview Studio -->
+<div class="w-full max-w-5xl mt-space-2xl text-left bg-surface-container-lowest rounded-2xl shadow-xl p-space-md md:p-space-xl relative">
+<div class="flex flex-col lg:flex-row gap-space-lg">
+<!-- Left Column: Interactive Composer -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Studio Toolbar -->
+<div class="flex items-center justify-between pb-space-sm bg-surface-container-low/50 px-space-sm py-2 rounded-xl mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-error/70"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="ml-space-xs font-label-sm text-label-sm text-on-surface-variant">Live Compose Studio</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-1 text-on-surface-variant font-caption text-caption px-2 py-1 rounded bg-surface-container-lowest shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[14px]">history</span> History
+                </button>
+<button class="inline-flex items-center gap-1 text-on-surface-variant font-caption text-caption px-2 py-1 rounded bg-surface-container-lowest shadow-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Copy
+                </button>
+</div>
+</div>
+<!-- Subject Line AI Suggestions -->
+<div class="bg-surface-container-low rounded-xl p-space-sm mb-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">AI Subject Generator</span>
+<span class="inline-flex items-center gap-1 text-primary font-caption text-caption font-semibold">
+<span class="material-symbols-outlined text-[13px]">bolt</span> High Open Rate
+                </span>
+</div>
+<div class="flex flex-wrap gap-space-xs mt-1">
+<button class="px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span>Re: Partnership Follow-up &amp; Next Steps</span>
+<span class="material-symbols-outlined text-[14px]">check</span>
+</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors">
+                  Quick question regarding Q3 roadmap
+                </button>
+<button class="hidden sm:inline-flex px-space-sm py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors">
+                  Action Required: Proposal feedback
+                </button>
+</div>
+</div>
+<!-- Body Area with Interactive Diagnostics -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm min-h-[220px] flex flex-col justify-between">
+<div class="space-y-space-sm font-body-md text-body-md text-on-surface">
+<p>Hi Sarah,</p>
+<p>
+                  Thanks for meeting with our product group yesterday. 
+                  <span class="bg-surface-container-high text-primary font-medium px-1.5 py-0.5 rounded cursor-pointer relative group">
+                    I just wanted to quickly circle back
+                    <span class="hidden group-hover:block absolute -top-9 left-0 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-caption font-caption z-30 shadow-md">
+                      Suggestion: “Following up on our discussion”
+                    </span>
+</span>
+                  to share the updated architectural timeline. We reviewed your notes and 
+                  <span class="bg-error-container text-on-error-container px-1.5 py-0.5 rounded cursor-pointer relative group">
+                    definitly
+                    <span class="hidden group-hover:block absolute -top-9 left-0 bg-inverse-surface text-inverse-on-surface px-2 py-1 rounded text-caption font-caption z-30 shadow-md">
+                      Fix: “definitely” (Spelling)
+                    </span>
+</span>
+                  agree on the target launch milestones.
+                </p>
+<p>
+                  Could you let me know if Thursday works for a 15-minute sync to finalize the integration scope?
+                </p>
+<p class="text-on-surface-variant">Best regards,<br/><span class="font-semibold text-on-surface">Alexander Vance</span></p>
+</div>
+<!-- Inline Action Toolbar -->
+<div class="mt-space-md pt-space-xs flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-caption text-caption text-on-surface-variant">Tone Preset:</span>
+<button class="px-space-xs py-1 rounded-md bg-primary text-on-primary font-label-sm text-label-sm">Confident</button>
+<button class="px-space-xs py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">Polite</button>
+<button class="px-space-xs py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">Direct</button>
+<button class="px-space-xs py-1 rounded-md bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high">Executive</button>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+<span>98 words</span>
+<span>•</span>
+<span class="text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">spellcheck</span> Grade 8.2
+                  </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Diagnostic Inspector & Alternatives -->
+<div class="w-full lg:w-80 flex flex-col gap-space-sm">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Smart Insights</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm">Score 94%</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">Your message strikes an assertive, constructive tone with high clarity.</p>
+<!-- Progress Metrics -->
+<div class="space-y-space-xs mt-space-xs">
+<div>
+<div class="flex justify-between font-caption text-caption text-on-surface mb-1">
+<span>Clarity &amp; Directness</span>
+<span class="font-semibold text-primary">96%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 96%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-caption text-caption text-on-surface mb-1">
+<span>Politeness &amp; Warmth</span>
+<span class="font-semibold text-secondary">92%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-caption text-caption text-on-surface mb-1">
+<span>Conciseness</span>
+<span class="font-semibold text-tertiary">88%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Alternative AI Suggestions -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">One-Click Polish</span>
+<span class="text-caption font-caption text-primary cursor-pointer hover:underline">Regenerate</span>
+</div>
+<div class="bg-surface-container-low p-space-xs rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between font-caption text-caption mb-1">
+<span class="font-semibold text-primary">More Executive</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  “Sarah, following our sync yesterday, attached are the verified rollout milestones for your alignment.”
+                </p>
+</div>
+<div class="bg-surface-container-low p-space-xs rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between font-caption text-caption mb-1">
+<span class="font-semibold text-tertiary">Diplomatic Request</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">arrow_forward</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+                  “Would your team have brief availability later this week to validate these updated scope parameters?”
+                </p>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md shadow-md flex items-center justify-center gap-2 hover:opacity-95 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">magic_button</span>
+<span>Apply All Improvements</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience Segmentation Section -->
+<section class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-2xl">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">Tailored Workflows</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Engineered for your high-stakes writing.</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Whether pitching a Fortune 500 executive or contacting academic faculty, our specialized LLM models adapt tone, rigor, and etiquette.
+        </p>
+</div>
+<!-- 4 Column Segmentation Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Students -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center mb-space-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">school</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Students &amp; Academics</h3>
+<p class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+              Bridge communication gaps with faculty without sounding anxious or disrespectful.
+            </p>
+<ul class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Recommendation letters</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Cold emailing research labs</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span>Polite grade re-evaluations</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-sm">
+<a class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary group-hover:gap-2 transition-all" href="#">
+<span>Explore Student Models</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: Job Seekers -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center mb-space-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">work</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Job Seekers</h3>
+<p class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+              Stand out in competitive recruitment pools with sharp, memorable follow-ups.
+            </p>
+<ul class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>High-converting outreach</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Interview debriefs &amp; thank-yous</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Salary negotiations</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-sm">
+<a class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary group-hover:gap-2 transition-all" href="#">
+<span>Recruiter-Approved Tools</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Business Professionals -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-tertiary flex items-center justify-center mb-space-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">corporate_fare</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Business Leaders</h3>
+<p class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+              Cut through enterprise bloat with decisive summaries and clear alignment.
+            </p>
+<ul class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Client pitch proposals</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Executive briefing updates</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+<span>Polite boundary setting</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-sm">
+<a class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary group-hover:gap-2 transition-all" href="#">
+<span>Enterprise Features</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4: General Users -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-surface-container text-on-surface flex items-center justify-center mb-space-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">forum</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Everyday Inquiries</h3>
+<p class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+              Solve disputes, manage subscriptions, and articulate community complaints effortlessly.
+            </p>
+<ul class="mt-space-md space-y-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">check_circle</span>
+<span>Clear billing disputes</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">check_circle</span>
+<span>Customer support escalations</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[16px]">check_circle</span>
+<span>Landlord &amp; HOA notices</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-lg pt-space-sm">
+<a class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface group-hover:gap-2 transition-all" href="#">
+<span>Everyday Prompts</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Showcase Grid -->
+<section class="w-full py-space-3xl bg-surface">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop">
+<div class="text-center max-w-2xl mx-auto mb-space-2xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Core Capabilities</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Precision engineered for frictionless output.</h2>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+          Advanced natural language understanding tuned specifically to high-reputation correspondence.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Feature 1: Context-Aware Email Generation -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center justify-center p-3 rounded-xl bg-primary/10 text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">outgoing_mail</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Generate Emails from Rough Bullets</h3>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+              Feed incomplete notes, meeting transcripts, or bullet points. Our AI generates comprehensive, polished messages ready to send in seconds.
+            </p>
+</div>
+<!-- Feature 1 Graphic Visualization -->
+<div class="mt-space-lg bg-surface-container-low rounded-xl p-space-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+<span class="font-caption text-caption text-on-surface-variant font-mono">input_prompt.txt</span>
+</div>
+<div class="bg-surface-container-lowest p- space-sm p-3 rounded-lg font-mono text-body-sm text-on-surface mb-3">
+              - Need deadline moved to Friday<br/>
+              - QA found bug in auth module<br/>
+              - Apologize for delay, offer staging demo
+            </div>
+<div class="flex items-center justify-center text-primary py-1">
+<span class="material-symbols-outlined animate-bounce">arrow_downward</span>
+</div>
+<div class="bg-primary-fixed/50 p-3 rounded-lg font-body-sm text-body-sm text-on-primary-fixed">
+              “I am writing to formally request a revised submission deadline of Friday afternoon due to an authentication regression identified during final QA...”
+            </div>
+</div>
+</div>
+<!-- Feature 2: Deep Grammar & Vocabulary -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center justify-center p-3 rounded-xl bg-tertiary-fixed/40 text-tertiary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">spellcheck</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Real-Time Grammar &amp; Vocabulary</h3>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+              Eliminate awkward phrasing, passive voice traps, and syntax inconsistencies. Get instantaneous replacement suggestions as you type.
+            </p>
+</div>
+<!-- Feature 2 Graphic Visualization -->
+<div class="mt-space-lg bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-caption text-caption text-on-surface-variant">
+<span>DIAGNOSTIC PIPELINE</span>
+<span class="text-tertiary font-bold">0 Latency</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="line-through font-body-sm text-on-surface-variant">Due to the fact that</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed/30 px-2 py-0.5 rounded">Because</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="line-through font-body-sm text-on-surface-variant">In my humble opinion</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2 py-0.5 rounded">I recommend</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="line-through font-body-sm text-on-surface-variant">At this moment in time</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary-fixed/30 px-2 py-0.5 rounded">Currently</span>
+</div>
+</div>
+</div>
+<!-- Feature 3: Dynamic Tone Sliders -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center justify-center p-3 rounded-xl bg-secondary-fixed/50 text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">tune</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Multi-Dimensional Tone Control</h3>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+              Dial in the precise emotional nuance of your email. Seamlessly shift from friendly and collaborative to firm and authoritative.
+            </p>
+</div>
+<!-- Feature 3 Visual Slider UI -->
+<div class="mt-space-lg bg-surface-container-low rounded-xl p-space-md space-y-space-md">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface mb-1.5">
+<span>Formality: Executive</span>
+<span class="text-secondary font-semibold">Level 4/5</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex items-center">
+<div class="bg-secondary h-full rounded-full w-4/5"></div>
+</div>
+<div class="flex justify-between text-caption font-caption text-on-surface-variant mt-1">
+<span>Casual</span>
+<span>Boardroom</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface mb-1.5">
+<span>Directness: Unambiguous</span>
+<span class="text-primary font-semibold">Level 5/5</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden flex items-center">
+<div class="bg-primary h-full rounded-full w-full"></div>
+</div>
+<div class="flex justify-between text-caption font-caption text-on-surface-variant mt-1">
+<span>Diplomatic</span>
+<span>Direct</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature 4: Cloud Sync & Reusable Snippets -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center justify-center p-3 rounded-xl bg-primary-fixed/40 text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">cloud_sync</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Auto-Save, Snippets &amp; Cloud Sync</h3>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+              Never lose a draft again. Organize custom email formulas, repetitive sign-offs, and company-approved boilerplate accessible across all devices.
+            </p>
+</div>
+<!-- Feature 4 UI Representation -->
+<div class="mt-space-lg bg-surface-container-low rounded-xl p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bookmark</span>
+<span class="font-label-sm text-label-sm text-on-surface">Client Discovery Follow-up</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Synced 2m ago</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">bookmark</span>
+<span class="font-label-sm text-label-sm text-on-surface">Quarterly Investor Memo</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Synced 1h ago</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">bookmark</span>
+<span class="font-label-sm text-label-sm text-on-surface">Grade Appeal - Template #4</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Synced yesterday</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Templates Showcase Section -->
+<section class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold">Template Library</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Pre-tested formulas for critical moments.</h2>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:underline" href="#">
+<span>View all 150+ templates</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Template Cards Slider/Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-space-md">
+<!-- Template 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-caption text-caption font-semibold">Academics</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">auto_stories</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Professor Extension</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs line-clamp-3">
+              Respectful request for assignment extension with personal circumstances and timeline proposal.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors">
+              Use Template
+            </button>
+</div>
+</div>
+<!-- Template 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-secondary font-caption text-caption font-semibold">Career</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">send</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Interview Follow-Up</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs line-clamp-3">
+              Express gratitude, reiterate value, and reference key discussions with hiring directors.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-secondary hover:text-on-secondary transition-colors">
+              Use Template
+            </button>
+</div>
+</div>
+<!-- Template 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-caption text-caption font-semibold">Business</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">verified</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Scope Confirmation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs line-clamp-3">
+              Lock down project boundaries, deliverables, and prevent scope creep post-call.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-tertiary hover:text-on-tertiary transition-colors">
+              Use Template
+            </button>
+</div>
+</div>
+<!-- Template 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-caption text-caption font-semibold">Finance</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">payments</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Late Payment Nudge</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs line-clamp-3">
+              Firm yet cordial reminder of overdue invoice without burning client goodwill.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-error hover:text-on-error transition-colors">
+              Use Template
+            </button>
+</div>
+</div>
+<!-- Template 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-caption text-caption font-semibold">Relations</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">handshake</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Apology &amp; Resolution</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs line-clamp-3">
+              Take ownership of miscommunication, outline resolution steps, and rebuild trust.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<button class="w-full py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-colors">
+              Use Template
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Enterprise Trust, Privacy & Security Section -->
+<section class="w-full py-space-3xl bg-surface">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop">
+<div class="bg-inverse-surface rounded-3xl p-space-xl md:p-space-2xl text-inverse-on-surface relative overflow-hidden shadow-2xl">
+<!-- Abstract Security Geometry -->
+<div class="absolute -right-16 -bottom-16 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row gap-space-2xl items-center justify-between">
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-inverse-primary font-label-sm text-label-sm mb-space-md">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+<span>Enterprise Grade Privacy Guaranteed</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-inverse-on-surface">
+              Your confidential drafts stay strictly private.
+            </h2>
+<p class="mt-space-sm font-body-md text-body-md text-outline-variant">
+              We never use your email content to train global AI models. End-to-end encryption in transit and rest ensures your competitive intellect and personal matters remain yours alone.
+            </p>
+<div class="grid grid-cols-2 gap-space-md mt-space-xl">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">verified_user</span>
+<div>
+<div class="font-label-md text-label-md text-inverse-on-surface">SOC-2 Type II</div>
+<div class="font-caption text-caption text-outline-variant">Audited Compliance</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">lock_reset</span>
+<div>
+<div class="font-label-md text-label-md text-inverse-on-surface">Zero Data Retention</div>
+<div class="font-caption text-caption text-outline-variant">Immediate Scratchpad Purge</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">cloud_done</span>
+<div>
+<div class="font-label-md text-label-md text-inverse-on-surface">99.9% Uptime SLA</div>
+<div class="font-caption text-caption text-outline-variant">High-Availability API</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">accessibility_new</span>
+<div>
+<div class="font-label-md text-label-md text-inverse-on-surface">WCAG AA Standard</div>
+<div class="font-caption text-caption text-outline-variant">Screen Reader Accessible</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Social Proof Metric Pillars -->
+<div class="w-full lg:w-80 flex flex-col gap-space-md">
+<div class="bg-surface-container-highest/10 backdrop-blur-md p-space-md rounded-2xl">
+<div class="font-display text-display text-secondary-fixed font-bold tracking-tight">4.9 / 5.0</div>
+<div class="flex items-center gap-1 text-secondary-container mt-1">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-caption text-caption text-outline-variant mt-2">Over 18,000 verified professional reviews.</p>
+</div>
+<div class="bg-surface-container-highest/10 backdrop-blur-md p-space-md rounded-2xl">
+<div class="font-display text-display text-tertiary-fixed-dim font-bold tracking-tight">8.5M+</div>
+<div class="font-label-md text-label-md text-inverse-on-surface mt-1">Emails Crafted Safely</div>
+<p class="font-caption text-caption text-outline-variant mt-1">Across 140 countries and 30 industries.</p>
+</div>
+<div class="bg-surface-container-highest/10 backdrop-blur-md p-space-md rounded-2xl">
+<div class="font-display text-display text-primary-fixed-dim font-bold tracking-tight">94%</div>
+<div class="font-label-md text-label-md text-inverse-on-surface mt-1">Faster Response Rates</div>
+<p class="font-caption text-caption text-outline-variant mt-1">Reported by outreach and job seekers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final High-Impact Conversion CTA Banner -->
+<section class="w-full py-space-3xl bg-surface-container-lowest">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-tablet xl:px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto flex flex-col items-center">
+<div class="w-16 h-16 rounded-2xl bg-primary text-on-primary flex items-center justify-center shadow-lg mb-space-md">
+<span class="material-symbols-outlined text-[36px]">mark_email_read</span>
+</div>
+<h2 class="font-display text-display text-on-surface tracking-tight">
+          Ready to elevate every message you send?
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-sm max-w-xl">
+          Join more than 120,000 professionals, executives, and students transforming their communication today.
+        </p>
+<div class="mt-space-xl flex flex-col sm:flex-row items-center gap-space-sm w-full sm:w-auto">
+<a class="w-full sm:w-auto px-space-2xl py-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-lg flex items-center justify-center gap-space-xs transition-all hover:scale-[1.02]" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span>Start Writing Free</span>
+</a>
+<a class="w-full sm:w-auto px-space-xl py-4 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+            Request Team Demo
+          </a>
+</div>
+<p class="mt-space-sm font-caption text-caption text-on-surface-variant">
+          Free 14-day trial • Cancel anytime • No installation needed
+        </p>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-2xl"><div class="max-w-max-container mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs"><img alt="growfastingAI Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><span class="font-label-md text-label-md text-on-surface">growfastingAI</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 growfastingAI. Intelligent communication platform. All rights reserved.</p><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Terms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Security</a></div></div></footer></body></html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#dbe1ff","surface":"#faf8ff","surface-container":"#eaedff","outline":"#737686","surface-tint":"#0053db","on-secondary":"#ffffff","on-error-container":"#93000a","background":"#faf8ff","surface-container-high":"#e2e7ff","inverse-on-surface":"#eef0ff","on-background":"#131b2e","surface-container-lowest":"#ffffff","tertiary":"#006058","inverse-surface":"#283044","on-tertiary-container":"#b3fff3","on-surface":"#131b2e","surface-bright":"#faf8ff","secondary":"#006398","on-tertiary":"#ffffff","secondary-container":"#5bb8fe","on-secondary-fixed-variant":"#004b73","tertiary-fixed-dim":"#6bd8cb","error":"#ba1a1a","surface-dim":"#d2d9f4","on-primary-container":"#eeefff","on-primary-fixed":"#00174b","surface-variant":"#dae2fd","secondary-fixed":"#cce5ff","primary":"#004ac6","on-tertiary-fixed-variant":"#005049","error-container":"#ffdad6","on-primary-fixed-variant":"#003ea8","on-surface-variant":"#434655","on-error":"#ffffff","primary-container":"#2563eb","on-primary":"#ffffff","on-secondary-fixed":"#001d31","inverse-primary":"#b4c5ff","secondary-fixed-dim":"#93ccff","tertiary-container":"#007b71","outline-variant":"#c3c6d7","on-secondary-container":"#00476e","on-tertiary-fixed":"#00201d","surface-container-low":"#f2f3ff","primary-fixed-dim":"#b4c5ff","tertiary-fixed":"#89f5e7","surface-container-highest":"#dae2fd"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-desktop":"1.5rem","margin-desktop":"3rem","space-xs":"0.5rem","margin-mobile":"1rem","gutter-mobile":"1rem","space-sm":"0.75rem","space-2xl":"3rem","space-xl":"2rem","space-md":"1rem","margin-tablet":"2rem","space-3xl":"4rem","space-2xs":"0.25rem","space-lg":"1.5rem","max-container":"80rem"},"fontFamily":{"caption":["Inter"],"display-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"display":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},"fontSize":{"caption":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"display":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-max-container mx-auto px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="features" href="#"><img alt="growfastingAI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">growfasting<span class="text-primary">AI</span></span></a><nav class="hidden xl:flex items-center gap-space-md" data-active-classes="text-primary font-bold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="features" href="#">Features</a><a aria-current="page" class="transition-colors py-1 text-primary font-bold" data-path="email-generator" href="#">Email Generator</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="grammar-checker" href="#">Grammar Checker</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="templates" href="#">Templates</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="pricing" href="#">Pricing</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="user-dashboard" href="#">User Dashboard</a></nav></div><div class="flex items-center gap-space-sm"><div class="hidden md:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-tertiary-container"></span><span class="font-label-sm text-label-sm text-on-surface">Pro Free Trial</span><span class="font-caption text-caption text-on-surface-variant bg-surface-container-lowest px-1.5 py-0.5 rounded-full shadow-sm">85/100 Credits</span></div><a class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-space-xs py-space-xs transition-colors" data-path="sign-in" href="#">Sign In</a><a class="inline-flex items-center justify-center font-label-md text-label-md bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded-lg transition-colors shadow-sm" data-path="email-generator" href="#">Start Writing</a><div class="flex items-center pl-1"><button class="flex rounded-full ring-2 ring-transparent hover:ring-outline-variant focus:outline-none transition-all" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvx-8pK1U6NeR_AFHl62ZKNn4hbOC8q9Ywaq76vhYuQ4Czwq19KSmzqfZMRqSGIF5xIswJDeUfE3H6s1UVs8SfBYjOtCcUi3JV2FqXxKX0-IIYxzfzOgC6eiVKBNrUMsaCSOp2H5JKsJ1uGpcYKDyzmIR1YX2cvoOrnoY3ul_nk3z89yuYqgRW2kSCKzfMVWSRcO-Lw24R9lhHRh51ePMwk5b9Gb6rdy1yG7RTa-mmwZ1GDP6pdR26DQ"/></button></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Overlay -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-40 right-10 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 left-0 w-80 h-80 bg-secondary-fixed/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Sub-Header / Document Navigation & Status Bar -->
+<div class="w-full bg-surface-container-lowest/80 backdrop-blur-md shadow-sm">
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-desktop py-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<!-- Left: Document Context & Title -->
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-headline-sm">mark_email_read</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs">
+<input class="font-headline-sm text-headline-sm text-on-surface bg-transparent focus:bg-surface-container-low px-1.5 py-0.5 rounded outline-none w-72 md:w-80 truncate" id="docTitleInput" type="text" value="Follow-up on Series A Tech Pitch"/>
+<span class="material-symbols-outlined text-body-sm text-on-surface-variant cursor-pointer hover:text-primary">edit</span>
+</div>
+<div class="flex items-center gap-space-xs font-caption text-caption text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-container shrink-0"></span>
+<span id="saveStatus">Saved just now</span>
+<span>•</span>
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface font-label-sm">Investor Relations</span>
+<span>•</span>
+<span class="text-primary font-label-sm">AI Engine v4.2 Pro</span>
+</div>
+</div>
+</div>
+<!-- Right: Fast Document Actions & Credits -->
+<div class="flex items-center gap-space-sm self-end md:self-center">
+<div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-body-md text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface">Credits Available:</span>
+<span class="font-label-md text-label-md text-primary font-bold">85</span>
+</div>
+<button class="flex items-center gap-space-2xs bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-space-sm py-1.5 rounded-lg transition-all shadow-sm" id="historyBtn" type="button">
+<span class="material-symbols-outlined text-body-md">history</span>
+<span class="hidden sm:inline">History</span>
+</button>
+<button class="flex items-center gap-space-2xs bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-space-sm py-1.5 rounded-lg transition-all shadow-sm" id="shareDocBtn" type="button">
+<span class="material-symbols-outlined text-body-md">share</span>
+<span class="hidden sm:inline">Export</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Studio Canvas: Two Column Desktop Workspace -->
+<div class="max-w-max-container mx-auto px-margin-mobile md:px-margin-desktop py-space-lg">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- ========================================== -->
+<!-- LEFT COLUMN: GENERATION PROMPT CONTROLS     -->
+<!-- ========================================== -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+<!-- Step 1: Audience & Role -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-caption text-caption flex items-center justify-center font-bold">1</span>
+<label class="font-label-md text-label-md text-on-surface font-bold tracking-tight">Recipient &amp; Audience Context</label>
+</div>
+<span class="font-caption text-caption text-tertiary font-medium bg-tertiary-fixed/30 px-2 py-0.5 rounded-full">High Context</span>
+</div>
+<!-- Recipient Role Categories -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-1">
+<button class="audience-tab active px-2.5 py-1.5 rounded-lg text-center font-label-sm text-label-sm bg-primary text-on-primary shadow-sm transition-all" type="button">
+                  Investor / VC
+                </button>
+<button class="audience-tab px-2.5 py-1.5 rounded-lg text-center font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" type="button">
+                  Executive
+                </button>
+<button class="audience-tab px-2.5 py-1.5 rounded-lg text-center font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" type="button">
+                  Key Client
+                </button>
+<button class="audience-tab px-2.5 py-1.5 rounded-lg text-center font-label-sm text-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" type="button">
+                  Recruiter
+                </button>
+</div>
+<!-- Input Fields: Name & Role -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs pt-1">
+<div>
+<label class="block font-caption text-caption text-on-surface-variant mb-1">Recipient Name</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-body-md text-outline">person</span>
+<input class="w-full pl-8 pr-3 py-2 bg-surface rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 outline-none" id="recipientName" type="text" value="Marcus Vance"/>
+</div>
+</div>
+<div>
+<label class="block font-caption text-caption text-on-surface-variant mb-1">Role / Organization</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-body-md text-outline">apartment</span>
+<input class="w-full pl-8 pr-3 py-2 bg-surface rounded-lg font-body-sm text-body-sm text-on-surface shadow-sm focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 outline-none" id="recipientOrg" type="text" value="Partner at Horizon Ventures"/>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Step 2: Email Purpose & Objectives -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-caption text-caption flex items-center justify-center font-bold">2</span>
+<label class="font-label-md text-label-md text-on-surface font-bold tracking-tight">Email Intent &amp; Objectives</label>
+</div>
+<div class="relative">
+<select class="w-full appearance-none bg-surface text-on-surface font-body-sm text-body-sm px-3 py-2.5 rounded-lg shadow-sm focus:ring-2 focus:ring-primary/20 outline-none pr-8 cursor-pointer" id="emailPurpose">
+<option selected="">Investor Follow-up / Pitch Update</option>
+<option>Post-Meeting Recap &amp; Next Milestones</option>
+<option>Cold Outreach &amp; Partnership Pitch</option>
+<option>Contract Agreement Revisions</option>
+<option>Quarterly Board KPI Summary</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-body-md text-outline pointer-events-none">expand_more</span>
+</div>
+<!-- Objectives Tag Pills -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="inline-flex items-center gap-1 font-caption text-caption bg-surface-container text-on-surface px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-caption text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Highlight Traction Metrics
+                </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption bg-surface-container text-on-surface px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-caption text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Attach Deck
+                </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption bg-surface-container text-on-surface px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-caption text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Lock in Calendar Slot
+                </span>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Step 3: Core Details & Bullet Points -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-caption text-caption flex items-center justify-center font-bold">3</span>
+<label class="font-label-md text-label-md text-on-surface font-bold tracking-tight">Key Points &amp; Instructions</label>
+</div>
+<button class="font-caption text-caption text-primary hover:underline flex items-center gap-0.5" id="insertTemplateBullet" type="button">
+<span class="material-symbols-outlined text-caption">add</span> Insert Bullet
+                </button>
+</div>
+<div class="relative rounded-lg bg-surface p-2 shadow-sm focus-within:ring-2 focus-within:ring-primary/20">
+<textarea class="w-full bg-transparent border-0 outline-none text-on-surface font-body-sm text-body-sm resize-none" id="promptDetails" placeholder="Enter key facts, dates, commitments, or talking points..." rows="4">• Thank him for the insightful discussion on our enterprise AI agents.
+• Reiterate our verified 42% MoM growth in Q3 ARR ($1.8M ARR run-rate).
+• Attached updated financial forecast model &amp; customer cohort analysis.
+• Propose a direct 20-minute recap video call for next Tuesday or Wednesday.</textarea>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container text-on-surface-variant font-caption text-caption">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-caption text-tertiary">auto_awesome</span>
+                    Context Richness: Excellent
+                  </span>
+<span>4/5 bullet points</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Step 4: Tone & Persona Engine -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-caption text-caption flex items-center justify-center font-bold">4</span>
+<label class="font-label-md text-label-md text-on-surface font-bold tracking-tight">Tone Calibration</label>
+</div>
+<span class="font-caption text-caption text-primary font-medium">Selected: Professional</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="tone-card cursor-pointer p-2.5 rounded-lg bg-primary/10 shadow-sm flex items-center gap-2 transition-all">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></div>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm text-primary font-bold truncate">Professional &amp; Confident</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Authoritative &amp; crisp</p>
+</div>
+</div>
+<div class="tone-card cursor-pointer p-2.5 rounded-lg bg-surface hover:bg-surface-container shadow-sm flex items-center gap-2 transition-all">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant shrink-0"></div>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold truncate">Warm &amp; Engaging</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Approachable partner</p>
+</div>
+</div>
+<div class="tone-card cursor-pointer p-2.5 rounded-lg bg-surface hover:bg-surface-container shadow-sm flex items-center gap-2 transition-all">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant shrink-0"></div>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold truncate">Direct &amp; Concise</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Fast executive read</p>
+</div>
+</div>
+<div class="tone-card cursor-pointer p-2.5 rounded-lg bg-surface hover:bg-surface-container shadow-sm flex items-center gap-2 transition-all">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant shrink-0"></div>
+<div class="min-w-0">
+<p class="font-label-sm text-label-sm text-on-surface font-semibold truncate">Diplomatic &amp; Polite</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">High deference level</p>
+</div>
+</div>
+</div>
+<!-- Length Preference -->
+<div class="pt-2 flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface">Target Length:</span>
+<div class="flex items-center gap-1 bg-surface-container-lowest p-0.5 rounded-md shadow-sm">
+<button class="px-2 py-0.5 rounded text-caption font-caption font-bold bg-primary text-on-primary shadow-sm" type="button">Concise</button>
+<button class="px-2 py-0.5 rounded text-caption font-caption text-on-surface-variant hover:text-on-surface" type="button">Standard</button>
+<button class="px-2 py-0.5 rounded text-caption font-caption text-on-surface-variant hover:text-on-surface" type="button">Detailed</button>
+</div>
+</div>
+</div>
+<!-- Advanced Settings Accordion -->
+<details class="group bg-surface-container-low/60 rounded-lg p-2.5 text-on-surface">
+<summary class="flex items-center justify-between cursor-pointer font-label-sm text-label-sm font-semibold select-none list-none">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-body-md text-primary">tune</span>
+                  Advanced Parameters (CTA, Urgency, Model)
+                </span>
+<span class="material-symbols-outlined text-body-md text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 space-y-2.5 font-caption text-caption">
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="text-on-surface-variant mb-1 block">Language Variant</label>
+<select class="w-full bg-surface-container-lowest rounded p-1.5 outline-none font-body-sm text-body-sm shadow-sm">
+<option>English (US)</option>
+<option>English (UK)</option>
+<option>German</option>
+<option>French</option>
+<option>Spanish</option>
+</select>
+</div>
+<div>
+<label class="text-on-surface-variant mb-1 block">CTA Urgency</label>
+<select class="w-full bg-surface-container-lowest rounded p-1.5 outline-none font-body-sm text-body-sm shadow-sm">
+<option>Moderate (Standard Response)</option>
+<option>Low (Gentle Check-in)</option>
+<option>High (Time Sensitive)</option>
+</select>
+</div>
+</div>
+<div>
+<label class="text-on-surface-variant mb-1 block">Sender Sign-off Name</label>
+<input class="w-full bg-surface-container-lowest rounded p-1.5 outline-none font-body-sm text-body-sm shadow-sm" type="text" value="Alex Rivera | Founder &amp; CEO, growfastingAI"/>
+</div>
+</div>
+</details>
+<!-- Sticky Generation Actions Bar -->
+<div class="pt-2 flex items-center gap-space-xs">
+<button class="flex-1 flex items-center justify-center gap-space-2xs bg-primary hover:bg-primary-container text-on-primary py-3 px-4 rounded-xl font-headline-sm text-headline-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-[0.99]" id="generateEmailBtn" type="button">
+<span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Generate Email</span>
+<span class="font-caption text-caption bg-surface-container-lowest/20 px-2 py-0.5 rounded-full ml-1 font-semibold">1 Credit</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface p-3 rounded-xl transition-all shadow-sm" id="resetPromptBtn" title="Reset Inputs" type="button">
+<span class="material-symbols-outlined text-headline-sm">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Generation Intelligence Tip Card -->
+<div class="bg-surface-container-low rounded-xl p-space-sm shadow-sm flex items-start gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-body-md" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface font-bold">Investor Follow-up Playbook</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Emails structured with quantified traction stats in paragraph two receive a 38% higher reply conversion within 24 hours.</p>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- RIGHT COLUMN: GENERATED EMAIL STUDIO VIEW   -->
+<!-- ========================================== -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Studio Main Card Canvas -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md md:p-space-lg flex flex-col gap-space-md relative overflow-hidden">
+<!-- Generation State Indicator Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs pb-space-sm border-b border-surface-container" id="genStatusRibbon">
+<div class="flex items-center gap-space-xs">
+<!-- Quality Score Gauge -->
+<div class="flex items-center gap-1.5 bg-tertiary-fixed/30 text-tertiary px-2.5 py-1 rounded-full font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-body-md" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>98% Impact Score</span>
+</div>
+<div class="hidden sm:flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+<span class="flex items-center gap-0.5">
+<span class="material-symbols-outlined text-body-sm">schedule</span> 45 sec read
+                  </span>
+<span>•</span>
+<span>128 words</span>
+<span>•</span>
+<span class="text-tertiary-container font-semibold">Flawless Grammar</span>
+</div>
+</div>
+<!-- Quick View Mode Segment -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary font-bold shadow-sm" type="button">Draft Preview</button>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" type="button">Split Diff</button>
+</div>
+</div>
+<!-- Subject Line Module -->
+<div class="bg-surface-container-low rounded-xl p-space-sm shadow-sm space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-caption text-primary">subject</span>
+                  Email Subject Line
+                </label>
+<button class="font-caption text-caption text-primary hover:underline flex items-center gap-1" id="regenSubjectBtn" type="button">
+<span class="material-symbols-outlined text-caption">refresh</span>
+                  Suggest Alternate (3)
+                </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<input class="w-full bg-surface-container-lowest text-on-surface font-headline-sm text-headline-sm font-semibold px-3 py-2 rounded-lg shadow-sm outline-none focus:ring-2 focus:ring-primary/20" id="subjectInput" type="text" value="Horizon Ventures &lt;&gt; growfastingAI: Q3 Traction Highlights &amp; Follow-up"/>
+<button class="p-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg shadow-sm transition-colors shrink-0" id="copySubjectBtn" title="Copy Subject Only" type="button">
+<span class="material-symbols-outlined text-body-md">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Rich Interactive Email Canvas Body -->
+<div class="relative bg-surface rounded-xl p-space-md md:p-space-lg shadow-sm min-h-[380px] flex flex-col justify-between">
+<!-- Email Drafting Area -->
+<div class="space-y-space-md text-on-surface font-body-md text-body-md leading-relaxed outline-none" contenteditable="true" id="editableEmailContent">
+<p>Hi <span class="text-primary font-semibold">Marcus</span>,</p>
+<p>
+                  Thank you for taking the time to dive into our autonomous communication infrastructure earlier this week. We truly appreciated your incisive perspective on conversational AI retention across enterprise sales teams.
+                </p>
+<!-- Paragraph with inline AI Calibration Pill -->
+<div class="relative group">
+<p class="bg-surface-container-lowest/70 p-2.5 rounded-lg shadow-sm">
+                    As promised, I have attached our verified <strong class="text-on-surface font-bold">Q3 Financial Model &amp; Enterprise Cohort Deck</strong>. We officially closed September with a <strong>42% MoM revenue expansion</strong>, scaling our contracted ARR run-rate to <strong>$1.8M</strong> with a net revenue retention of 134%.
+                  </p>
+<div class="absolute -top-2.5 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-tertiary text-on-tertiary font-caption text-caption px-2 py-0.5 rounded-full shadow flex items-center gap-1 pointer-events-none">
+<span class="material-symbols-outlined text-caption">auto_awesome</span>
+                    Calibrated for metric-first VC evaluation
+                  </div>
+</div>
+<p>
+                  Given the accelerated trajectory and your interest in our automated drafting pipeline, I would love to walk you through our product roadmap and current round dynamics for 20 minutes next week.
+                </p>
+<!-- Call to Action Box -->
+<div class="bg-primary-fixed/20 p-space-sm rounded-lg shadow-sm flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-headline-sm shrink-0">event_available</span>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Proposed Calendar Slots:</p>
+<p class="text-on-surface font-body-sm text-body-sm">
+                      • <strong>Tuesday, Oct 24</strong> at 10:00 AM – 10:20 AM PT<br/>
+                      • <strong>Wednesday, Oct 25</strong> at 2:00 PM – 2:20 PM PT
+                    </p>
+</div>
+</div>
+<p>
+                  Does either of those windows align with your schedule? Alternatively, feel free to grab any open slot on my calendar link below.
+                </p>
+<!-- Sign-off Block -->
+<div class="pt-space-xs">
+<p class="text-on-surface-variant font-body-sm">Best regards,</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">Alex Rivera</p>
+<p class="font-caption text-caption text-on-surface-variant">Founder &amp; CEO, growfastingAI</p>
+<p class="font-caption text-caption text-primary hover:underline cursor-pointer">cal.growfasting.ai/alex-rivera</p>
+</div>
+</div>
+<!-- Loading Skeleton State (Hidden by default, triggered on generation) -->
+<div class="hidden absolute inset-0 bg-surface/95 backdrop-blur-sm rounded-xl p-space-lg flex flex-col justify-center gap-3" id="loadingSkeleton">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined animate-spin">progress_activity</span>
+<span>Synthesizing optimal phrasing and investor tone...</span>
+</div>
+<div class="h-4 bg-surface-container-high rounded w-1/4 animate-pulse"></div>
+<div class="h-4 bg-surface-container-high rounded w-3/4 animate-pulse"></div>
+<div class="h-4 bg-surface-container-high rounded w-full animate-pulse"></div>
+<div class="h-16 bg-surface-container-high rounded-lg w-full animate-pulse"></div>
+<div class="h-4 bg-surface-container-high rounded w-5/6 animate-pulse"></div>
+<div class="h-12 bg-surface-container-high rounded w-2/3 animate-pulse"></div>
+</div>
+</div>
+<!-- Quick AI Micro-Refinement Actions Bar -->
+<div class="space-y-space-xs pt-1">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">1-Click Fast Refinements</span>
+<span class="font-caption text-caption text-on-surface-variant">Clicking applies instantaneously</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="micro-action-pill flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:scale-105 active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-sm text-primary">compress</span>
+                  Make Shorter
+                </button>
+<button class="micro-action-pill flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:scale-105 active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-sm text-primary">business_center</span>
+                  More Formal
+                </button>
+<button class="micro-action-pill flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:scale-105 active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-sm text-primary">sentiment_satisfied</span>
+                  Friendlier
+                </button>
+<button class="micro-action-pill flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:scale-105 active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-sm text-primary">auto_fix_high</span>
+                  Improve Clarity
+                </button>
+<button class="micro-action-pill flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:scale-105 active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-sm text-primary">timer</span>
+                  Add Urgency
+                </button>
+</div>
+</div>
+<!-- Bottom Studio Action Deck -->
+<div class="pt-space-sm border-t border-surface-container flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-2xs bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-2.5 rounded-xl shadow-md transition-all active:scale-95" id="copyAllBtn" type="button">
+<span class="material-symbols-outlined text-body-md" id="copyIcon">content_copy</span>
+<span id="copyText">Copy Full Email</span>
+</button>
+<button class="flex items-center gap-space-2xs bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md px-space-sm py-2.5 rounded-xl shadow-sm transition-all" id="saveDraftBtn" type="button">
+<span class="material-symbols-outlined text-body-md">bookmark</span>
+<span class="hidden sm:inline">Save Draft</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-2xs bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-space-sm py-2.5 rounded-xl shadow-sm transition-all" id="openGmailBtn" type="button">
+<span class="material-symbols-outlined text-body-md text-error">outgoing_mail</span>
+<span>Send to Gmail</span>
+</button>
+<button class="flex items-center gap-space-2xs bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md px-space-sm py-2.5 rounded-xl shadow-sm transition-all" id="regenVariationBtn" type="button">
+<span class="material-symbols-outlined text-body-md text-primary">shuffle</span>
+<span class="hidden md:inline">Alternative Variation</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Metric & Live Feedback Badge Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-headline-sm">spellcheck</span>
+</div>
+<div class="min-w-0">
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">100%</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Zero Grammar Flaws</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-headline-sm">psychology</span>
+</div>
+<div class="min-w-0">
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">Grade 8.4</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Executive Readability</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-headline-sm">forward_to_inbox</span>
+</div>
+<div class="min-w-0">
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">+34%</p>
+<p class="font-caption text-caption text-on-surface-variant truncate">Estimated Response Rate</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Script for Interactive Elements -->
+<script>
+    (function() {
+      // 1. Audience Tab Selection Switcher
+      const audienceTabs = document.querySelectorAll('.audience-tab');
+      audienceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          audienceTabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary');
+            t.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          tab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          tab.classList.add('bg-primary', 'text-on-primary');
+        });
+      });
+
+      // 2. Tone Card Selector Switcher
+      const toneCards = document.querySelectorAll('.tone-card');
+      toneCards.forEach(card => {
+        card.addEventListener('click', () => {
+          toneCards.forEach(c => {
+            c.classList.remove('bg-primary/10');
+            c.classList.add('bg-surface');
+            const dot = c.querySelector('div:first-child');
+            if (dot) {
+              dot.classList.remove('bg-primary');
+              dot.classList.add('bg-outline-variant');
+            }
+          });
+          card.classList.remove('bg-surface');
+          card.classList.add('bg-primary/10');
+          const activeDot = card.querySelector('div:first-child');
+          if (activeDot) {
+            activeDot.classList.remove('bg-outline-variant');
+            activeDot.classList.add('bg-primary');
+          }
+        });
+      });
+
+      // 3. Simulated Generation Loading State
+      const generateBtn = document.getElementById('generateEmailBtn');
+      const skeleton = document.getElementById('loadingSkeleton');
+      const saveStatus = document.getElementById('saveStatus');
+
+      if (generateBtn && skeleton) {
+        generateBtn.addEventListener('click', () => {
+          skeleton.classList.remove('hidden');
+          saveStatus.textContent = 'Generating email draft...';
+
+          setTimeout(() => {
+            skeleton.classList.add('hidden');
+            saveStatus.textContent = 'Saved just now';
+          }, 900);
+        });
+      }
+
+      // 4. Copy to Clipboard Micro-feedback
+      const copyBtn = document.getElementById('copyAllBtn');
+      const copyText = document.getElementById('copyText');
+      const copyIcon = document.getElementById('copyIcon');
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const emailCanvas = document.getElementById('editableEmailContent');
+          if (emailCanvas) {
+            navigator.clipboard.writeText(emailCanvas.innerText).then(() => {
+              copyText.textContent = 'Copied to Clipboard!';
+              copyIcon.textContent = 'check';
+              copyBtn.classList.replace('bg-primary', 'bg-tertiary');
+              setTimeout(() => {
+                copyText.textContent = 'Copy Full Email';
+                copyIcon.textContent = 'content_copy';
+                copyBtn.classList.replace('bg-tertiary', 'bg-primary');
+              }, 2000);
+            });
+          }
+        });
+      }
+
+      // 5. Copy Subject line feedback
+      const copySubjectBtn = document.getElementById('copySubjectBtn');
+      const subjectInput = document.getElementById('subjectInput');
+      if (copySubjectBtn && subjectInput) {
+        copySubjectBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(subjectInput.value);
+          copySubjectBtn.classList.add('text-primary');
+          setTimeout(() => copySubjectBtn.classList.remove('text-primary'), 1200);
+        });
+      }
+
+      // 6. Regenerate Subject Variant
+      const regenSubjectBtn = document.getElementById('regenSubjectBtn');
+      const sampleSubjects = [
+        "Marcus - Quick recap on growfastingAI Series A & Q3 traction",
+        "Horizon Ventures <> growfastingAI: 42% MoM Q3 Growth Deck",
+        "Following up: growfastingAI metrics & next week calendar availability"
+      ];
+      let subIndex = 0;
+      if (regenSubjectBtn && subjectInput) {
+        regenSubjectBtn.addEventListener('click', () => {
+          subIndex = (subIndex + 1) % sampleSubjects.length;
+          subjectInput.value = sampleSubjects[subIndex];
+        });
+      }
+
+      // 7. Micro Action Pills Instant Feedback
+      const microPills = document.querySelectorAll('.micro-action-pill');
+      microPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const originalText = pill.innerText;
+          pill.classList.add('bg-primary-fixed', 'text-primary');
+          saveStatus.textContent = 'Refining text tone...';
+          setTimeout(() => {
+            pill.classList.remove('bg-primary-fixed', 'text-primary');
+            saveStatus.textContent = 'Saved just now';
+          }, 600);
+        });
+      });
+
+      // 8. Gmail Direct Launch
+      const openGmailBtn = document.getElementById('openGmailBtn');
+      if (openGmailBtn && subjectInput) {
+        openGmailBtn.addEventListener('click', () => {
+          const sub = encodeURIComponent(subjectInput.value);
+          const emailCanvas = document.getElementById('editableEmailContent');
+          const body = encodeURIComponent(emailCanvas ? emailCanvas.innerText : '');
+          window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${sub}&body=${body}`, '_blank');
+        });
+      }
+
+      // 9. Reset Inputs
+      const resetPromptBtn = document.getElementById('resetPromptBtn');
+      const promptDetails = document.getElementById('promptDetails');
+      if (resetPromptBtn && promptDetails) {
+        resetPromptBtn.addEventListener('click', () => {
+          promptDetails.value = '';
+          promptDetails.focus();
+        });
+      }
+
+      // 10. Insert Template Bullet
+      const insertTemplateBullet = document.getElementById('insertTemplateBullet');
+      if (insertTemplateBullet && promptDetails) {
+        insertTemplateBullet.addEventListener('click', () => {
+          promptDetails.value += '\n• ';
+          promptDetails.focus();
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-2xl"><div class="max-w-max-container mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs"><img alt="growfastingAI Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><span class="font-label-md text-label-md text-on-surface">growfastingAI</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 growfastingAI. Intelligent communication platform. All rights reserved.</p><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Terms</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Security</a></div></div></footer></body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary-fixed": "#dbe1ff", "surface": "#faf8ff", "surface-container": "#eaedff", "outline": "#737686", "surface-tint": "#0053db", "on-secondary": "#ffffff", "on-error-container": "#93000a", "background": "#faf8ff", "surface-container-high": "#e2e7ff", "inverse-on-surface": "#eef0ff", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "tertiary": "#006058", "inverse-surface": "#283044", "on-tertiary-container": "#b3fff3", "on-surface": "#131b2e", "surface-bright": "#faf8ff", "secondary": "#006398", "on-tertiary": "#ffffff", "secondary-container": "#5bb8fe", "on-secondary-fixed-variant": "#004b73", "tertiary-fixed-dim": "#6bd8cb", "error": "#ba1a1a", "surface-dim": "#d2d9f4", "on-primary-container": "#eeefff", "on-primary-fixed": "#00174b", "surface-variant": "#dae2fd", "secondary-fixed": "#cce5ff", "primary": "#004ac6", "on-tertiary-fixed-variant": "#005049", "error-container": "#ffdad6", "on-primary-fixed-variant": "#003ea8", "on-surface-variant": "#434655", "on-error": "#ffffff", "primary-container": "#2563eb", "on-primary": "#ffffff", "on-secondary-fixed": "#001d31", "inverse-primary": "#b4c5ff", "secondary-fixed-dim": "#93ccff", "tertiary-container": "#007b71", "outline-variant": "#c3c6d7", "on-secondary-container": "#00476e", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#b4c5ff", "tertiary-fixed": "#89f5e7", "surface-container-highest": "#dae2fd" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-desktop": "1.5rem", "margin-desktop": "3rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-md": "1rem", "margin-tablet": "2rem", "space-3xl": "4rem", "space-2xs": "0.25rem", "space-lg": "1.5rem", "max-container": "80rem" }, fontFamily: { "caption": ["Inter"], "display-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, fontSize: { "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }], "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><img alt="growfastingAI Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-primary tracking-tight leading-none">growfastingAI</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-none mt-space-2xs">Email Studio</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center gap-1 bg-surface-container-high/80 px-space-xs py-1 rounded-full text-primary"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-caption text-caption font-semibold text-on-surface">142</span></div><button aria-label="User Profile" class="min-h-[44px] min-w-[44px] flex items-center justify-center" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvx-8pK1U6NeR_AFHl62ZKNn4hbOC8q9Ywaq76vhYuQ4Czwq19KSmzqfZMRqSGIF5xIswJDeUfE3H6s1UVs8SfBYjOtCcUi3JV2FqXxKX0-IIYxzfzOgC6eiVKBNrUMsaCSOp2H5JKsJ1uGpcYKDyzmIR1YX2cvoOrnoY3ul_nk3z89yuYqgRW2kSCKzfMVWSRcO-Lw24R9lhHRh51ePMwk5b9Gb6rdy1yG7RTa-mmwZ1GDP6pdR26DQ"/></button></div></div></header><main class="flex flex-col flex-1 relative w-full pt-16 pb-24 px-margin-mobile bg-surface"><div class="flex flex-col w-full pb-20 space-y-space-md">
+<!-- Sub-header context & credit status bar -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="flex h-2.5 w-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Email Generator</span>
+</div>
+<div class="flex items-center space-x-space-xs">
+<div class="flex items-center space-x-1 bg-surface-container-highest/60 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-caption text-caption text-primary font-bold">85 Credits</span>
+</div>
+<button aria-label="Generation History" class="h-8 w-8 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface-variant" id="history-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</div>
+<!-- Step 1: Target Audience -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Target Audience</h2>
+</div>
+<span class="font-caption text-caption text-outline">Required</span>
+</div>
+<!-- Audience Pills Scroll -->
+<div class="flex items-center space-x-2 overflow-x-auto pb-1 -mx-space-md px-space-md no-scrollbar" id="audience-selector">
+<button class="audience-pill flex-shrink-0 h-10 px-4 rounded-full font-label-sm text-label-sm transition-all bg-primary text-on-primary shadow-sm" data-role="Client" type="button">
+        Client
+      </button>
+<button class="audience-pill flex-shrink-0 h-10 px-4 rounded-full font-label-sm text-label-sm transition-all bg-surface-container text-on-surface-variant" data-role="Business Pro" type="button">
+        Business Pro
+      </button>
+<button class="audience-pill flex-shrink-0 h-10 px-4 rounded-full font-label-sm text-label-sm transition-all bg-surface-container text-on-surface-variant" data-role="Recruiter" type="button">
+        Recruiter
+      </button>
+<button class="audience-pill flex-shrink-0 h-10 px-4 rounded-full font-label-sm text-label-sm transition-all bg-surface-container text-on-surface-variant" data-role="Professor" type="button">
+        Professor
+      </button>
+</div>
+<!-- Inputs -->
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="flex flex-col space-y-1">
+<label class="font-caption text-caption text-on-surface-variant" for="recipient-name">Recipient Name</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="recipient-name" placeholder="e.g. Alex Miller" type="text" value="Sarah Jenkins"/>
+</div>
+<div class="flex flex-col space-y-1">
+<label class="font-caption text-caption text-on-surface-variant" for="recipient-company">Company / Org</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="recipient-company" placeholder="e.g. Acme Corp" type="text" value="Apex Capital"/>
+</div>
+</div>
+</section>
+<!-- Step 2: Email Purpose & Goal -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col space-y-space-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Email Purpose</h2>
+</div>
+<div class="relative">
+<select class="w-full h-12 px-3.5 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm appearance-none focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="email-purpose">
+<option selected="">Investor / Client Follow-up</option>
+<option>Cold Pitch / Sales Outreach</option>
+<option>Contract &amp; Terms Negotiation</option>
+<option>Project Handover &amp; Next Steps</option>
+<option>Gentle Check-in &amp; Re-engagement</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</section>
+<!-- Step 3: Key Bullet Points -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm flex items-center justify-center font-bold">3</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Key Bullet Points</h2>
+</div>
+<button class="flex items-center space-x-1 text-primary font-label-sm text-label-sm hover:opacity-80" id="magic-suggest" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+<span>Auto-suggest</span>
+</button>
+</div>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="bullet-points" placeholder="e.g. Discuss Q3 growth, attach presentation, request 20-min slot" rows="3">• Share Q3 38% ARR expansion milestone
+• Attached executive brief deck
+• Request brief 20-min sync next Tuesday/Wednesday</textarea>
+</section>
+<!-- Step 4: Tone & Style -->
+<section class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col space-y-space-sm">
+<div class="flex items-center space-x-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm flex items-center justify-center font-bold">4</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Tone &amp; Style</h2>
+</div>
+<div class="grid grid-cols-2 gap-2" id="tone-group">
+<button class="tone-card h-12 flex items-center justify-center space-x-2 rounded-xl transition-all font-label-md text-label-md bg-primary text-on-primary shadow-sm" data-tone="Professional" type="button">
+<span class="material-symbols-outlined text-[18px]">business_center</span>
+<span>Professional</span>
+</button>
+<button class="tone-card h-12 flex items-center justify-center space-x-2 rounded-xl transition-all font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container" data-tone="Warm" type="button">
+<span class="material-symbols-outlined text-[18px]">sentiment_satisfied</span>
+<span>Warm</span>
+</button>
+<button class="tone-card h-12 flex items-center justify-center space-x-2 rounded-xl transition-all font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container" data-tone="Direct" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Direct</span>
+</button>
+<button class="tone-card h-12 flex items-center justify-center space-x-2 rounded-xl transition-all font-label-md text-label-md bg-surface-container-low text-on-surface hover:bg-surface-container" data-tone="Diplomatic" type="button">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Diplomatic</span>
+</button>
+</div>
+</section>
+<!-- Generated Output Section -->
+<div class="flex flex-col space-y-space-xs pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">spark</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Generated Result</span>
+</div>
+<span class="font-caption text-caption text-tertiary font-semibold flex items-center space-x-1 bg-tertiary-fixed/40 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Ready to send</span>
+</span>
+</div>
+<!-- Output Card Container -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-md space-y-space-sm">
+<!-- Subject line card -->
+<div class="bg-surface-container-low p-3 rounded-xl flex items-center justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-outline uppercase tracking-wider">Subject Line</span>
+<p class="font-label-md text-label-md text-on-surface truncate" id="subject-text">Update: Apex Capital &amp; Q3 Milestones (+ Brief Deck)</p>
+</div>
+<button class="flex-shrink-0 h-9 w-9 flex items-center justify-center rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant transition-colors" id="copy-subject-btn" title="Copy Subject" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+<!-- Body Preview Area -->
+<div class="bg-surface-container-low/50 p-space-sm rounded-xl space-y-2.5">
+<div class="flex items-center justify-between pb-1 border-b border-surface-container-high/40">
+<span class="font-caption text-caption text-on-surface-variant font-medium">Draft Body Preview</span>
+<span class="font-caption text-caption text-outline">128 words</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface space-y-2 leading-relaxed" id="email-body-content">
+<p>Hi Sarah,</p>
+<p>I hope your week is off to an excellent start at Apex Capital.</p>
+<p>I wanted to quickly circle back with our latest milestones: we closed Q3 with a <strong class="text-primary font-medium">38% ARR expansion</strong>, driven by rapid customer retention and our newest integration suite. I've attached our condensed 4-page executive brief for your review.</p>
+<p>Would you have 20 minutes open next Tuesday or Wednesday afternoon for a brief catch-up on these findings?</p>
+<p>Best regards,<br/><span class="font-medium text-on-surface">Alex Rivera</span><br/><span class="text-on-surface-variant font-caption text-caption">growfastingAI Founder</span></p>
+</div>
+</div>
+<!-- Quick 1-Click Refinements -->
+<div class="flex flex-col space-y-1.5 pt-1">
+<span class="font-caption text-caption text-on-surface-variant">Quick Refinements:</span>
+<div class="flex items-center space-x-2 overflow-x-auto pb-1 -mx-space-md px-space-md no-scrollbar">
+<button class="refine-chip flex-shrink-0 h-8 px-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center space-x-1" data-tweak="shorter" type="button">
+<span>✂️</span>
+<span>Shorter</span>
+</button>
+<button class="refine-chip flex-shrink-0 h-8 px-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center space-x-1" data-tweak="formal" type="button">
+<span>👔</span>
+<span>Formal</span>
+</button>
+<button class="refine-chip flex-shrink-0 h-8 px-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center space-x-1" data-tweak="friendlier" type="button">
+<span>😊</span>
+<span>Friendlier</span>
+</button>
+<button class="refine-chip flex-shrink-0 h-8 px-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-all flex items-center space-x-1" data-tweak="urgency" type="button">
+<span>⚡</span>
+<span>Urgency</span>
+</button>
+</div>
+</div>
+<!-- Secondary Action Row -->
+<div class="grid grid-cols-2 gap-space-xs pt-2">
+<button class="h-12 flex items-center justify-center space-x-1.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md active:scale-[0.98] transition-transform shadow-sm" id="copy-email-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span>Copy Full Email</span>
+</button>
+<button class="h-12 flex items-center justify-center space-x-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md active:scale-[0.98] transition-transform" id="save-draft-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+<span>Save Draft</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Feedback -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-full font-label-sm text-label-sm flex items-center space-x-2 shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-50" id="toast">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span id="toast-message">Copied to clipboard!</span>
+</div>
+<!-- Sticky Bottom Floating Generate Bar -->
+<div class="sticky bottom-2 w-full pt-2 z-40">
+<button class="w-full h-12 rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl active:scale-[0.99] transition-all" id="generate-btn" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Generate Email (1 Credit)</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-message');
+
+    function showToast(text) {
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = text;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100', '-translate-y-2');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+        toast.classList.remove('opacity-100', '-translate-y-2');
+      }, 2200);
+    }
+
+    // Audience pills interactive toggle
+    document.querySelectorAll('.audience-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.audience-pill').forEach(p => {
+          p.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          p.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      });
+    });
+
+    // Tone pills toggle
+    document.querySelectorAll('.tone-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tone-card').forEach(t => {
+          t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          t.classList.add('bg-surface-container-low', 'text-on-surface');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+      });
+    });
+
+    // Copy subject action
+    const copySubBtn = document.getElementById('copy-subject-btn');
+    if (copySubBtn) {
+      copySubBtn.addEventListener('click', () => {
+        const subText = document.getElementById('subject-text').innerText;
+        navigator.clipboard?.writeText(subText);
+        showToast('Subject line copied!');
+      });
+    }
+
+    // Copy full email action
+    const copyFullBtn = document.getElementById('copy-email-btn');
+    if (copyFullBtn) {
+      copyFullBtn.addEventListener('click', () => {
+        const sub = document.getElementById('subject-text').innerText;
+        const body = document.getElementById('email-body-content').innerText;
+        navigator.clipboard?.writeText(`Subject: ${sub}\n\n${body}`);
+        showToast('Full email copied to clipboard!');
+      });
+    }
+
+    // Save draft action
+    const saveBtn = document.getElementById('save-draft-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        showToast('Draft saved to Directory!');
+      });
+    }
+
+    // History button
+    const histBtn = document.getElementById('history-btn');
+    if (histBtn) {
+      histBtn.addEventListener('click', () => {
+        showToast('Opening 14 recent drafts...');
+      });
+    }
+
+    // Refinement pills
+    document.querySelectorAll('.refine-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const tweak = chip.getAttribute('data-tweak');
+        showToast(`Refining draft: ${tweak}...`);
+      });
+    });
+
+    // Bottom generate trigger
+    const genBtn = document.getElementById('generate-btn');
+    if (genBtn) {
+      genBtn.addEventListener('click', () => {
+        genBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Refining Email...</span>';
+        setTimeout(() => {
+          genBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: \'FILL\' 1;">bolt</span><span>Generate Email (1 Credit)</span>';
+          showToast('Email regenerated with fresh insights!');
+        }, 900);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(19,27,46,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-2xs"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-caption text-caption mt-0.5">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 transition-colors text-primary font-bold" data-path="email-studio" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-caption text-caption mt-0.5">Studio</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="grammar-tone-checker" href="#"><span class="material-symbols-outlined text-[22px]">spellcheck</span><span class="font-caption text-caption mt-0.5">Checker</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="template-directory" href="#"><span class="material-symbols-outlined text-[22px]">folder_copy</span><span class="font-caption text-caption mt-0.5">Templates</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="dashboard-metrics" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-caption text-caption mt-0.5">Dashboard</span></a></div></nav></body></html>

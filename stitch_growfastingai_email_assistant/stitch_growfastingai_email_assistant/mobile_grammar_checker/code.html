@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary-fixed": "#dbe1ff", "surface": "#faf8ff", "surface-container": "#eaedff", "outline": "#737686", "surface-tint": "#0053db", "on-secondary": "#ffffff", "on-error-container": "#93000a", "background": "#faf8ff", "surface-container-high": "#e2e7ff", "inverse-on-surface": "#eef0ff", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "tertiary": "#006058", "inverse-surface": "#283044", "on-tertiary-container": "#b3fff3", "on-surface": "#131b2e", "surface-bright": "#faf8ff", "secondary": "#006398", "on-tertiary": "#ffffff", "secondary-container": "#5bb8fe", "on-secondary-fixed-variant": "#004b73", "tertiary-fixed-dim": "#6bd8cb", "error": "#ba1a1a", "surface-dim": "#d2d9f4", "on-primary-container": "#eeefff", "on-primary-fixed": "#00174b", "surface-variant": "#dae2fd", "secondary-fixed": "#cce5ff", "primary": "#004ac6", "on-tertiary-fixed-variant": "#005049", "error-container": "#ffdad6", "on-primary-fixed-variant": "#003ea8", "on-surface-variant": "#434655", "on-error": "#ffffff", "primary-container": "#2563eb", "on-primary": "#ffffff", "on-secondary-fixed": "#001d31", "inverse-primary": "#b4c5ff", "secondary-fixed-dim": "#93ccff", "tertiary-container": "#007b71", "outline-variant": "#c3c6d7", "on-secondary-container": "#00476e", "on-tertiary-fixed": "#00201d", "surface-container-low": "#f2f3ff", "primary-fixed-dim": "#b4c5ff", "tertiary-fixed": "#89f5e7", "surface-container-highest": "#dae2fd" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-desktop": "1.5rem", "margin-desktop": "3rem", "space-xs": "0.5rem", "margin-mobile": "1rem", "gutter-mobile": "1rem", "space-sm": "0.75rem", "space-2xl": "3rem", "space-xl": "2rem", "space-md": "1rem", "margin-tablet": "2rem", "space-3xl": "4rem", "space-2xs": "0.25rem", "space-lg": "1.5rem", "max-container": "80rem" }, fontFamily: { "caption": ["Inter"], "display-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "display": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, fontSize: { "caption": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }], "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><img alt="growfastingAI Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UoJPKHpLCWBHeSxbCEZ0UP8sr4Qb31wgmEy20DC4eKazFdH27D4lprHDGb4-5Ir4q0q0QRCZP9Nwlww8KfWaFXWkAumbeDP6Vc3208rlLGj43NTk6dvmg8nBSIPvf2bcN4U2PM8YlKA_Lv7hOmG03PMmDNA5fvFDnBhqCQVFqeENT38hmPc8J2zpjYAhtaq7XewaqxkLk0SeQhmaFq5R6vOgcMRye7Y6Q0dW1CBDLGpl6jwFFm70s4nhSF"/><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-primary tracking-tight leading-none">growfastingAI</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-none mt-space-2xs">Grammar Tone Checker</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center gap-1 bg-surface-container-high/80 px-space-xs py-1 rounded-full text-primary"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-caption text-caption font-semibold text-on-surface">142</span></div><button aria-label="User Profile" class="min-h-[44px] min-w-[44px] flex items-center justify-center" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvx-8pK1U6NeR_AFHl62ZKNn4hbOC8q9Ywaq76vhYuQ4Czwq19KSmzqfZMRqSGIF5xIswJDeUfE3H6s1UVs8SfBYjOtCcUi3JV2FqXxKX0-IIYxzfzOgC6eiVKBNrUMsaCSOp2H5JKsJ1uGpcYKDyzmIR1YX2cvoOrnoY3ul_nk3z89yuYqgRW2kSCKzfMVWSRcO-Lw24R9lhHRh51ePMwk5b9Gb6rdy1yG7RTa-mmwZ1GDP6pdR26DQ"/></button></div></div></header><main class="flex flex-col flex-1 relative w-full pt-16 pb-24 px-margin-mobile bg-surface"><div class="flex flex-col w-full space-y-space-md">
+<!-- Overview Stats Pill Strip -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<!-- Health Score Radial Meter -->
+<div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3.5"></path>
+<path class="text-primary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-md text-label-md text-primary font-bold">92</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface">Writing Health</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption text-caption font-semibold">Strong</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption text-caption">
+<span>412 words</span>
+<span>•</span>
+<span>1.8 min read</span>
+</div>
+</div>
+</div>
+<!-- Quick Tone Status Indicator -->
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Detected Tone</span>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="font-caption text-caption font-medium text-primary">Executive</span>
+</div>
+</div>
+</section>
+<!-- Live Draft Editor Surface -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col relative space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+<h2 class="font-label-md text-label-md text-on-surface">Live Draft</h2>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Clear document" class="min-h-[44px] px-2 flex items-center justify-center text-on-surface-variant active:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+</button>
+<button aria-label="Import document" class="min-h-[44px] px-2 flex items-center justify-center text-on-surface-variant active:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+</button>
+</div>
+</div>
+<!-- Editable Canvas with Interactive Context Highlights -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-sm font-body-md text-body-md text-on-surface leading-relaxed relative min-h-[140px]" id="editor-text-body">
+<p class="mb-2">
+        Dear Leadership Council,
+      </p>
+<p class="leading-relaxed">
+<span class="inline-flex items-center gap-0.5 px-1 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-medium cursor-pointer shadow-sm" id="mark-3">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+          In spite of the fact that
+        </span>
+        we witnessed volatile early quarters, the forward growth velocity remains sound.
+        Based on client discovery interviews,
+        <span class="inline-flex items-center gap-0.5 px-1 rounded bg-surface-container-highest text-on-surface font-medium cursor-pointer shadow-sm" id="mark-2">
+<span class="material-symbols-outlined text-[13px]">sync_problem</span>
+          the committee have
+        </span>
+        unanimously endorsed our expansion roadmap.
+        Our central
+        <span class="inline-flex items-center gap-0.5 px-1 rounded bg-error-container text-on-error-container font-medium cursor-pointer shadow-sm" id="mark-1">
+<span class="material-symbols-outlined text-[13px]">spellcheck</span>
+          reccomendation
+        </span>
+        is to double inbound automation budgets.
+      </p>
+</div>
+<!-- Check Writing CTA -->
+<div class="flex items-center justify-between pt-space-2xs">
+<span class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-ping"></span>
+        Deep scan active
+      </span>
+<button class="min-h-[44px] px-space-md py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-1.5 active:bg-primary transition-all" id="btn-recheck" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>Check Writing</span>
+</button>
+</div>
+</section>
+<!-- Improvements Feed Header -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">3 Detected Improvements</h3>
+<span class="w-5 h-5 rounded-full bg-primary-fixed text-on-primary-fixed font-caption text-caption flex items-center justify-center font-bold">3</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Tap to inspect</span>
+</div>
+<!-- Improvement Feed Cards -->
+<div class="flex flex-col space-y-space-xs pb-16">
+<!-- Card 1: Spelling -->
+<article class="w-full bg-surface-container-lowest rounded-xl p-space-sm shadow-sm transition-all flex flex-col space-y-space-xs" id="card-1">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">spellcheck</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-error font-semibold uppercase tracking-wider">Spelling Alert</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Typo in key noun</span>
+</div>
+</div>
+<button aria-label="Dismiss spelling recommendation" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-outline active:text-on-surface" onclick="dismissSuggestion('card-1', 'mark-1')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Change Context -->
+<div class="flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg text-body-sm font-body-sm">
+<span class="line-through text-outline font-medium">reccomendation</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+<span class="text-primary font-semibold">recommendation</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-caption text-caption text-on-surface-variant">Double ‘m’ required</span>
+<button class="min-h-[44px] px-space-md py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-1 active:bg-on-primary-fixed-variant transition-colors" onclick="acceptSuggestion('card-1', 'mark-1', 'recommendation')" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Subject-Verb Agreement -->
+<article class="w-full bg-surface-container-lowest rounded-xl p-space-sm shadow-sm transition-all flex flex-col space-y-space-xs" id="card-2">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-on-surface-variant font-semibold uppercase tracking-wider">Grammar</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Collective noun agreement</span>
+</div>
+</div>
+<button aria-label="Dismiss grammar suggestion" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-outline active:text-on-surface" onclick="dismissSuggestion('card-2', 'mark-2')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg text-body-sm font-body-sm">
+<span class="line-through text-outline font-medium">the committee have</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+<span class="text-primary font-semibold">the committee has</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-caption text-caption text-on-surface-variant">Singular standard in US English</span>
+<button class="min-h-[44px] px-space-md py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-1 active:bg-on-primary-fixed-variant transition-colors" onclick="acceptSuggestion('card-2', 'mark-2', 'the committee has')" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Conciseness & Clarity -->
+<article class="w-full bg-surface-container-lowest rounded-xl p-space-sm shadow-sm transition-all flex flex-col space-y-space-xs" id="card-3">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">compress</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption text-secondary font-semibold uppercase tracking-wider">Clarity &amp; Conciseness</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">Trim verbose phrase (-4 words)</span>
+</div>
+</div>
+<button aria-label="Dismiss clarity suggestion" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-outline active:text-on-surface" onclick="dismissSuggestion('card-3', 'mark-3')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg text-body-sm font-body-sm">
+<span class="line-through text-outline font-medium">In spite of the fact that</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+<span class="text-primary font-semibold">Although</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-caption text-caption text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          Improves reading pace
+        </span>
+<button class="min-h-[44px] px-space-md py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-1 active:bg-on-primary-fixed-variant transition-colors" onclick="acceptSuggestion('card-3', 'mark-3', 'Although')" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Accept</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Mobile Sticky Bottom Action Tray -->
+<aside class="fixed bottom-16 left-0 w-full px-margin-mobile pb-3 pt-2 bg-surface/90 backdrop-blur-md z-40">
+<div class="max-w-md mx-auto flex items-center gap-space-xs">
+<!-- Apply All Primary Action -->
+<button class="flex-1 min-h-[48px] bg-primary text-on-primary font-label-md text-label-md rounded-xl shadow-md flex items-center justify-center gap-2 active:scale-[0.98] transition-transform" id="btn-apply-all" onclick="applyAllSuggestions()" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">magic_button</span>
+<span id="apply-all-label">Apply All (3)</span>
+</button>
+<!-- Copy Secondary Action -->
+<button aria-label="Copy improved draft" class="min-h-[48px] min-w-[48px] px-3.5 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-xl shadow-sm flex items-center justify-center gap-1 active:bg-surface-container transition-colors" id="btn-copy" onclick="copyDocument()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="copy-icon">content_copy</span>
+<span class="hidden sm:inline">Copy</span>
+</button>
+</div>
+</aside>
+</div>
+<script>
+  let remainingFixes = 3;
+
+  function updateFixCounter() {
+    const label = document.getElementById('apply-all-label');
+    if (label) {
+      if (remainingFixes > 0) {
+        label.textContent = `Apply All (${remainingFixes})`;
+      } else {
+        label.textContent = 'All Perfect ✨';
+        document.getElementById('btn-apply-all').classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        document.getElementById('btn-apply-all').classList.remove('bg-primary');
+      }
+    }
+  }
+
+  function acceptSuggestion(cardId, markId, replacement) {
+    const mark = document.getElementById(markId);
+    if (mark) {
+      mark.outerHTML = `<span class="text-on-surface font-semibold underline decoration-tertiary-fixed decoration-2">${replacement}</span>`;
+    }
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(-6px)';
+      setTimeout(() => {
+        card.remove();
+        remainingFixes = Math.max(0, remainingFixes - 1);
+        updateFixCounter();
+      }, 180);
+    }
+  }
+
+  function dismissSuggestion(cardId, markId) {
+    const mark = document.getElementById(markId);
+    if (mark) {
+      mark.className = 'text-on-surface';
+    }
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(-6px)';
+      setTimeout(() => {
+        card.remove();
+        remainingFixes = Math.max(0, remainingFixes - 1);
+        updateFixCounter();
+      }, 180);
+    }
+  }
+
+  function applyAllSuggestions() {
+    if (remainingFixes <= 0) return;
+    acceptSuggestion('card-1', 'mark-1', 'recommendation');
+    acceptSuggestion('card-2', 'mark-2', 'the committee has');
+    acceptSuggestion('card-3', 'mark-3', 'Although');
+  }
+
+  function copyDocument() {
+    const text = document.getElementById('editor-text-body').innerText;
+    navigator.clipboard?.writeText(text);
+    const icon = document.getElementById('copy-icon');
+    if (icon) {
+      icon.textContent = 'done';
+      setTimeout(() => {
+        icon.textContent = 'content_copy';
+      }, 1500);
+    }
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-2px_12px_rgba(19,27,46,0.04)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-2xs"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-caption text-caption mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="email-studio" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-caption text-caption mt-0.5">Studio</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 transition-colors text-primary font-bold" data-path="grammar-tone-checker" href="#"><span class="material-symbols-outlined text-[22px]">spellcheck</span><span class="font-caption text-caption mt-0.5">Checker</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="template-directory" href="#"><span class="material-symbols-outlined text-[22px]">folder_copy</span><span class="font-caption text-caption mt-0.5">Templates</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] py-1 text-on-surface-variant transition-colors" data-path="dashboard-metrics" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-caption text-caption mt-0.5">Dashboard</span></a></div></nav></body></html>
