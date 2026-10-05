@@ -2080,7 +2080,7 @@ function initAuthUI() {
 
       if (user) {
         state.currentUser = user;
-        if (userBar) userBar.classList.remove('hidden');
+        if (userBar) { userBar.classList.remove('hidden'); userBar.classList.add('md:flex'); }
         if (mobileUserBar) mobileUserBar.classList.remove('hidden');
         if (mobileHeaderAvatar) {
           mobileHeaderAvatar.innerText = ((user.displayName || user.email || 'U')[0] || 'U').toUpperCase();
@@ -2116,7 +2116,7 @@ function initAuthUI() {
 
       } else {
         state.currentUser = null;
-        if (userBar) userBar.classList.add('hidden');
+        if (userBar) { userBar.classList.add('hidden'); userBar.classList.remove('md:flex'); }
         if (mobileUserBar) mobileUserBar.classList.add('hidden');
         if (mobileHeaderAvatar) mobileHeaderAvatar.classList.add('hidden');
 
