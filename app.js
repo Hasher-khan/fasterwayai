@@ -823,16 +823,136 @@ function initEmailGeneratorView() {
 }
 
 // ============================================================
-//  DOWNLOAD AS IMAGE  –  Renders text into a branded PNG card
+//  MOBILE-COMPATIBLE IMAGE EXPORT & DOWNLOAD ENGINE
 // ============================================================
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         ('ontouchstart' in window) ||
+         (window.innerWidth <= 768);
+}
+
+// Universal Canvas to Image Exporter (Supports Desktop, Mobile iOS Safari, Android Chrome, and WebViews)
+async function exportCanvasAsImage(canvas, filename, btn, origHTML) {
+  if (btn) btn.innerHTML = origHTML;
+
+  canvas.toBlob(async (blob) => {
+    if (!blob) {
+      showToast('Image generation failed. Please try again.', 'error');
+      return;
+    }
+
+    const fullFilename = `${filename}-${Date.now()}`;
+    const file = new File([blob], `${fullFilename}.png`, { type: 'image/png' });
+    const isMobile = isMobileDevice();
+
+    // 1. Mobile Native Web Share API (Direct save to Photos / Files / AirDrop / WhatsApp)
+    if (isMobile && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({
+          files: [file],
+          title: 'fasterway.ai Image',
+          text: 'Generated with fasterway.ai'
+        });
+        showToast('✅ Image saved / shared successfully!', 'success');
+        return;
+      } catch (shareErr) {
+        if (shareErr.name === 'AbortError') return; // User closed share sheet intentionally
+        console.warn('Share API canceled or failed, using mobile download modal:', shareErr);
+      }
+    }
+
+    // 2. Blob URL creation & download
+    const blobUrl = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.download = `${fullFilename}.png`;
+    link.href = blobUrl;
+    link.target = '_blank';
+    document.body.appendChild(link);
+
+    try {
+      link.click();
+    } catch (e) {
+      console.warn('Direct link click failed:', e);
+    }
+    document.body.removeChild(link);
+
+    if (isMobile) {
+      // 3. Mobile Fallback Preview Modal with Long-Press & Save guidance
+      showMobileImagePreviewModal(blobUrl, fullFilename);
+    } else {
+      showToast('✅ Image downloaded successfully!', 'success');
+    }
+
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 120000);
+  }, 'image/png');
+}
+
+// Mobile Image Preview Modal with Long-press guidance & fallback controls
+function showMobileImagePreviewModal(imageUrl, filename) {
+  const existing = document.getElementById('mobile-image-preview-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'mobile-image-preview-modal';
+  modal.style.zIndex = '99999';
+  modal.className = 'fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto animate-fade-in';
+
+  modal.innerHTML = `
+    <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-5 shadow-2xl flex flex-col items-center gap-4 text-center border border-outline-variant/30 my-auto">
+      <div class="w-full flex items-center justify-between pb-3 border-b border-surface-container-high">
+        <div class="flex items-center gap-2 text-primary font-bold text-sm">
+          <span class="material-symbols-outlined text-xl">image</span>
+          <span>Generated Image Preview</span>
+        </div>
+        <button id="close-mobile-img-modal" type="button" class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <div class="w-full flex flex-col items-center my-1">
+        <img src="${imageUrl}" alt="${filename}" class="max-w-full max-h-[55vh] rounded-xl shadow-lg object-contain border border-outline-variant/30" />
+      </div>
+
+      <div class="bg-emerald-50 text-emerald-800 border border-emerald-200 px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center gap-2 w-full justify-center">
+        <span class="material-symbols-outlined text-lg text-emerald-600">touch_app</span>
+        <span>Tap &amp; hold (long-press) image to Save to Photos</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-2.5 w-full pt-1">
+        <a href="${imageUrl}" download="${filename}.png" target="_blank" class="flex-1 py-3 px-4 rounded-xl bg-primary text-on-primary font-label-md font-bold text-center shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-xs">
+          <span class="material-symbols-outlined text-lg">download</span>
+          <span>Download File</span>
+        </a>
+        <button id="btn-open-new-tab-img" type="button" class="flex-1 py-3 px-4 rounded-xl bg-surface-container-high text-on-surface font-label-md font-bold hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2 text-xs">
+          <span class="material-symbols-outlined text-lg">open_in_new</span>
+          <span>Open Full Image</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  document.getElementById('close-mobile-img-modal')?.addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.remove();
+  });
+
+  document.getElementById('btn-open-new-tab-img')?.addEventListener('click', () => {
+    window.open(imageUrl, '_blank');
+  });
+}
+
 function downloadTextAsImage({ title = '', body = '', filename = 'download' } = {}) {
   // --- build an off-screen card ---
   const card = document.createElement('div');
   Object.assign(card.style, {
-    position: 'fixed',
-    left: '-9999px',
-    top: '0',
+    position: 'absolute',
+    left: '0',
+    top: '-9999px',
     width: '700px',
+    zIndex: '-9999',
     background: '#ffffff',
     borderRadius: '20px',
     padding: '40px 44px 44px',
@@ -948,18 +1068,16 @@ function downloadTextAsImage({ title = '', body = '', filename = 'download' } = 
   html2canvas(card, {
     scale: 2,
     useCORS: true,
+    allowTaint: true,
     backgroundColor: '#f8faff',
     logging: false,
+    width: 700,
+    windowWidth: 750
   }).then(canvas => {
-    document.body.removeChild(card);
-    if (btn) btn.innerHTML = origHTML;
-    const link = document.createElement('a');
-    link.download = `${filename}-${Date.now()}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    showToast('✅ Image downloaded successfully!', 'success');
+    if (card.parentNode) document.body.removeChild(card);
+    exportCanvasAsImage(canvas, filename, btn, origHTML);
   }).catch(err => {
-    document.body.removeChild(card);
+    if (card.parentNode) document.body.removeChild(card);
     if (btn) btn.innerHTML = origHTML;
     console.error('Download error:', err);
     showToast('Download failed. Please try again.', 'error');
@@ -1205,10 +1323,11 @@ function initGrammarCheckerView() {
   function downloadCorrectedAsImage(text) {
     const card = document.createElement('div');
     Object.assign(card.style, {
-      position: 'fixed',
-      left: '-9999px',
-      top: '0',
+      position: 'absolute',
+      left: '0',
+      top: '-9999px',
       width: '700px',
+      zIndex: '-9999',
       background: '#f0fdf4',
       borderRadius: '20px',
       padding: '40px 44px 44px',
@@ -1239,20 +1358,23 @@ function initGrammarCheckerView() {
     document.body.appendChild(card);
     const dlBtn = document.getElementById('btn-download-corrected-image');
     const origHTML = dlBtn ? dlBtn.innerHTML : '';
-    if (dlBtn) dlBtn.innerHTML = '<span class="material-symbols-outlined text-[14px]">progress_activity</span> Rendering…';
+    if (dlBtn) dlBtn.innerHTML = '<span class="material-symbols-outlined text-[14px] animate-spin">progress_activity</span> Rendering…';
 
-    html2canvas(card, { scale: 2, useCORS: true, backgroundColor: '#f0fdf4', logging: false })
+    html2canvas(card, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: '#f0fdf4',
+      logging: false,
+      width: 700,
+      windowWidth: 750
+    })
       .then(canvas => {
-        document.body.removeChild(card);
-        if (dlBtn) dlBtn.innerHTML = origHTML;
-        const link = document.createElement('a');
-        link.download = `corrected-text-${Date.now()}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-        showToast('✅ Corrected text image downloaded!', 'success');
+        if (card.parentNode) document.body.removeChild(card);
+        exportCanvasAsImage(canvas, 'corrected-text', dlBtn, origHTML);
       })
       .catch(err => {
-        document.body.removeChild(card);
+        if (card.parentNode) document.body.removeChild(card);
         if (dlBtn) dlBtn.innerHTML = origHTML;
         console.error(err);
         showToast('Download failed. Please try again.', 'error');
