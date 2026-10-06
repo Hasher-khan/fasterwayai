@@ -8,8 +8,11 @@ const state = {
   currentUser: null,
   activeView: 'landing',
   history: JSON.parse(localStorage.getItem('gf_history') || '[]'),
+  notesHistory: JSON.parse(localStorage.getItem('gf_notes_history') || '[]'),
   currentEmailResult: null,
   currentGrammarResult: null,
+  currentNotesResult: null,
+  activeNotesTheme: 'simple',
   activeGrammarFilter: 'all',
   activeTemplateCategory: 'all',
   backendStatus: null,
@@ -409,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLandingPageView();
   initEmailGeneratorView();
   initGrammarCheckerView();
+  initNotesPdfView();
   initTemplatesView();
   initDashboardView();
   initSettingsModal();
@@ -685,7 +689,7 @@ function initNavigation() {
 
 function switchView(viewName) {
   // If user tries to access workspace tools while unauthenticated, redirect to Landing Login Card
-  const protectedViews = ['email-generator', 'grammar-checker', 'templates', 'dashboard'];
+  const protectedViews = ['email-generator', 'grammar-checker', 'notes-pdf', 'templates', 'dashboard'];
   if (!state.currentUser && protectedViews.includes(viewName)) {
     showToast('Please sign in or create an account to access the workspace.', 'info');
     viewName = 'landing';
@@ -1967,6 +1971,435 @@ async function deleteHistoryItem(idx) {
   if (state.currentUser && typeof saveUserDataToFirestore === 'function') {
     await saveUserDataToFirestore(state.currentUser.uid, { history: state.history });
   }
+}
+
+/* =====================================================
+   TEXT TO PROPER NOTES PDF ENGINE
+   ===================================================== */
+function initNotesPdfView() {
+  const btnGenerate = document.getElementById('btn-generate-notes');
+  const btnClear = document.getElementById('btn-clear-notes-input');
+  const btnSample = document.getElementById('btn-load-sample-transcript');
+  const textarea = document.getElementById('notes-input-text');
+  const fileInput = document.getElementById('notes-file-input');
+  const fileDropzone = document.getElementById('notes-file-dropzone');
+  const wordCountDisplay = document.getElementById('notes-word-count');
+  
+  const btnDownloadPdf = document.getElementById('btn-download-notes-pdf');
+  const btnCopyText = document.getElementById('btn-copy-notes-text');
+  const btnEditPreview = document.getElementById('btn-edit-preview-notes');
+
+  // Word & Char Counter
+  if (textarea) {
+    textarea.addEventListener('input', () => {
+      const text = textarea.value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      if (wordCountDisplay) wordCountDisplay.textContent = `${words.toLocaleString()} words`;
+    });
+  }
+
+  // Load Sample Text
+  if (btnSample) {
+    btnSample.addEventListener('click', () => {
+      const sampleText = `LECTURE TRANSCRIPT: INTRODUCTION TO ARTIFICIAL INTELLIGENCE & MACHINE LEARNING
+
+Welcome everyone to CS401. Today we are discussing Artificial Intelligence (AI) and Machine Learning (ML), which are transforming how modern software systems process complex data.
+
+Machine Learning is a subset of AI that allows systems to learn from data without explicit programming. Key paradigms include:
+1. Supervised Learning: Models are trained on labeled datasets. Examples include Spam Detection in emails and Medical Diagnosis imaging.
+2. Unsupervised Learning: Algorithms discover hidden patterns or clusters in unlabeled data. Customer segmentation and anomaly detection are classic use cases.
+3. Reinforcement Learning: Agents learn optimal decision policy through trial, reward, and penalty in dynamic environments, such as autonomous driving and game playing (e.g. AlphaGo).
+
+Deep Learning (DL) utilizes Multi-Layer Artificial Neural Networks (ANNs). Transformer architectures, introduced in 2017, serve as the backbone for Large Language Models (LLMs) such as Gemini, GPT-4, and Claude.
+
+Key Challenges in Modern AI Deployment:
+- Model Hallucination: Generating plausible-sounding but incorrect statements.
+- Data Privacy & Security: Preventing confidential prompts or training data leaks.
+- Latency & Compute Costs: High GPU energy and response processing overhead.
+
+Key Takeaways: AI systems require high quality training data, strict safety guardrails, and optimized inference infrastructure to deliver enterprise value.`;
+      
+      if (textarea) {
+        textarea.value = sampleText;
+        textarea.dispatchEvent(new Event('input'));
+      }
+      showToast('Loaded sample lecture transcript.', 'info');
+    });
+  }
+
+  // File Upload (.txt & .docx)
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      processNotesFile(file);
+    });
+  }
+
+  if (fileDropzone) {
+    ['dragenter', 'dragover'].forEach(eventName => {
+      fileDropzone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        fileDropzone.classList.add('border-primary', 'bg-primary/10');
+      }, false);
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      fileDropzone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        fileDropzone.classList.remove('border-primary', 'bg-primary/10');
+      }, false);
+    });
+    fileDropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileDropzone.classList.remove('border-primary', 'bg-primary/10');
+      const dt = e.dataTransfer;
+      const file = dt.files[0];
+      if (file) processNotesFile(file);
+    });
+  }
+
+  function processNotesFile(file) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    if (ext === 'txt') {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        if (textarea) {
+          textarea.value = evt.target.result;
+          textarea.dispatchEvent(new Event('input'));
+        }
+        showToast(`Loaded "${file.name}" (${file.size} bytes)`, 'success');
+      };
+      reader.readAsText(file);
+    } else if (ext === 'docx') {
+      if (typeof mammoth === 'undefined') {
+        showToast('Docx parser library loading... Please try again in a moment.', 'warning');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        mammoth.extractRawText({ arrayBuffer: evt.target.result })
+          .then(result => {
+            if (textarea) {
+              textarea.value = result.value;
+              textarea.dispatchEvent(new Event('input'));
+            }
+            showToast(`Loaded Word doc "${file.name}"`, 'success');
+          })
+          .catch(err => {
+            console.error('Docx extraction error:', err);
+            showToast('Failed to read .docx file.', 'error');
+          });
+      };
+      reader.readAsArrayBuffer(file);
+    } else {
+      showToast('Unsupported file type. Please upload a .txt or .docx file.', 'error');
+    }
+  }
+
+  // Theme selector buttons
+  document.querySelectorAll('.notes-theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.notes-theme-btn').forEach(b => {
+        b.classList.remove('active', 'border-primary', 'bg-primary/10', 'text-primary');
+        b.classList.add('border-outline-variant', 'bg-surface', 'text-on-surface');
+      });
+      btn.classList.add('active', 'border-primary', 'bg-primary/10', 'text-primary');
+      btn.classList.remove('border-outline-variant', 'bg-surface', 'text-on-surface');
+      
+      const theme = btn.dataset.theme;
+      state.activeNotesTheme = theme;
+      
+      const docCard = document.getElementById('notes-pdf-document-card');
+      if (docCard) {
+        docCard.className = `space-y-6 text-on-surface theme-${theme}`;
+      }
+    });
+  });
+
+  // Clear Input
+  if (btnClear) {
+    btnClear.addEventListener('click', () => {
+      if (textarea) {
+        textarea.value = '';
+        textarea.dispatchEvent(new Event('input'));
+      }
+      document.getElementById('notes-output-placeholder')?.classList.remove('hidden');
+      document.getElementById('notes-pdf-document-card')?.classList.add('hidden');
+      if (btnDownloadPdf) btnDownloadPdf.disabled = true;
+      state.currentNotesResult = null;
+    });
+  }
+
+  // Generate Notes PDF API Call
+  if (btnGenerate) {
+    btnGenerate.addEventListener('click', async () => {
+      const text = textarea?.value?.trim() || '';
+      if (!text) {
+        showToast('Please enter or upload text content first.', 'error');
+        return;
+      }
+      if (text.length < 20) {
+        showToast('Input text is too short. Please provide at least 20 characters.', 'error');
+        return;
+      }
+
+      const style = document.getElementById('notes-style-select')?.value || 'detailed_notes';
+      const language = document.getElementById('notes-language-select')?.value || 'english';
+      const theme = state.activeNotesTheme || 'simple';
+
+      const origHTML = btnGenerate.innerHTML;
+      btnGenerate.disabled = true;
+      btnGenerate.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Processing Notes...</span>';
+      showToast('⚡ AI is structuring your text into proper notes...', 'info');
+
+      try {
+        const response = await fetch('/api/notes/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text, style, language, theme })
+        });
+
+        const result = await response.json();
+        if (!response.ok || result.error) {
+          throw new Error(result.error || 'Failed to generate notes.');
+        }
+
+        const notesData = result.data;
+        state.currentNotesResult = notesData;
+
+        // Render notes document into template
+        renderNotesDocumentCard(notesData, { style, language, theme });
+        showToast('✅ Notes generated successfully!', 'success');
+
+        // Save history
+        saveHistoryItem({
+          type: 'notes',
+          subject: notesData.title || 'Structured Notes',
+          summary: notesData.summary,
+          content: JSON.stringify(notesData),
+          timestamp: new Date().toISOString()
+        });
+
+      } catch (err) {
+        console.error('Notes Generation Error:', err);
+        showToast(`Generation Error: ${err.message}`, 'error');
+      } finally {
+        btnGenerate.disabled = false;
+        btnGenerate.innerHTML = origHTML;
+      }
+    });
+  }
+
+  // Download PDF Action
+  if (btnDownloadPdf) {
+    btnDownloadPdf.addEventListener('click', () => {
+      if (!state.currentNotesResult) {
+        showToast('No generated notes to download.', 'error');
+        return;
+      }
+
+      const element = document.getElementById('notes-pdf-document-card');
+      const docTitle = state.currentNotesResult.title || 'structured-notes';
+      const safeFilename = docTitle.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+
+      const origHTML = btnDownloadPdf.innerHTML;
+      btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
+
+      if (typeof html2pdf !== 'undefined') {
+        const opt = {
+          margin:       [0.4, 0.4, 0.4, 0.4],
+          filename:     `${safeFilename}-notes.pdf`,
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2, useCORS: true, logging: false },
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save()
+          .then(() => {
+            btnDownloadPdf.innerHTML = origHTML;
+            showToast('✅ PDF downloaded successfully!', 'success');
+          })
+          .catch(err => {
+            console.error('PDF export error:', err);
+            btnDownloadPdf.innerHTML = origHTML;
+            downloadTextAsImage({ title: state.currentNotesResult.title, body: state.currentNotesResult.summary, filename: safeFilename });
+          });
+      } else {
+        downloadTextAsImage({ title: state.currentNotesResult.title, body: state.currentNotesResult.summary, filename: safeFilename });
+        btnDownloadPdf.innerHTML = origHTML;
+      }
+    });
+  }
+
+  // Copy Text Action
+  if (btnCopyText) {
+    btnCopyText.addEventListener('click', () => {
+      if (!state.currentNotesResult) {
+        showToast('No notes content to copy.', 'error');
+        return;
+      }
+      const plainText = formatNotesAsPlainText(state.currentNotesResult);
+      navigator.clipboard.writeText(plainText);
+      showToast('Notes text copied to clipboard!', 'success');
+    });
+  }
+
+  // Edit Preview Action
+  if (btnEditPreview) {
+    let isEditing = false;
+    btnEditPreview.addEventListener('click', () => {
+      const docCard = document.getElementById('notes-pdf-document-card');
+      if (!docCard || docCard.classList.contains('hidden')) return;
+
+      isEditing = !isEditing;
+      docCard.contentEditable = isEditing ? 'true' : 'false';
+      if (isEditing) {
+        docCard.classList.add('ring-2', 'ring-primary', 'p-4', 'rounded-2xl');
+        btnEditPreview.classList.add('bg-primary', 'text-on-primary');
+        btnEditPreview.innerHTML = '<span class="material-symbols-outlined text-[16px]">done</span> Done Editing';
+        showToast('Edit mode enabled. Click on text to modify before export.', 'info');
+      } else {
+        docCard.classList.remove('ring-2', 'ring-primary', 'p-4', 'rounded-2xl');
+        btnEditPreview.classList.remove('bg-primary', 'text-on-primary');
+        btnEditPreview.innerHTML = '<span class="material-symbols-outlined text-[16px]">edit</span> <span class="hidden sm:inline">Edit Preview</span>';
+        showToast('Changes saved for PDF export.', 'success');
+      }
+    });
+  }
+}
+
+// Render Structured Notes into HTML Card Sheet
+function renderNotesDocumentCard(data, meta) {
+  const placeholder = document.getElementById('notes-output-placeholder');
+  const card = document.getElementById('notes-pdf-document-card');
+  const btnDownloadPdf = document.getElementById('btn-download-notes-pdf');
+
+  if (!card) return;
+
+  if (placeholder) placeholder.classList.add('hidden');
+  card.classList.remove('hidden');
+  if (btnDownloadPdf) btnDownloadPdf.disabled = false;
+
+  // Title & Date Badge
+  document.getElementById('notes-doc-title').textContent = data.title || 'Structured Notes';
+  document.getElementById('notes-doc-date-badge').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+  // Meta badges
+  const metaContainer = document.getElementById('notes-doc-meta-tags');
+  if (metaContainer) {
+    metaContainer.innerHTML = `
+      <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">${escapeHtml(meta.style.replace('_', ' '))}</span>
+      <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider">${escapeHtml(meta.language)}</span>
+    `;
+  }
+
+  // Summary
+  const summaryBox = document.getElementById('notes-doc-summary-box');
+  if (data.summary) {
+    summaryBox.classList.remove('hidden');
+    document.getElementById('notes-doc-summary').textContent = data.summary;
+  } else {
+    summaryBox.classList.add('hidden');
+  }
+
+  // Sections (Headings & Bullet Points)
+  const sectionsContainer = document.getElementById('notes-doc-sections');
+  if (sectionsContainer) {
+    sectionsContainer.innerHTML = (data.sections || []).map((sec, idx) => `
+      <div class="space-y-2 pb-3 border-b border-outline-variant/30">
+        <h3 class="text-sm font-extrabold text-on-surface flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+          ${escapeHtml(sec.heading || `Section ${idx + 1}`)}
+        </h3>
+        ${sec.content ? `<p class="text-xs text-on-surface-variant font-medium leading-relaxed">${escapeHtml(sec.content)}</p>` : ''}
+        
+        ${(sec.subheadings || []).map(sub => `
+          <div class="ml-3 pl-3 border-l-2 border-primary/30 space-y-1 mt-2">
+            ${sub.title ? `<h4 class="text-xs font-bold text-on-surface">${escapeHtml(sub.title)}</h4>` : ''}
+            <ul class="list-disc list-inside space-y-1 text-xs text-on-surface-variant leading-relaxed">
+              ${(sub.points || []).map(pt => `<li>${escapeHtml(pt)}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      </div>
+    `).join('');
+  }
+
+  // Definitions
+  const defBox = document.getElementById('notes-doc-definitions-box');
+  const defContainer = document.getElementById('notes-doc-definitions');
+  if (data.definitions && data.definitions.length > 0) {
+    defBox.classList.remove('hidden');
+    defContainer.innerHTML = data.definitions.map(def => `
+      <div class="p-2 rounded-lg bg-white/70 dark:bg-black/20 border border-amber-200/60 dark:border-amber-900/60">
+        <span class="font-bold text-amber-900 dark:text-amber-200 text-xs">${escapeHtml(def.term)}:</span>
+        <span class="text-on-surface text-xs ml-1">${escapeHtml(def.definition)}</span>
+      </div>
+    `).join('');
+  } else {
+    defBox.classList.add('hidden');
+  }
+
+  // Examples
+  const exBox = document.getElementById('notes-doc-examples-box');
+  const exContainer = document.getElementById('notes-doc-examples');
+  if (data.examples && data.examples.length > 0) {
+    exBox.classList.remove('hidden');
+    exContainer.innerHTML = data.examples.map(ex => `<li>${escapeHtml(ex)}</li>`).join('');
+  } else {
+    exBox.classList.add('hidden');
+  }
+
+  // Q&A Flashcards
+  const qaBox = document.getElementById('notes-doc-qa-box');
+  const qaContainer = document.getElementById('notes-doc-qa');
+  if (data.questionsAndAnswers && data.questionsAndAnswers.length > 0) {
+    qaBox.classList.remove('hidden');
+    qaContainer.innerHTML = data.questionsAndAnswers.map(qa => `
+      <div class="p-2.5 rounded-lg bg-white/70 dark:bg-black/20 border border-purple-200/60 dark:border-purple-900/60 space-y-1">
+        <p class="font-bold text-purple-900 dark:text-purple-200">Q: ${escapeHtml(qa.question)}</p>
+        <p class="text-on-surface">A: ${escapeHtml(qa.answer)}</p>
+      </div>
+    `).join('');
+  } else {
+    qaBox.classList.add('hidden');
+  }
+
+  // Key Takeaways
+  const takeBox = document.getElementById('notes-doc-takeaways-box');
+  const takeContainer = document.getElementById('notes-doc-takeaways');
+  if (data.keyTakeaways && data.keyTakeaways.length > 0) {
+    takeBox.classList.remove('hidden');
+    takeContainer.innerHTML = data.keyTakeaways.map(tk => `<li>${escapeHtml(tk)}</li>`).join('');
+  } else {
+    takeBox.classList.add('hidden');
+  }
+}
+
+// Convert JSON Notes object into clean plain text for clipboard copying
+function formatNotesAsPlainText(data) {
+  let text = `=== ${data.title || 'STRUCTURED NOTES'} ===\n\n`;
+  if (data.summary) text += `EXECUTIVE SUMMARY:\n${data.summary}\n\n`;
+
+  (data.sections || []).forEach(sec => {
+    text += `\n# ${sec.heading}\n`;
+    if (sec.content) text += `${sec.content}\n`;
+    (sec.subheadings || []).forEach(sub => {
+      if (sub.title) text += `\n## ${sub.title}\n`;
+      (sub.points || []).forEach(pt => text += `• ${pt}\n`);
+    });
+  });
+
+  if (data.definitions && data.definitions.length > 0) {
+    text += `\n\nKEY TERMS & DEFINITIONS:\n`;
+    data.definitions.forEach(d => text += `• ${d.term}: ${d.definition}\n`);
+  }
+
+  if (data.keyTakeaways && data.keyTakeaways.length > 0) {
+    text += `\n\nKEY TAKEAWAYS:\n`;
+    data.keyTakeaways.forEach(tk => text += `✓ ${tk}\n`);
+  }
+
+  return text;
 }
 
 /* =====================================================

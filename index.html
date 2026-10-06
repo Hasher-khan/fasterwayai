@@ -79,6 +79,12 @@
   <!-- html2canvas – client-side screenshot/download -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
+  <!-- mammoth.js – docx text extractor -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+  <!-- html2pdf.js – multi-page printable PDF generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -106,6 +112,7 @@
         <a class="nav-link active" data-path="landing" href="#">Home</a>
         <a class="nav-link" data-path="email-generator" href="#">Email Generator</a>
         <a class="nav-link" data-path="grammar-checker" href="#">Grammar Checker</a>
+        <a class="nav-link" data-path="notes-pdf" href="#">Notes PDF</a>
         <a class="nav-link" data-path="templates" href="#">Templates</a>
         <a class="nav-link" data-path="dashboard" href="#">Dashboard</a>
       </nav>
@@ -195,6 +202,10 @@
         <span class="material-symbols-outlined">spellcheck</span>
         <span>Grammar Checker</span>
       </button>
+      <button class="mobile-nav-link" data-path="notes-pdf">
+        <span class="material-symbols-outlined">picture_as_pdf</span>
+        <span>Notes PDF</span>
+      </button>
       <button class="mobile-nav-link" data-path="templates">
         <span class="material-symbols-outlined">library_books</span>
         <span>Templates</span>
@@ -235,6 +246,12 @@
         <span class="material-symbols-outlined">spellcheck</span>
       </div>
       <span class="nav-label">Grammar</span>
+    </button>
+    <button class="bottom-nav-item" data-path="notes-pdf" id="bn-notes-pdf">
+      <div class="nav-icon-bg">
+        <span class="material-symbols-outlined">picture_as_pdf</span>
+      </div>
+      <span class="nav-label">Notes PDF</span>
     </button>
     <button class="bottom-nav-item" data-path="templates" id="bn-templates">
       <div class="nav-icon-bg">
@@ -1364,6 +1381,272 @@ Hasher Khan</div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ========================================================
+         VIEW: TEXT TO PROPER NOTES PDF
+         ======================================================== -->
+    <section id="view-notes-pdf" class="view-section hidden">
+
+      <!-- Header -->
+      <div class="workspace-header">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-1 bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 rounded-full text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">picture_as_pdf</span> PDF Document Engine
+              </span>
+            </div>
+            <h1 class="text-headline-lg md:text-3xl font-headline font-bold text-on-surface">Text to Proper Notes PDF</h1>
+            <p class="text-body-sm text-on-surface-variant mt-0.5 hidden sm:block">Turn raw transcripts, messy notes, lectures & articles into clean, structured, printable PDF notes.</p>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <button id="btn-load-sample-transcript" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
+              <span class="material-symbols-outlined text-[16px]">description</span>
+              <span>Load Sample Text</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Workspace Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4">
+
+        <!-- LEFT COLUMN: Input Form & Customization Options (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col gap-5">
+          <div class="card p-5 space-y-4">
+            
+            <!-- Section Title & File Upload Box -->
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+                Raw Text or Document Input
+              </label>
+              <span id="notes-word-count" class="text-xs font-semibold text-on-surface-variant">0 words</span>
+            </div>
+
+            <!-- Drag & Drop File Upload Area -->
+            <div id="notes-file-dropzone" class="border-2 border-dashed border-outline-variant/80 rounded-2xl p-4 text-center hover:border-primary hover:bg-primary/5 transition-all cursor-pointer relative">
+              <input type="file" id="notes-file-input" accept=".txt,.docx" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" />
+              <div class="flex flex-col items-center gap-1.5 pointer-events-none">
+                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-xl">cloud_upload</span>
+                </div>
+                <p class="text-xs font-bold text-on-surface">Drop .txt or .docx file here or <span class="text-primary hover:underline">browse</span></p>
+                <p class="text-[11px] text-on-surface-variant">Supports raw text files & Microsoft Word documents</p>
+              </div>
+            </div>
+
+            <!-- Text Input Area -->
+            <div class="relative">
+              <textarea id="notes-input-text" rows="10" placeholder="Paste your raw lecture notes, meeting transcript, study material, or article text here..."
+                class="w-full p-3.5 bg-surface border border-outline-variant rounded-2xl text-xs text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary leading-relaxed resize-y font-mono"></textarea>
+            </div>
+
+            <!-- Customization Options Grid -->
+            <div class="space-y-3.5 pt-2 border-t border-surface-container">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-primary">tune</span>
+                Notes & PDF Options
+              </h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                
+                <!-- Notes Style -->
+                <div>
+                  <label class="block text-[11px] font-bold text-on-surface-variant mb-1">Notes Style</label>
+                  <select id="notes-style-select" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
+                    <option value="detailed_notes" selected>Detailed Notes (Comprehensive)</option>
+                    <option value="short_summary">Short Summary (Executive)</option>
+                    <option value="bullet_points">Bullet Points Only</option>
+                    <option value="study_notes">Study Notes (with Q&A Flashcards)</option>
+                  </select>
+                </div>
+
+                <!-- Output Language -->
+                <div>
+                  <label class="block text-[11px] font-bold text-on-surface-variant mb-1">Language</label>
+                  <select id="notes-language-select" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
+                    <option value="english" selected>English</option>
+                    <option value="urdu">Urdu (اردو Script)</option>
+                    <option value="roman_urdu">Roman Urdu</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <!-- PDF Theme -->
+              <div>
+                <label class="block text-[11px] font-bold text-on-surface-variant mb-1">PDF Visual Theme</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" class="notes-theme-btn active p-2 rounded-xl border border-primary bg-primary/10 text-primary text-xs font-bold text-center transition-all" data-theme="simple">
+                    Simple / Clean
+                  </button>
+                  <button type="button" class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container" data-theme="colorful">
+                    Colorful / Modern
+                  </button>
+                  <button type="button" class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container" data-theme="minimal">
+                    Vibrant Emerald
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-3 flex items-center gap-2">
+              <button id="btn-generate-notes" type="button" class="flex-1 py-3 px-4 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                <span>Generate Notes PDF</span>
+              </button>
+              <button id="btn-clear-notes-input" type="button" class="py-3 px-3 bg-surface-container-high text-on-surface hover:bg-surface-dim rounded-xl text-xs font-semibold transition-colors" title="Clear text">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: PDF Preview & Download Card (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col gap-4">
+          
+          <!-- Top Action Toolbar -->
+          <div class="card p-3 flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">print</span>
+              <span class="text-xs font-bold text-on-surface">Interactive PDF Preview</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button id="btn-edit-preview-notes" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60" title="Click to edit notes content before export">
+                <span class="material-symbols-outlined text-[16px]">edit</span>
+                <span class="hidden sm:inline">Edit Preview</span>
+              </button>
+              <button id="btn-copy-notes-text" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
+                <span class="material-symbols-outlined text-[16px]">content_copy</span>
+                <span class="hidden sm:inline">Copy Text</span>
+              </button>
+              <button id="btn-download-notes-pdf" type="button" disabled class="btn-action-sm bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-xs">
+                <span class="material-symbols-outlined text-[16px]">download</span>
+                <span>Download PDF</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Printable Document Container Card -->
+          <div id="notes-pdf-container" class="card p-6 md:p-8 bg-surface-container-lowest shadow-lg border border-outline-variant/60 min-h-[600px] flex flex-col justify-between transition-all">
+            
+            <!-- Empty Placeholder State -->
+            <div id="notes-output-placeholder" class="my-auto py-16 flex flex-col items-center justify-center text-center space-y-3">
+              <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface">No Notes Generated Yet</h3>
+              <p class="text-xs text-on-surface-variant max-w-sm">Paste your lecture or meeting transcript on the left and click "Generate Notes PDF" to create structured notes.</p>
+            </div>
+
+            <!-- Active Rendered PDF Content Sheet -->
+            <div id="notes-pdf-document-card" class="hidden space-y-6 text-on-surface theme-simple">
+              
+              <!-- Document Header Strip -->
+              <div class="pb-4 border-b-2 border-primary/20 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold text-xs">
+                    FA
+                  </div>
+                  <div>
+                    <span class="font-extrabold text-sm text-on-surface tracking-tight">fasterway<span class="text-primary">.ai</span></span>
+                    <p class="text-[10px] text-on-surface-variant font-medium">Smart AI Notes & Document Generator</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span id="notes-doc-date-badge" class="px-2.5 py-1 rounded-full bg-surface-container text-[10px] font-bold text-on-surface-variant">Oct 7, 2026</span>
+                </div>
+              </div>
+
+              <!-- Document Title -->
+              <div>
+                <h1 id="notes-doc-title" class="text-xl md:text-2xl font-extrabold text-on-surface leading-snug">Auto-Generated Notes Title</h1>
+                <div id="notes-doc-meta-tags" class="flex items-center gap-2 mt-2">
+                  <!-- Badges injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Executive Summary Callout Box -->
+              <div id="notes-doc-summary-box" class="p-4 rounded-xl bg-primary/5 border border-primary/20 space-y-1">
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-primary flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">summarize</span>
+                  Executive Summary
+                </h4>
+                <p id="notes-doc-summary" class="text-xs text-on-surface leading-relaxed font-medium">
+                  Summary text will appear here.
+                </p>
+              </div>
+
+              <!-- Headings, Subheadings & Key Points Section -->
+              <div id="notes-doc-sections" class="space-y-5">
+                <!-- Dynamically generated sections -->
+              </div>
+
+              <!-- Important Definitions Box -->
+              <div id="notes-doc-definitions-box" class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 space-y-2">
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                  Key Terms & Definitions
+                </h4>
+                <div id="notes-doc-definitions" class="space-y-2 text-xs">
+                  <!-- Dynamically generated definitions -->
+                </div>
+              </div>
+
+              <!-- Examples Box (If any) -->
+              <div id="notes-doc-examples-box" class="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 space-y-2">
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-blue-800 dark:text-blue-300 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">lightbulb</span>
+                  Practical Examples & Case Studies
+                </h4>
+                <ul id="notes-doc-examples" class="list-disc list-inside space-y-1 text-xs text-on-surface font-medium">
+                  <!-- Injected dynamically -->
+                </ul>
+              </div>
+
+              <!-- Q&A Flashcards Section -->
+              <div id="notes-doc-qa-box" class="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 space-y-2">
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-purple-800 dark:text-purple-300 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">quiz</span>
+                  Study Q&A Flashcards
+                </h4>
+                <div id="notes-doc-qa" class="space-y-2.5 text-xs">
+                  <!-- Injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Key Takeaways Highlight Box -->
+              <div id="notes-doc-takeaways-box" class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 space-y-2">
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px]">verified</span>
+                  Key Takeaways
+                </h4>
+                <ul id="notes-doc-takeaways" class="list-disc list-inside space-y-1 text-xs text-on-surface font-semibold">
+                  <!-- Injected dynamically -->
+                </ul>
+              </div>
+
+              <!-- Printable Footer -->
+              <div class="pt-6 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-on-surface-variant font-medium">
+                <span>Generated by fasterway.ai Notes Engine</span>
+                <span>Page 1 of 1</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
     <!-- ========================================================

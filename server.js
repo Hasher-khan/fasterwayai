@@ -196,6 +196,134 @@ ${text}
   }
 });
 
+
+// REAL-TIME TEXT TO PROPER NOTES PDF API
+app.post(['/api/notes/generate', '/api/generate-notes'], async (req, res) => {
+  try {
+    const { text, style = 'detailed_notes', language = 'english', theme = 'simple' } = req.body;
+
+    if (!text || !text.trim()) {
+      return res.status(400).json({ error: 'Please enter or upload text content to convert into notes.' });
+    }
+
+    const trimmedText = text.trim();
+    if (trimmedText.length < 20) {
+      return res.status(400).json({ error: 'Text content is too short. Please provide at least 20 characters.' });
+    }
+
+    // Input size guard (max ~20,000 words ~120,000 chars)
+    if (trimmedText.length > 120000) {
+      return res.status(400).json({ error: 'Text exceeds maximum length limit of 20,000 words. Please shorten your input.' });
+    }
+
+    console.log(`[AI Notes Request] Processing ${trimmedText.length} characters | Style: ${style} | Language: ${language}`);
+
+    const languageInstruction = {
+      'urdu': 'The output text MUST be in clean Urdu script (اردو).',
+      'roman_urdu': 'The output text MUST be in clear Roman Urdu (e.g. "Yeh notes lecture ke baare mein hain...").',
+      'english': 'The output text MUST be in clear, professional English.'
+    }[language] || 'The output text MUST be in professional English.';
+
+    const styleInstruction = {
+      'short_summary': 'Focus on a high-level executive summary, top 3 main headings, and key takeaways.',
+      'bullet_points': 'Emphasize concise, structured bullet points under categorized headings.',
+      'study_notes': 'Include detailed headings, definitions, examples, and 3-5 study Q&A (questionsAndAnswers) pairs for revision.',
+      'detailed_notes': 'Provide thorough comprehensive notes with complete subheadings, key terms, examples, and key takeaways.'
+    }[style] || 'Provide detailed, well-structured notes.';
+
+    const systemInstructions = `${getSystemPrompt()}
+
+SYSTEM ROLE & RULES:
+You are an expert academic and professional note-taker AI. Convert raw, messy, or long text into clean, highly organized, proper study/meeting notes.
+
+LANGUAGE RULE:
+${languageInstruction}
+
+STYLE & FORMAT RULE:
+${styleInstruction}
+
+Return ONLY a valid JSON object matching this exact schema:
+{
+  "title": "Auto-generated concise, descriptive title for the document",
+  "summary": "2-3 sentences overall summary of the material",
+  "sections": [
+    {
+      "heading": "Main Heading Name",
+      "content": "Introductory or overview paragraph for this section",
+      "subheadings": [
+        {
+          "title": "Subheading Title",
+          "points": [
+            "Bullet point key fact or details",
+            "Another bullet point detail"
+          ]
+        }
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "term": "Important Term or Concept",
+      "definition": "Clear, precise explanation of the term"
+    }
+  ],
+  "examples": [
+    "Practical example or real-world use case mentioned or inferred"
+  ],
+  "questionsAndAnswers": [
+    {
+      "question": "Important study or revision question based on text?",
+      "answer": "Clear, accurate answer"
+    }
+  ],
+  "keyTakeaways": [
+    "Crucial takeaway point 1",
+    "Crucial takeaway point 2"
+  ]
+}`;
+
+    // Chunking strategy for large texts (> 12,000 chars)
+    let textToProcess = trimmedText;
+    if (trimmedText.length > 12000) {
+      console.log(`[AI Notes] Text is large (${trimmedText.length} chars). Splitting into chunks.`);
+      const chunkSize = 10000;
+      const chunks = [];
+      for (let i = 0; i < trimmedText.length; i += chunkSize) {
+        chunks.push(trimmedText.slice(i, i + chunkSize));
+      }
+      
+      // Process first 3 chunks to stay within model latency budget
+      textToProcess = chunks.slice(0, 3).join('\n\n--- SECTION BREAK ---\n\n');
+    }
+
+    const userPrompt = `
+RAW TEXT TO CONVERT INTO NOTES:
+"""
+${textToProcess}
+"""
+`;
+
+    const aiResult = await callGeminiApi(systemInstructions, userPrompt);
+    res.json({
+      success: true,
+      data: aiResult,
+      meta: {
+        style,
+        language,
+        theme,
+        generatedAt: new Date().toISOString()
+      }
+    });
+
+  } catch (error) {
+    console.error('[AI Notes Error]', error.message);
+    res.status(500).json({
+      error: `Failed to generate notes: ${error.message}`,
+      fallbackNotice: 'Ensure your GEMINI_API_KEY in .env is active and valid.'
+    });
+  }
+});
+
 // Fallback Route for SPA
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

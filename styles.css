@@ -1562,3 +1562,37 @@ body.light-theme #output-email-body {
 .shadow-xs {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
+
+/* =====================================================
+   PDF NOTES THEME & PRINT STYLES
+   ===================================================== */
+#notes-pdf-document-card.theme-colorful {
+  border-top: 6px solid #4f46e5;
+}
+
+#notes-pdf-document-card.theme-minimal {
+  border-top: 6px solid #059669;
+}
+
+#notes-pdf-document-card.theme-simple {
+  border-top: 6px solid #2563eb;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #notes-pdf-document-card, #notes-pdf-document-card * {
+    visibility: visible;
+  }
+  #notes-pdf-document-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border: none;
+  }
+}
