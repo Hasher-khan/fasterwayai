@@ -2206,6 +2206,20 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
 
       if (typeof html2pdf !== 'undefined') {
+        // html2pdf/html2canvas renders screen styles, so use a temporary
+        // clone to force readable PDF text without changing the web view.
+        const pdfElement = element.cloneNode(true);
+        pdfElement.removeAttribute('id');
+        Object.assign(pdfElement.style, {
+          position: 'absolute', left: '-100000px', top: '0',
+          display: 'block', visibility: 'visible', color: '#1f2937', opacity: '1'
+        });
+        pdfElement.querySelectorAll('*').forEach((node) => {
+          node.style.setProperty('color', '#1f2937', 'important');
+          node.style.setProperty('opacity', '1', 'important');
+        });
+        document.body.appendChild(pdfElement);
+
         const opt = {
           margin:       [0.4, 0.4, 0.4, 0.4],
           filename:     `${safeFilename}-notes.pdf`,
@@ -2213,12 +2227,14 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
           html2canvas:  { scale: 2, useCORS: true, logging: false },
           jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-        html2pdf().set(opt).from(element).save()
+        html2pdf().set(opt).from(pdfElement).save()
           .then(() => {
+            pdfElement.remove();
             btnDownloadPdf.innerHTML = origHTML;
             showToast('✅ PDF downloaded successfully!', 'success');
           })
           .catch(err => {
+            pdfElement.remove();
             console.error('PDF export error:', err);
             btnDownloadPdf.innerHTML = origHTML;
             downloadTextAsImage({ title: state.currentNotesResult.title, body: state.currentNotesResult.summary, filename: safeFilename });
