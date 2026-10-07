@@ -2201,6 +2201,32 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       const docTitle = state.currentNotesResult.title || 'structured-notes';
       const previousTitle = document.title;
       document.title = docTitle;
+      const isMobile = window.matchMedia('(max-width: 767px)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile && typeof html2pdf !== 'undefined') {
+        const element = document.getElementById('notes-pdf-document-card');
+        const safeFilename = docTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'structured-notes';
+        const originalLabel = btnDownloadPdf.innerHTML;
+        btnDownloadPdf.disabled = true;
+        btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span><span>Downloading...</span>';
+        html2pdf().set({
+          margin: [0.25, 0.25, 0.25, 0.25],
+          filename: `${safeFilename}-notes.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', logging: false },
+          pagebreak: { mode: ['css', 'legacy'], avoid: ['section', 'article'] },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        }).from(element).save().then(() => {
+          showToast('PDF downloaded successfully!', 'success');
+        }).catch((error) => {
+          console.error('Mobile PDF download failed:', error);
+          showToast('PDF download failed. Please try again.', 'error');
+        }).finally(() => {
+          btnDownloadPdf.disabled = false;
+          btnDownloadPdf.innerHTML = originalLabel;
+          document.title = previousTitle;
+        });
+        return;
+      }
       if (typeof window.print === 'function') {
         window.print();
       } else {
