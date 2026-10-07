@@ -1595,4 +1595,11 @@ body.light-theme #output-email-body {
     box-shadow: none;
     border: none;
   }
+
+  /* Keep text readable and fully opaque in downloaded/printed PDFs only. */
+  #notes-pdf-document-card,
+  #notes-pdf-document-card * {
+    color: #1f2937 !important;
+    opacity: 1 !important;
+  }
 }
