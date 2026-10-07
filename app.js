@@ -2201,7 +2201,16 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       const docTitle = state.currentNotesResult.title || 'structured-notes';
       const previousTitle = document.title;
       document.title = docTitle;
-      window.print();
+      if (typeof window.print === 'function') {
+        window.print();
+      } else {
+        // Some mobile webviews do not expose print(). Open the same live
+        // document in a browser tab where the user can use Save/Print to PDF.
+        const printUrl = URL.createObjectURL(new Blob([document.documentElement.outerHTML], { type: 'text/html' }));
+        const printTab = window.open(printUrl, '_blank');
+        if (!printTab) window.location.href = printUrl;
+        window.setTimeout(() => URL.revokeObjectURL(printUrl), 30000);
+      }
       window.setTimeout(() => { document.title = previousTitle; }, 1000);
       return;
 
@@ -2257,8 +2266,13 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
         return;
       }
       const plainText = formatNotesAsPlainText(state.currentNotesResult);
-      navigator.clipboard.writeText(plainText);
-      showToast('Notes text copied to clipboard!', 'success');
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(plainText)
+          .then(() => showToast('Notes text copied to clipboard!', 'success'))
+          .catch(() => copyNotesWithFallback(plainText));
+      } else {
+        copyNotesWithFallback(plainText);
+      }
     });
   }
 
@@ -2284,6 +2298,19 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       }
     });
   }
+}
+
+function copyNotesWithFallback(text) {
+  const helper = document.createElement('textarea');
+  helper.value = text;
+  helper.setAttribute('readonly', '');
+  helper.style.position = 'fixed';
+  helper.style.opacity = '0';
+  document.body.appendChild(helper);
+  helper.select();
+  const copied = document.execCommand('copy');
+  helper.remove();
+  showToast(copied ? 'Notes text copied to clipboard!' : 'Please select and copy the notes manually.', copied ? 'success' : 'info');
 }
 
 // Render Structured Notes into HTML Card Sheet
