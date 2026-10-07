@@ -1579,6 +1579,15 @@ body.light-theme #output-email-body {
 }
 
 @media print {
+  @page { size: Letter portrait; margin: 0.45in; }
+  html, body {
+    width: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   body * {
     visibility: hidden;
   }
@@ -1591,15 +1600,42 @@ body.light-theme #output-email-body {
     top: 0;
     width: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     box-shadow: none;
-    border: none;
+    border: 0;
+    background: transparent !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Keep text readable and fully opaque in downloaded/printed PDFs only. */
+  /* Keep text readable while preserving all computed background colors. */
   #notes-pdf-document-card,
   #notes-pdf-document-card * {
-    color: #1f2937 !important;
     opacity: 1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  #notes-pdf-document-card h1,
+  #notes-pdf-document-card h2,
+  #notes-pdf-document-card h3,
+  #notes-pdf-document-card h4,
+  #notes-pdf-document-card p,
+  #notes-pdf-document-card li,
+  #notes-pdf-document-card span,
+  #notes-pdf-document-card strong {
+    color: #111827 !important;
+  }
+  #notes-pdf-document-card section,
+  #notes-pdf-document-card article {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  #notes-pdf-document-card h1,
+  #notes-pdf-document-card h2,
+  #notes-pdf-document-card h3,
+  #notes-pdf-document-card h4 {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 }

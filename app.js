@@ -2198,9 +2198,12 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
         return;
       }
 
-      const element = document.getElementById('notes-pdf-document-card');
       const docTitle = state.currentNotesResult.title || 'structured-notes';
-      const safeFilename = docTitle.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+      const previousTitle = document.title;
+      document.title = docTitle;
+      window.print();
+      window.setTimeout(() => { document.title = previousTitle; }, 1000);
+      return;
 
       const origHTML = btnDownloadPdf.innerHTML;
       btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
