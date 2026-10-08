@@ -2216,12 +2216,20 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       if (isMobileDevice() && typeof window.print === 'function') {
         const previousTitle = document.title;
         document.title = docTitle;
-        window.setTimeout(() => {
-          window.print();
+        const restoreAfterPrint = () => {
           document.title = previousTitle;
           btnDownloadPdf.disabled = false;
           btnDownloadPdf.innerHTML = origHTML;
-        }, 50);
+          window.removeEventListener('afterprint', restoreAfterPrint);
+        };
+        window.addEventListener('afterprint', restoreAfterPrint);
+
+        // Must remain synchronous with the user's tap; mobile browsers may
+        // block print dialogs called later from setTimeout/requestAnimationFrame.
+        window.print();
+        // Some mobile browsers do not emit afterprint, so restore the button
+        // shortly after print() returns without affecting the print dialog.
+        window.setTimeout(restoreAfterPrint, 1000);
         return;
       }
 
