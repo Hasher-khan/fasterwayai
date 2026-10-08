@@ -2209,9 +2209,25 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
 
       const origHTML = btnDownloadPdf.innerHTML;
       btnDownloadPdf.disabled = true;
+      btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px]">print</span> Opening print options...';
+
+      // Mobile browsers provide a more reliable PDF workflow through their
+      // native print sheet (Print / Save as PDF), instead of a forced download.
+      if (isMobileDevice() && typeof window.print === 'function') {
+        const previousTitle = document.title;
+        document.title = docTitle;
+        window.setTimeout(() => {
+          window.print();
+          document.title = previousTitle;
+          btnDownloadPdf.disabled = false;
+          btnDownloadPdf.innerHTML = origHTML;
+        }, 50);
+        return;
+      }
+
       btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
 
-      // Primary path: html2pdf.js (works on mobile + desktop)
+      // Desktop path: generate and download the PDF directly.
       if (typeof html2pdf !== 'undefined') {
         try {
           // Clone to force light-mode colors in the PDF output
