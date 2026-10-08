@@ -2226,10 +2226,24 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
 
         // Must remain synchronous with the user's tap; mobile browsers may
         // block print dialogs called later from setTimeout/requestAnimationFrame.
-        window.print();
+        try {
+          window.print();
+        } catch (printError) {
+          console.warn('Native print was unavailable:', printError);
+          window.removeEventListener('afterprint', restoreAfterPrint);
+          restoreAfterPrint();
+          openNotesPrintWindow(element, docTitle);
+        }
         // Some mobile browsers do not emit afterprint, so restore the button
         // shortly after print() returns without affecting the print dialog.
         window.setTimeout(restoreAfterPrint, 1000);
+        return;
+      }
+
+      if (isMobileDevice()) {
+        btnDownloadPdf.disabled = false;
+        btnDownloadPdf.innerHTML = origHTML;
+        openNotesPrintWindow(element, docTitle);
         return;
       }
 
@@ -2326,6 +2340,26 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       }
     });
   }
+}
+
+// Fallback for mobile webviews where window.print() is unavailable or blocked.
+// The new tab is opened from the original tap, preserving the browser's user
+// activation and allowing the browser print/save sheet to take over.
+function openNotesPrintWindow(element, title) {
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) {
+    showToast('Please allow pop-ups to open the Print / Save as PDF page.', 'warning');
+    return;
+  }
+
+  const printableMarkup = element.outerHTML;
+  printWindow.document.open();
+  printWindow.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="styles.css"></head><body>${printableMarkup}</body></html>`);
+  printWindow.document.close();
+  printWindow.addEventListener('load', () => {
+    printWindow.focus();
+    printWindow.print();
+  }, { once: true });
 }
 
 function copyNotesWithFallback(text) {
