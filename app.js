@@ -2190,16 +2190,16 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
     });
   }
 
-  // Download PDF Action
+  // Download PDF Action: use the browser's native print engine so the
+  // rendered HTML/CSS is captured consistently on desktop and mobile.
   if (btnDownloadPdf) {
-    btnDownloadPdf.addEventListener('click', async () => {
+    btnDownloadPdf.addEventListener('click', () => {
       if (!state.currentNotesResult) {
         showToast('No generated notes to download.', 'error');
         return;
       }
 
       const docTitle = state.currentNotesResult.title || 'structured-notes';
-      const safeFilename = docTitle.replace(/[^a-z0-9]/gi, '-').toLowerCase();
       const element = document.getElementById('notes-pdf-document-card');
 
       if (!element) {
@@ -2211,92 +2211,28 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
       btnDownloadPdf.disabled = true;
       btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px]">print</span> Opening print options...';
 
-      // Mobile browsers provide a more reliable PDF workflow through their
-      // native print sheet (Print / Save as PDF), instead of a forced download.
-      if (isMobileDevice() && typeof window.print === 'function') {
-        const previousTitle = document.title;
-        document.title = docTitle;
-        const restoreAfterPrint = () => {
-          document.title = previousTitle;
-          btnDownloadPdf.disabled = false;
-          btnDownloadPdf.innerHTML = origHTML;
-          window.removeEventListener('afterprint', restoreAfterPrint);
-        };
-        window.addEventListener('afterprint', restoreAfterPrint);
-
-        // Must remain synchronous with the user's tap; mobile browsers may
-        // block print dialogs called later from setTimeout/requestAnimationFrame.
-        try {
-          window.print();
-        } catch (printError) {
-          console.warn('Native print was unavailable:', printError);
-          window.removeEventListener('afterprint', restoreAfterPrint);
-          restoreAfterPrint();
-          openNotesPrintWindow(element, docTitle);
-        }
-        // Some mobile browsers do not emit afterprint, so restore the button
-        // shortly after print() returns without affecting the print dialog.
-        window.setTimeout(restoreAfterPrint, 1000);
-        return;
-      }
-
-      if (isMobileDevice()) {
+      const previousTitle = document.title;
+      document.title = docTitle;
+      const restoreAfterPrint = () => {
+        document.title = previousTitle;
         btnDownloadPdf.disabled = false;
         btnDownloadPdf.innerHTML = origHTML;
+        window.removeEventListener('afterprint', restoreAfterPrint);
+      };
+      window.addEventListener('afterprint', restoreAfterPrint);
+
+      // Keep this call synchronous with the tap. Mobile browsers block print
+      // requests started later by timers or promises.
+      try {
+        window.print();
+      } catch (printError) {
+        console.warn('Native print was unavailable:', printError);
+        restoreAfterPrint();
         openNotesPrintWindow(element, docTitle);
-        return;
       }
 
-      btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
-
-      // Desktop path: generate and download the PDF directly.
-      if (typeof html2pdf !== 'undefined') {
-        try {
-          // Clone to force light-mode colors in the PDF output
-          const pdfElement = element.cloneNode(true);
-          pdfElement.removeAttribute('id');
-          Object.assign(pdfElement.style, {
-            position: 'absolute',
-            left: '-100000px',
-            top: '0',
-            display: 'block',
-            visibility: 'visible',
-            color: '#1f2937',
-            background: '#ffffff',
-            opacity: '1',
-            width: '700px'
-          });
-          pdfElement.querySelectorAll('*').forEach((node) => {
-            node.style.setProperty('color', '#1f2937', 'important');
-            node.style.setProperty('background-color', 'transparent', 'important');
-            node.style.setProperty('opacity', '1', 'important');
-          });
-          document.body.appendChild(pdfElement);
-
-          const opt = {
-            margin:      [0.4, 0.4, 0.4, 0.4],
-            filename:    `${safeFilename}-notes.pdf`,
-            image:       { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' },
-            jsPDF:       { unit: 'in', format: 'a4', orientation: 'portrait' }
-          };
-
-          await html2pdf().set(opt).from(pdfElement).save();
-          pdfElement.remove();
-          showToast('PDF downloaded successfully!', 'success');
-        } catch (err) {
-          console.error('PDF export error:', err);
-          showToast('PDF export failed. Downloading as text file instead.', 'warning');
-          downloadNotesAsText(safeFilename);
-        }
-      } else {
-        // Fallback: plain-text download if html2pdf not loaded yet
-        showToast('PDF library loading... Downloading as text file.', 'info');
-        downloadNotesAsText(safeFilename);
-      }
-
-      btnDownloadPdf.disabled = false;
-      btnDownloadPdf.innerHTML = origHTML;
+      // WebViews may not emit afterprint; restore controls after print() returns.
+      window.setTimeout(restoreAfterPrint, 1000);
     });
   }
 

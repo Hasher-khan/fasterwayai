@@ -1579,11 +1579,12 @@ body.light-theme #output-email-body {
 }
 
 @media print {
-  @page { size: Letter portrait; margin: 0.45in; }
+  @page { size: A4 portrait; margin: 0.45in; }
   html, body {
     width: auto !important;
     min-height: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
     background: transparent !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -1598,12 +1599,14 @@ body.light-theme #output-email-body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     margin: 0;
     padding: 0;
     box-shadow: none;
-    border: 0;
-    background: transparent !important;
+    border: 0 !important;
+    background: #ffffff !important;
     color: #111827 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -1628,8 +1631,9 @@ body.light-theme #output-email-body {
   }
   #notes-pdf-document-card section,
   #notes-pdf-document-card article {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    /* Let long sections flow across pages; avoid:always can create blanks. */
+    break-inside: auto;
+    page-break-inside: auto;
   }
   #notes-pdf-document-card h1,
   #notes-pdf-document-card h2,
@@ -1637,5 +1641,14 @@ body.light-theme #output-email-body {
   #notes-pdf-document-card h4 {
     break-after: avoid;
     page-break-after: avoid;
+  }
+
+  #notes-pdf-document-card img,
+  #notes-pdf-document-card svg,
+  #notes-pdf-document-card table,
+  #notes-pdf-document-card pre {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
