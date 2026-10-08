@@ -1,4 +1,4 @@
-/**
+﻿/**
  * app.js - fasterwayai Real-Time AI Email Generator & Grammar Checker Engine
  * Mobile-first. Connected directly to backend server.js and System Prompt.
  */
@@ -2192,69 +2192,73 @@ Key Takeaways: AI systems require high quality training data, strict safety guar
 
   // Download PDF Action
   if (btnDownloadPdf) {
-    btnDownloadPdf.addEventListener('click', () => {
+    btnDownloadPdf.addEventListener('click', async () => {
       if (!state.currentNotesResult) {
         showToast('No generated notes to download.', 'error');
         return;
       }
 
       const docTitle = state.currentNotesResult.title || 'structured-notes';
-      const previousTitle = document.title;
-      document.title = docTitle;
-      if (typeof window.print === 'function') {
-        window.print();
-      } else {
-        // Some mobile webviews do not expose print(). Open the same live
-        // document in a browser tab where the user can use Save/Print to PDF.
-        const printUrl = URL.createObjectURL(new Blob([document.documentElement.outerHTML], { type: 'text/html' }));
-        const printTab = window.open(printUrl, '_blank');
-        if (!printTab) window.location.href = printUrl;
-        window.setTimeout(() => URL.revokeObjectURL(printUrl), 30000);
+      const safeFilename = docTitle.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+      const element = document.getElementById('notes-pdf-document-card');
+
+      if (!element) {
+        showToast('Notes document not found. Please generate notes first.', 'error');
+        return;
       }
-      window.setTimeout(() => { document.title = previousTitle; }, 1000);
-      return;
 
       const origHTML = btnDownloadPdf.innerHTML;
+      btnDownloadPdf.disabled = true;
       btnDownloadPdf.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span> Exporting PDF...';
 
+      // Primary path: html2pdf.js (works on mobile + desktop)
       if (typeof html2pdf !== 'undefined') {
-        // html2pdf/html2canvas renders screen styles, so use a temporary
-        // clone to force readable PDF text without changing the web view.
-        const pdfElement = element.cloneNode(true);
-        pdfElement.removeAttribute('id');
-        Object.assign(pdfElement.style, {
-          position: 'absolute', left: '-100000px', top: '0',
-          display: 'block', visibility: 'visible', color: '#1f2937', opacity: '1'
-        });
-        pdfElement.querySelectorAll('*').forEach((node) => {
-          node.style.setProperty('color', '#1f2937', 'important');
-          node.style.setProperty('opacity', '1', 'important');
-        });
-        document.body.appendChild(pdfElement);
-
-        const opt = {
-          margin:       [0.4, 0.4, 0.4, 0.4],
-          filename:     `${safeFilename}-notes.pdf`,
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2, useCORS: true, logging: false },
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
-        html2pdf().set(opt).from(pdfElement).save()
-          .then(() => {
-            pdfElement.remove();
-            btnDownloadPdf.innerHTML = origHTML;
-            showToast('✅ PDF downloaded successfully!', 'success');
-          })
-          .catch(err => {
-            pdfElement.remove();
-            console.error('PDF export error:', err);
-            btnDownloadPdf.innerHTML = origHTML;
-            downloadTextAsImage({ title: state.currentNotesResult.title, body: state.currentNotesResult.summary, filename: safeFilename });
+        try {
+          // Clone to force light-mode colors in the PDF output
+          const pdfElement = element.cloneNode(true);
+          pdfElement.removeAttribute('id');
+          Object.assign(pdfElement.style, {
+            position: 'absolute',
+            left: '-100000px',
+            top: '0',
+            display: 'block',
+            visibility: 'visible',
+            color: '#1f2937',
+            background: '#ffffff',
+            opacity: '1',
+            width: '700px'
           });
+          pdfElement.querySelectorAll('*').forEach((node) => {
+            node.style.setProperty('color', '#1f2937', 'important');
+            node.style.setProperty('background-color', 'transparent', 'important');
+            node.style.setProperty('opacity', '1', 'important');
+          });
+          document.body.appendChild(pdfElement);
+
+          const opt = {
+            margin:      [0.4, 0.4, 0.4, 0.4],
+            filename:    `${safeFilename}-notes.pdf`,
+            image:       { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff' },
+            jsPDF:       { unit: 'in', format: 'a4', orientation: 'portrait' }
+          };
+
+          await html2pdf().set(opt).from(pdfElement).save();
+          pdfElement.remove();
+          showToast('PDF downloaded successfully!', 'success');
+        } catch (err) {
+          console.error('PDF export error:', err);
+          showToast('PDF export failed. Downloading as text file instead.', 'warning');
+          downloadNotesAsText(safeFilename);
+        }
       } else {
-        downloadTextAsImage({ title: state.currentNotesResult.title, body: state.currentNotesResult.summary, filename: safeFilename });
-        btnDownloadPdf.innerHTML = origHTML;
+        // Fallback: plain-text download if html2pdf not loaded yet
+        showToast('PDF library loading... Downloading as text file.', 'info');
+        downloadNotesAsText(safeFilename);
       }
+
+      btnDownloadPdf.disabled = false;
+      btnDownloadPdf.innerHTML = origHTML;
     });
   }
 

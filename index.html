@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -79,6 +79,9 @@
   <!-- html2canvas – client-side screenshot/download -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
+  <!-- html2pdf – client-side PDF export (required by the Notes PDF download action) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <!-- mammoth.js – docx text extractor -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 
@@ -158,7 +161,8 @@
         </button>
 
         <!-- Mobile: Hamburger Menu Button -->
-        <button id="btn-mobile-menu" aria-label="Open navigation menu" class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface">
+        <button id="btn-mobile-menu" aria-label="Open navigation menu"
+          class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-xl bg-surface-container border border-outline-variant text-on-surface">
           <span class="material-symbols-outlined text-[20px]">menu</span>
         </button>
       </div>
@@ -173,15 +177,20 @@
     <div class="mobile-nav-links">
 
       <!-- Mobile User Profile Card (When Logged In) -->
-      <div id="mobile-user-profile-bar" class="hidden p-3 mb-2 bg-surface-container-low dark:bg-surface-container rounded-2xl border border-outline-variant/60 flex items-center justify-between gap-2">
+      <div id="mobile-user-profile-bar"
+        class="hidden p-3 mb-2 bg-surface-container-low dark:bg-surface-container rounded-2xl border border-outline-variant/60 flex items-center justify-between gap-2">
         <div class="flex items-center gap-2.5 overflow-hidden">
-          <div id="mobile-user-avatar-circle" class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">U</div>
+          <div id="mobile-user-avatar-circle"
+            class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">
+            U</div>
           <div class="truncate">
             <p id="mobile-user-display-name" class="text-xs font-bold text-on-surface truncate">User Name</p>
             <p id="mobile-user-display-email" class="text-[10px] text-on-surface-variant truncate">user@example.com</p>
           </div>
         </div>
-        <button id="mobile-btn-sign-out" class="px-2.5 py-1.5 rounded-xl bg-red-50 dark:bg-red-950/40 hover:bg-red-100 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 transition-colors flex items-center gap-1 text-xs font-bold shrink-0" title="Sign Out">
+        <button id="mobile-btn-sign-out"
+          class="px-2.5 py-1.5 rounded-xl bg-red-50 dark:bg-red-950/40 hover:bg-red-100 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 transition-colors flex items-center gap-1 text-xs font-bold shrink-0"
+          title="Sign Out">
           <span class="material-symbols-outlined text-[16px]">logout</span>
           <span>Sign Out</span>
         </button>
@@ -214,7 +223,8 @@
 
       <!-- Mobile Status Badge Inside Drawer -->
       <div class="mt-2 pt-3 border-t border-surface-container px-1">
-        <div id="mobile-ai-status" class="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/40 rounded-xl border border-emerald-200 dark:border-emerald-800/60">
+        <div id="mobile-ai-status"
+          class="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/40 rounded-xl border border-emerald-200 dark:border-emerald-800/60">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
           <span class="text-xs font-semibold text-emerald-800 dark:text-emerald-300">Real-Time AI Active</span>
         </div>
@@ -273,7 +283,7 @@
          VIEW 1: LANDING & LOGIN PAGE (PROFESSIONAL SAAS HOME PAGE)
          ======================================================== -->
     <section id="view-landing" class="view-section transition-all duration-300">
-      
+
       <!-- HERO SECTION WITH ANIMATED AMBIENT LIGHTING -->
       <div class="relative overflow-hidden pt-4 pb-12 md:py-16">
         <!-- Dynamic Animated Ambient Lighting Orbs -->
@@ -281,34 +291,40 @@
         <div class="ambient-glow-orb orb-2"></div>
         <div class="ambient-glow-orb orb-3"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
 
           <!-- LEFT COLUMN: Value Proposition & Hero Info -->
           <div class="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-            
+
 
             <!-- Title with Animated Light Sweep -->
-            <h1 class="font-headline font-extrabold text-2xl sm:text-5xl lg:text-6xl tracking-tight text-on-surface leading-[1.14]">
-              Write Flawless, High-Impact Emails in 
+            <h1
+              class="font-headline font-extrabold text-2xl sm:text-5xl lg:text-6xl tracking-tight text-on-surface leading-[1.14]">
+              Write Flawless, High-Impact Emails in
               <span class="animated-light-gradient block sm:inline">Seconds.</span>
             </h1>
 
             <!-- Subtitle -->
             <p class="text-on-surface-variant text-sm sm:text-lg leading-relaxed max-w-2xl font-normal">
-              <strong>fasterway.ai</strong> empowers job seekers, students, and professionals to craft persuasive emails, audit grammar in real time, and securely store cloud history isolated per user UID.
+              <strong>fasterway.ai</strong> empowers job seekers, students, and professionals to craft persuasive
+              emails, audit grammar in real time, and securely store cloud history isolated per user UID.
             </p>
 
             <!-- Quick Action CTA Row with Lighting Glow (Mobile-first stacked, desktop row) -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full pt-1">
-              <button data-path="email-generator" class="w-full sm:w-auto px-6 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-bold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+              <button data-path="email-generator"
+                class="w-full sm:w-auto px-6 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-bold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
                 <span>Try Email Generator Free</span>
               </button>
-              <button data-path="grammar-checker" class="w-full sm:w-auto px-5 py-3.5 bg-surface-container-high hover:bg-surface-dim text-on-surface font-semibold text-sm rounded-2xl border border-outline-variant/60 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+              <button data-path="grammar-checker"
+                class="w-full sm:w-auto px-5 py-3.5 bg-surface-container-high hover:bg-surface-dim text-on-surface font-semibold text-sm rounded-2xl border border-outline-variant/60 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-[20px]">spellcheck</span>
                 <span>Check Grammar Live</span>
               </button>
-              <button data-path="templates" class="w-full sm:w-auto px-4 py-3.5 text-primary hover:bg-primary/10 font-bold text-sm rounded-2xl transition-colors flex items-center justify-center gap-1.5">
+              <button data-path="templates"
+                class="w-full sm:w-auto px-4 py-3.5 text-primary hover:bg-primary/10 font-bold text-sm rounded-2xl transition-colors flex items-center justify-center gap-1.5">
                 <span class="material-symbols-outlined text-[20px]">library_books</span>
                 <span>View Templates</span>
               </button>
@@ -316,43 +332,55 @@
 
             <!-- Feature Highlights Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full pt-3">
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-primary/50 hover:shadow-md transition-all">
-                <div class="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-primary flex items-center justify-center shrink-0">
+              <div
+                class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-primary/50 hover:shadow-md transition-all">
+                <div
+                  class="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-primary flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">mark_email_read</span>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-on-surface">Smart Email Generator</h4>
-                  <p class="text-[11px] text-on-surface-variant leading-snug">Tailored tones, custom prompts & zero invented facts.</p>
+                  <p class="text-[11px] text-on-surface-variant leading-snug">Tailored tones, custom prompts & zero
+                    invented facts.</p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-emerald-500/50 hover:shadow-md transition-all">
-                <div class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div
+                class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-emerald-500/50 hover:shadow-md transition-all">
+                <div
+                  class="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">spellcheck</span>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-on-surface">Real-Time Grammar Audit</h4>
-                  <p class="text-[11px] text-on-surface-variant leading-snug">Detects spelling, syntax & clarity live as you type.</p>
+                  <p class="text-[11px] text-on-surface-variant leading-snug">Detects spelling, syntax & clarity live as
+                    you type.</p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-sky-500/50 hover:shadow-md transition-all">
-                <div class="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+              <div
+                class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-sky-500/50 hover:shadow-md transition-all">
+                <div
+                  class="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">cloud_done</span>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-on-surface">Per-UID Cloud Security</h4>
-                  <p class="text-[11px] text-on-surface-variant leading-snug">Firebase database strictly isolated to your user ID.</p>
+                  <p class="text-[11px] text-on-surface-variant leading-snug">Firebase database strictly isolated to
+                    your user ID.</p>
                 </div>
               </div>
 
-              <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-purple-500/50 hover:shadow-md transition-all">
-                <div class="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+              <div
+                class="flex items-start gap-3 p-3.5 rounded-2xl bg-surface-container-lowest dark:bg-surface-container-low border border-outline-variant/60 shadow-xs hover:border-purple-500/50 hover:shadow-md transition-all">
+                <div
+                  class="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-[20px]">verified</span>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-on-surface">12+ Pre-Built Templates</h4>
-                  <p class="text-[11px] text-on-surface-variant leading-snug">Career, sales, academic, support & networking.</p>
+                  <p class="text-[11px] text-on-surface-variant leading-snug">Career, sales, academic, support &
+                    networking.</p>
                 </div>
               </div>
             </div>
@@ -363,29 +391,35 @@
           <div class="lg:col-span-5 w-full">
 
             <!-- LOGGED-OUT LOGIN CARD WITH LIGHT BEAM GLOW -->
-            <div id="landing-auth-card" class="bg-surface-lowest rounded-3xl border border-outline-variant/80 light-beam-card overflow-hidden p-6 sm:p-7 space-y-4 relative">
+            <div id="landing-auth-card"
+              class="bg-surface-lowest rounded-3xl border border-outline-variant/80 light-beam-card overflow-hidden p-6 sm:p-7 space-y-4 relative">
               <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none"></div>
 
               <!-- Card Header -->
               <div class="text-center pb-2 border-b border-surface-container relative">
-                <h3 class="font-headline font-extrabold text-xl text-on-surface">Sign In to fasterway<span class="text-primary">.ai</span></h3>
-                <p class="text-xs text-on-surface-variant mt-1 font-medium">Access your AI writing assistant & cloud history</p>
+                <h3 class="font-headline font-extrabold text-xl text-on-surface">Sign In to fasterway<span
+                    class="text-primary">.ai</span></h3>
+                <p class="text-xs text-on-surface-variant mt-1 font-medium">Access your AI writing assistant & cloud
+                  history</p>
               </div>
 
               <!-- Tab Switcher -->
               <div class="flex border border-surface-container rounded-2xl bg-surface-container-low p-1">
-                <button id="hero-tab-signin" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold text-primary bg-surface-lowest shadow-sm transition-all flex items-center justify-center gap-1.5">
+                <button id="hero-tab-signin" type="button"
+                  class="flex-1 py-2 rounded-xl text-xs font-bold text-primary bg-surface-lowest shadow-sm transition-all flex items-center justify-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">login</span>
                   Sign In
                 </button>
-                <button id="hero-tab-signup" type="button" class="flex-1 py-2 rounded-xl text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5">
+                <button id="hero-tab-signup" type="button"
+                  class="flex-1 py-2 rounded-xl text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">person_add</span>
                   Create Account
                 </button>
               </div>
 
               <!-- Landing Auth Error Alert -->
-              <div id="hero-auth-error-msg" class="hidden p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-xs font-medium flex items-start gap-2">
+              <div id="hero-auth-error-msg"
+                class="hidden p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-xs font-medium flex items-start gap-2">
                 <span class="material-symbols-outlined text-[18px] shrink-0 text-red-500">error</span>
                 <span id="hero-auth-error-text">Authentication error</span>
               </div>
@@ -395,18 +429,23 @@
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email Address</label>
                   <div class="relative">
-                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">mail</span>
-                    <input type="email" id="hero-signin-email" required placeholder="name@example.com" class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">mail</span>
+                    <input type="email" id="hero-signin-email" required placeholder="name@example.com"
+                      class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
                   </div>
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Password</label>
                   <div class="relative">
-                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">key</span>
-                    <input type="password" id="hero-signin-password" required placeholder="••••••••" class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">key</span>
+                    <input type="password" id="hero-signin-password" required placeholder="••••••••"
+                      class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
                   </div>
                 </div>
-                <button type="submit" id="hero-btn-submit-signin" class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
+                <button type="submit" id="hero-btn-submit-signin"
+                  class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
                   <span class="material-symbols-outlined text-[18px]">lock_open</span>
                   Sign In to Workspace
                 </button>
@@ -417,25 +456,32 @@
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Full Name</label>
                   <div class="relative">
-                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">person</span>
-                    <input type="text" id="hero-signup-name" required placeholder="John Doe" class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">person</span>
+                    <input type="text" id="hero-signup-name" required placeholder="John Doe"
+                      class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
                   </div>
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Email Address</label>
                   <div class="relative">
-                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">mail</span>
-                    <input type="email" id="hero-signup-email" required placeholder="name@example.com" class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">mail</span>
+                    <input type="email" id="hero-signup-email" required placeholder="name@example.com"
+                      class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
                   </div>
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-on-surface-variant mb-1">Password (Min 6 chars)</label>
                   <div class="relative">
-                    <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">key</span>
-                    <input type="password" id="hero-signup-password" minlength="6" required placeholder="••••••••" class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                    <span
+                      class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">key</span>
+                    <input type="password" id="hero-signup-password" minlength="6" required placeholder="••••••••"
+                      class="w-full pl-9 pr-3 py-2 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
                   </div>
                 </div>
-                <button type="submit" id="hero-btn-submit-signup" class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
+                <button type="submit" id="hero-btn-submit-signup"
+                  class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
                   <span class="material-symbols-outlined text-[18px]">person_add</span>
                   Create Free Account
                 </button>
@@ -448,12 +494,17 @@
               </div>
 
               <!-- GOOGLE SIGN IN BUTTON -->
-              <button id="hero-btn-google-auth" type="button" class="w-full py-2.5 bg-surface hover:bg-surface-container border border-outline-variant rounded-xl text-xs font-semibold text-on-surface transition-all flex items-center justify-center gap-2 shadow-xs">
+              <button id="hero-btn-google-auth" type="button"
+                class="w-full py-2.5 bg-surface hover:bg-surface-container border border-outline-variant rounded-xl text-xs font-semibold text-on-surface transition-all flex items-center justify-center gap-2 shadow-xs">
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                  <path fill="#4285F4"
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853"
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05"
+                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335"
+                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
                 </svg>
                 Continue with Google
               </button>
@@ -461,24 +512,32 @@
             </div>
 
             <!-- LOGGED-IN HERO CARD (WHEN AUTHENTICATED) -->
-            <div id="landing-user-card" class="hidden bg-surface-lowest rounded-3xl border border-emerald-200 shadow-2xl overflow-hidden p-7 space-y-4 text-center">
-              <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center mb-1 shadow-inner">
+            <div id="landing-user-card"
+              class="hidden bg-surface-lowest rounded-3xl border border-emerald-200 shadow-2xl overflow-hidden p-7 space-y-4 text-center">
+              <div
+                class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center mb-1 shadow-inner">
                 <span class="material-symbols-outlined text-[36px]">verified_user</span>
               </div>
               <div>
-                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold inline-block mb-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold inline-block mb-2">
                   Firebase Authenticated
                 </span>
-                <h3 id="landing-user-welcome" class="font-headline font-extrabold text-2xl text-on-surface">Welcome Back!</h3>
+                <h3 id="landing-user-welcome" class="font-headline font-extrabold text-2xl text-on-surface">Welcome
+                  Back!</h3>
                 <p id="landing-user-email" class="text-xs text-on-surface-variant mt-1 font-medium">user@example.com</p>
               </div>
 
               <div class="pt-2 space-y-2.5">
-                <button class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2" data-path="email-generator">
+                <button
+                  class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2"
+                  data-path="email-generator">
                   <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
                   Launch Email Generator
                 </button>
-                <button class="w-full py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-2" data-path="grammar-checker">
+                <button
+                  class="w-full py-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-2"
+                  data-path="grammar-checker">
                   <span class="material-symbols-outlined text-[18px]">spellcheck</span>
                   Open Grammar Checker
                 </button>
@@ -516,46 +575,82 @@
       <div class="py-14 sm:py-20 bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-2xl mx-auto text-center mb-10">
-            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Everything in one workspace</span>
-            <h2 class="mt-2 font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Tools that make every message better</h2>
-            <p class="mt-3 text-sm sm:text-base text-on-surface-variant leading-relaxed">Explore the complete fasterway.ai toolkit for writing, checking, organizing, and saving your best work.</p>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">Everything in one
+              workspace</span>
+            <h2 class="mt-2 font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Tools that make every
+              message better</h2>
+            <p class="mt-3 text-sm sm:text-base text-on-surface-variant leading-relaxed">Explore the complete
+              fasterway.ai toolkit for writing, checking, organizing, and saving your best work.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <button data-path="email-generator" class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-primary/60 hover:shadow-lg transition-all group">
-              <span class="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-primary flex items-center justify-center"><span class="material-symbols-outlined">auto_awesome</span></span>
-              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-primary">AI Email Generator</h3>
-              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Create polished emails with custom tone, audience, purpose, and context in seconds.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-primary">Start writing <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <button data-path="email-generator"
+              class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-primary/60 hover:shadow-lg transition-all group">
+              <span
+                class="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-primary flex items-center justify-center"><span
+                  class="material-symbols-outlined">auto_awesome</span></span>
+              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-primary">AI Email
+                Generator</h3>
+              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Create polished emails with custom tone,
+                audience, purpose, and context in seconds.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-primary">Start writing <span
+                  class="material-symbols-outlined text-sm">arrow_forward</span></span>
             </button>
-            <button data-path="grammar-checker" class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-emerald-500/60 hover:shadow-lg transition-all group">
-              <span class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center"><span class="material-symbols-outlined">spellcheck</span></span>
-              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-emerald-600">Real-Time Grammar Checker</h3>
-              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Improve spelling, grammar, clarity, tone, and professionalism while you write.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-emerald-600">Check text <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <button data-path="grammar-checker"
+              class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-emerald-500/60 hover:shadow-lg transition-all group">
+              <span
+                class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center"><span
+                  class="material-symbols-outlined">spellcheck</span></span>
+              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-emerald-600">Real-Time
+                Grammar Checker</h3>
+              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Improve spelling, grammar, clarity, tone,
+                and professionalism while you write.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-emerald-600">Check text <span
+                  class="material-symbols-outlined text-sm">arrow_forward</span></span>
             </button>
-            <button data-path="notes-pdf" class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-red-500/60 hover:shadow-lg transition-all group">
-              <span class="w-11 h-11 rounded-xl bg-red-100 dark:bg-red-950/50 text-red-600 dark:text-red-400 flex items-center justify-center"><span class="material-symbols-outlined">picture_as_pdf</span></span>
-              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-red-600">Notes to PDF</h3>
-              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Turn lectures, transcripts, and rough notes into structured, printable documents.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-red-600">Create notes <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <button data-path="notes-pdf"
+              class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-red-500/60 hover:shadow-lg transition-all group">
+              <span
+                class="w-11 h-11 rounded-xl bg-red-100 dark:bg-red-950/50 text-red-600 dark:text-red-400 flex items-center justify-center"><span
+                  class="material-symbols-outlined">picture_as_pdf</span></span>
+              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-red-600">Notes to PDF
+              </h3>
+              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Turn lectures, transcripts, and rough
+                notes into structured, printable documents.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-red-600">Create notes <span
+                  class="material-symbols-outlined text-sm">arrow_forward</span></span>
             </button>
-            <button data-path="templates" class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-purple-500/60 hover:shadow-lg transition-all group">
-              <span class="w-11 h-11 rounded-xl bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center"><span class="material-symbols-outlined">library_books</span></span>
-              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-purple-600">Template Library</h3>
-              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Use ready-made templates for careers, sales, academics, support, and networking.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-purple-600">Browse templates <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <button data-path="templates"
+              class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-purple-500/60 hover:shadow-lg transition-all group">
+              <span
+                class="w-11 h-11 rounded-xl bg-purple-100 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center"><span
+                  class="material-symbols-outlined">library_books</span></span>
+              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-purple-600">Template
+                Library</h3>
+              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Use ready-made templates for careers,
+                sales, academics, support, and networking.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-purple-600">Browse templates <span
+                  class="material-symbols-outlined text-sm">arrow_forward</span></span>
             </button>
-            <button data-path="dashboard" class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-sky-500/60 hover:shadow-lg transition-all group">
-              <span class="w-11 h-11 rounded-xl bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center"><span class="material-symbols-outlined">dashboard</span></span>
-              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-sky-600">Personal Dashboard</h3>
-              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Keep your profile, usage, saved activity, and workspace access organized in one place.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-sky-600">Open dashboard <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+            <button data-path="dashboard"
+              class="text-left p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 hover:border-sky-500/60 hover:shadow-lg transition-all group">
+              <span
+                class="w-11 h-11 rounded-xl bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center"><span
+                  class="material-symbols-outlined">dashboard</span></span>
+              <h3 class="mt-4 font-headline font-bold text-base text-on-surface group-hover:text-sky-600">Personal
+                Dashboard</h3>
+              <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">Keep your profile, usage, saved activity,
+                and workspace access organized in one place.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-sky-600">Open dashboard <span
+                  class="material-symbols-outlined text-sm">arrow_forward</span></span>
             </button>
             <div class="text-left p-5 rounded-2xl bg-primary text-on-primary shadow-lg">
-              <span class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center"><span class="material-symbols-outlined">security</span></span>
+              <span class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center"><span
+                  class="material-symbols-outlined">security</span></span>
               <h3 class="mt-4 font-headline font-bold text-base">Secure Cloud History</h3>
-              <p class="mt-2 text-sm text-blue-100 leading-relaxed">Firebase authentication and per-user data isolation keep your workspace private.</p>
-              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-white">Private by design <span class="material-symbols-outlined text-sm">verified_user</span></span>
+              <p class="mt-2 text-sm text-blue-100 leading-relaxed">Firebase authentication and per-user data isolation
+                keep your workspace private.</p>
+              <span class="inline-flex items-center gap-1 mt-4 text-xs font-bold text-white">Private by design <span
+                  class="material-symbols-outlined text-sm">verified_user</span></span>
             </div>
           </div>
         </div>
@@ -564,28 +659,37 @@
       <!-- INTERACTIVE LIVE SANDBOX / FEATURE PREVIEW SECTION -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <span class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Interactive Preview</span>
-          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Experience Real-Time AI Generation</h2>
-          <p class="text-sm text-on-surface-variant">See how fasterway.ai transforms simple user prompts into polished, professional communications.</p>
+          <span
+            class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Interactive
+            Preview</span>
+          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Experience Real-Time AI
+            Generation</h2>
+          <p class="text-sm text-on-surface-variant">See how fasterway.ai transforms simple user prompts into polished,
+            professional communications.</p>
         </div>
 
         <!-- Sandbox Box -->
-        <div class="bg-surface-lowest rounded-3xl border border-outline-variant/70 shadow-xl overflow-hidden max-w-4xl mx-auto">
+        <div
+          class="bg-surface-lowest rounded-3xl border border-outline-variant/70 shadow-xl overflow-hidden max-w-4xl mx-auto">
           <!-- Sandbox Nav Header -->
-          <div class="bg-surface-container-low border-b border-surface-container p-3 sm:p-4 flex items-center justify-between flex-wrap gap-3">
+          <div
+            class="bg-surface-container-low border-b border-surface-container p-3 sm:p-4 flex items-center justify-between flex-wrap gap-3">
             <div class="flex items-center gap-2">
               <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
-              <span class="text-xs font-mono text-on-surface-variant ml-2 hidden sm:inline">fasterway-ai-sandbox.v1</span>
+              <span
+                class="text-xs font-mono text-on-surface-variant ml-2 hidden sm:inline">fasterway-ai-sandbox.v1</span>
             </div>
-            
+
             <div class="flex border border-surface-container rounded-xl bg-surface p-1">
-              <button id="sandbox-tab-email" class="px-3 py-1.5 rounded-lg text-xs font-bold text-primary bg-surface-lowest shadow-xs flex items-center gap-1.5">
+              <button id="sandbox-tab-email"
+                class="px-3 py-1.5 rounded-lg text-xs font-bold text-primary bg-surface-lowest shadow-xs flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[16px]">mark_email_read</span>
                 Email Generator
               </button>
-              <button id="sandbox-tab-grammar" class="px-3 py-1.5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface flex items-center gap-1.5">
+              <button id="sandbox-tab-grammar"
+                class="px-3 py-1.5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-on-surface flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[16px]">spellcheck</span>
                 Grammar Audit
               </button>
@@ -601,45 +705,64 @@
                   <span class="material-symbols-outlined text-primary text-[18px]">tune</span> Select Prompt Preset:
                 </span>
                 <div class="flex gap-2 flex-wrap">
-                  <button class="sandbox-preset-btn active px-3 py-1 bg-primary text-on-primary rounded-lg text-xs font-semibold" data-preset="interview">Interview Follow-Up</button>
-                  <button class="sandbox-preset-btn px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-lg text-xs font-semibold" data-preset="sales">B2B Cold Outreach</button>
-                  <button class="sandbox-preset-btn px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-lg text-xs font-semibold" data-preset="extension">Assignment Extension</button>
+                  <button
+                    class="sandbox-preset-btn active px-3 py-1 bg-primary text-on-primary rounded-lg text-xs font-semibold"
+                    data-preset="interview">Interview Follow-Up</button>
+                  <button
+                    class="sandbox-preset-btn px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-lg text-xs font-semibold"
+                    data-preset="sales">B2B Cold Outreach</button>
+                  <button
+                    class="sandbox-preset-btn px-3 py-1 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-lg text-xs font-semibold"
+                    data-preset="extension">Assignment Extension</button>
                 </div>
               </div>
 
               <!-- Interactive Display Box -->
               <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                <div class="md:col-span-5 bg-surface-container-low p-4 rounded-2xl border border-surface-container space-y-3">
-                  <span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Input Prompt Parameters</span>
+                <div
+                  class="md:col-span-5 bg-surface-container-low p-4 rounded-2xl border border-surface-container space-y-3">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Input Prompt
+                    Parameters</span>
                   <div class="text-xs space-y-1.5 font-sans">
-                    <p><strong>Topic:</strong> <span id="sandbox-input-topic">Follow up after Software Engineer interview</span></p>
-                    <p><strong>Recipient:</strong> <span id="sandbox-input-recipient">Hiring Manager (Tech Lead)</span></p>
-                    <p><strong>Tone:</strong> <span id="sandbox-input-tone" class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">Confident</span></p>
+                    <p><strong>Topic:</strong> <span id="sandbox-input-topic">Follow up after Software Engineer
+                        interview</span></p>
+                    <p><strong>Recipient:</strong> <span id="sandbox-input-recipient">Hiring Manager (Tech Lead)</span>
+                    </p>
+                    <p><strong>Tone:</strong> <span id="sandbox-input-tone"
+                        class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">Confident</span></p>
                   </div>
                 </div>
 
                 <div class="md:col-span-7 bg-surface p-4 rounded-2xl border border-outline-variant/60 space-y-2">
                   <div class="flex items-center justify-between">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1">
+                    <span
+                      class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1">
                       <span class="material-symbols-outlined text-[16px]">auto_awesome</span> Gemini AI Output
                     </span>
-                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[10px] font-bold">100% Factual</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[10px] font-bold">100%
+                      Factual</span>
                   </div>
-                  <div id="sandbox-output-text" class="text-xs text-on-surface leading-relaxed font-sans whitespace-pre-wrap bg-surface-lowest p-3 rounded-xl border border-surface-container">Subject: Thank You for the Senior Developer Interview
+                  <div id="sandbox-output-text"
+                    class="text-xs text-on-surface leading-relaxed font-sans whitespace-pre-wrap bg-surface-lowest p-3 rounded-xl border border-surface-container">
+                    Subject: Thank You for the Senior Developer Interview
 
-Dear Hiring Manager,
+                    Dear Hiring Manager,
 
-Thank you for taking the time to discuss the Senior Engineer role with me yesterday. I really enjoyed learning more about your team's upcoming architecture migration.
+                    Thank you for taking the time to discuss the Senior Engineer role with me yesterday. I really
+                    enjoyed learning more about your team's upcoming architecture migration.
 
-With my 5 years of full-stack engineering experience, I am confident I can make an immediate contribution to your sprint goals. Please let me know if you need any additional code samples or references.
+                    With my 5 years of full-stack engineering experience, I am confident I can make an immediate
+                    contribution to your sprint goals. Please let me know if you need any additional code samples or
+                    references.
 
-Best regards,
-Hasher Khan</div>
+                    Best regards,
+                    Hasher Khan</div>
                 </div>
               </div>
 
               <div class="text-center pt-2">
-                <button data-path="email-generator" class="px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 shadow-sm">
+                <button data-path="email-generator"
+                  class="px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 shadow-sm">
                   <span>Open Full Email Generator</span>
                   <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </button>
@@ -651,25 +774,34 @@ Hasher Khan</div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-red-50/70 border border-red-200 p-4 rounded-2xl space-y-2">
                   <span class="text-xs font-bold uppercase tracking-wider text-red-700 flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[16px]">error_outline</span> Uncorrected Raw Draft (Score: 45%)
+                    <span class="material-symbols-outlined text-[16px]">error_outline</span> Uncorrected Raw Draft
+                    (Score: 45%)
                   </span>
-                  <p class="text-xs text-red-950 leading-relaxed font-sans bg-white/80 p-3 rounded-xl border border-red-200/60">
-                    "Dear Mr. Johnson, I am writing to you regarding about our meeting yesterday. We has discussed the new project timeline and I thinks we need to adjust some dates. Me and my team has reviewed specs..."
+                  <p
+                    class="text-xs text-red-950 leading-relaxed font-sans bg-white/80 p-3 rounded-xl border border-red-200/60">
+                    "Dear Mr. Johnson, I am writing to you regarding about our meeting yesterday. We has discussed the
+                    new project timeline and I thinks we need to adjust some dates. Me and my team has reviewed
+                    specs..."
                   </p>
                 </div>
 
                 <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-2xl space-y-2">
                   <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[16px]">check_circle</span> fasterway AI Audit (Score: 100%)
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span> fasterway AI Audit (Score:
+                    100%)
                   </span>
-                  <p class="text-xs text-emerald-950 leading-relaxed font-sans bg-white/80 p-3 rounded-xl border border-emerald-200/60">
-                    "Dear Mr. Johnson, I am writing regarding our meeting yesterday. We discussed the new project timeline and I believe we need to adjust a few key dates. My team and I have reviewed the specifications..."
+                  <p
+                    class="text-xs text-emerald-950 leading-relaxed font-sans bg-white/80 p-3 rounded-xl border border-emerald-200/60">
+                    "Dear Mr. Johnson, I am writing regarding our meeting yesterday. We discussed the new project
+                    timeline and I believe we need to adjust a few key dates. My team and I have reviewed the
+                    specifications..."
                   </p>
                 </div>
               </div>
 
               <div class="text-center pt-2">
-                <button data-path="grammar-checker" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 shadow-sm">
+                <button data-path="grammar-checker"
+                  class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all inline-flex items-center gap-2 shadow-sm">
                   <span>Launch Live Grammar Audit Tool</span>
                   <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </button>
@@ -686,76 +818,98 @@ Hasher Khan</div>
         <div class="ambient-glow-orb orb-2 opacity-50"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Core Capabilities</span>
-            <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Engineered for Writing Excellence</h2>
-            <p class="text-sm text-on-surface-variant">Designed with Google Gemini AI models and system prompt guardrails to guarantee factual accuracy and tone control.</p>
+            <span
+              class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Core
+              Capabilities</span>
+            <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Engineered for Writing
+              Excellence</h2>
+            <p class="text-sm text-on-surface-variant">Designed with Google Gemini AI models and system prompt
+              guardrails to guarantee factual accuracy and tone control.</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- Card 1 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-primary flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-primary flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">psychology</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Smart Tone & Recipient Engine</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Seamlessly adapt your tone between Professional, Formal, Warm, Direct, or Persuasive depending on whether you're emailing a Hiring Manager or a client.
+                Seamlessly adapt your tone between Professional, Formal, Warm, Direct, or Persuasive depending on
+                whether you're emailing a Hiring Manager or a client.
               </p>
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">speed</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Real-Time Linguistic Audit</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Catch spelling mistakes, grammatical errors, and sentence awkwardness in under 2 seconds with live 1-click full auto-corrections.
+                Catch spelling mistakes, grammatical errors, and sentence awkwardness in under 2 seconds with live
+                1-click full auto-corrections.
               </p>
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">gavel</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Zero-Fact-Invention Guardrails</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Strict system prompts prevent AI hallucinations, fake attachments, or unverified claims, keeping all generated emails 100% factual.
+                Strict system prompts prevent AI hallucinations, fake attachments, or unverified claims, keeping all
+                generated emails 100% factual.
               </p>
             </div>
 
             <!-- Card 4 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">shield_person</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Per-UID Firebase Cloud Isolation</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Your emails and history log are encrypted and stored strictly under your unique Firebase user UID with non-overlapping security rules.
+                Your emails and history log are encrypted and stored strictly under your unique Firebase user UID with
+                non-overlapping security rules.
               </p>
             </div>
 
             <!-- Card 5 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">library_books</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">12+ Verified Email Templates</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Instantly load proven templates for career interviews, salary negotiations, B2B sales outreach, academic extensions, and coffee chats.
+                Instantly load proven templates for career interviews, salary negotiations, B2B sales outreach, academic
+                extensions, and coffee chats.
               </p>
             </div>
 
             <!-- Card 6 -->
-            <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
-              <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+            <div
+              class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3">
+              <div
+                class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
                 <span class="material-symbols-outlined text-[28px]">devices</span>
               </div>
               <h3 class="font-headline font-bold text-lg text-on-surface">Mobile-First & 1-Click Copy</h3>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Designed for optimal performance on mobile devices with bottom app drawer navigation, 44px tap targets, and 1-tap clipboard copying.
+                Designed for optimal performance on mobile devices with bottom app drawer navigation, 44px tap targets,
+                and 1-tap clipboard copying.
               </p>
             </div>
 
@@ -767,30 +921,45 @@ Hasher Khan</div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative overflow-hidden">
         <div class="ambient-glow-orb orb-3 opacity-40"></div>
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 relative z-10">
-          <span class="px-3.5 py-1 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Simple Workflow</span>
-          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Draft Professional Emails in 3 Easy Steps</h2>
+          <span
+            class="px-3.5 py-1 bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Simple
+            Workflow</span>
+          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Draft Professional Emails in 3
+            Easy Steps</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           <!-- Step 1 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
-            <div class="w-12 h-12 rounded-full bg-primary text-on-primary font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">1</div>
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
+            <div
+              class="w-12 h-12 rounded-full bg-primary text-on-primary font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">
+              1</div>
             <h3 class="font-headline font-bold text-lg text-on-surface">Specify Intent or Template</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">Select your recipient, desired tone, and topic, or pick one of our pre-configured templates.</p>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Select your recipient, desired tone, and topic,
+              or pick one of our pre-configured templates.</p>
           </div>
 
           <!-- Step 2 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
-            <div class="w-12 h-12 rounded-full bg-primary text-on-primary font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">2</div>
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
+            <div
+              class="w-12 h-12 rounded-full bg-primary text-on-primary font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">
+              2</div>
             <h3 class="font-headline font-bold text-lg text-on-surface">AI Draft & Tone Audit</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">Google Gemini generates a factual email draft while our real-time auditor checks for grammar and clarity.</p>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Google Gemini generates a factual email draft
+              while our real-time auditor checks for grammar and clarity.</p>
           </div>
 
           <!-- Step 3 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
-            <div class="w-12 h-12 rounded-full bg-emerald-600 text-white font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">3</div>
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-sm glow-card-hover text-center space-y-3 relative">
+            <div
+              class="w-12 h-12 rounded-full bg-emerald-600 text-white font-headline font-extrabold text-lg flex items-center justify-center mx-auto step-number-glow">
+              3</div>
             <h3 class="font-headline font-bold text-lg text-on-surface">1-Click Copy & Send</h3>
-            <p class="text-xs text-on-surface-variant leading-relaxed">Copy the finalized output to your email client with total confidence that your message is clear and mistake-free.</p>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Copy the finalized output to your email client
+              with total confidence that your message is clear and mistake-free.</p>
           </div>
         </div>
       </div>
@@ -800,61 +969,85 @@ Hasher Khan</div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between flex-wrap gap-4 mb-10">
             <div>
-              <span class="px-3.5 py-1 bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Templates Library</span>
-              <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-on-surface mt-2">Popular High-Converting Templates</h2>
+              <span
+                class="px-3.5 py-1 bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Templates
+                Library</span>
+              <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-on-surface mt-2">Popular High-Converting
+                Templates</h2>
             </div>
-            <button data-path="templates" class="px-4 py-2 bg-surface-lowest hover:bg-surface border border-outline-variant/80 rounded-xl text-xs font-bold text-primary flex items-center gap-1.5 shadow-xs">
+            <button data-path="templates"
+              class="px-4 py-2 bg-surface-lowest hover:bg-surface border border-outline-variant/80 rounded-xl text-xs font-bold text-primary flex items-center gap-1.5 shadow-xs">
               <span>View All 12+ Templates</span>
               <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </button>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            
+
             <!-- Template Card 1 -->
-            <div class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
+            <div
+              class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
               <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider">Career</span>
+                <span
+                  class="px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider">Career</span>
                 <h4 class="font-headline font-bold text-sm text-on-surface mt-2">Job Interview Follow-Up</h4>
-                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Confident, polite follow-up after an interview reinforcing interest and key strengths.</p>
+                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Confident, polite follow-up after an
+                  interview reinforcing interest and key strengths.</p>
               </div>
-              <button class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all" data-template-id="job-interview-followup">
+              <button
+                class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all"
+                data-template-id="job-interview-followup">
                 Use Template
               </button>
             </div>
 
             <!-- Template Card 2 -->
-            <div class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
+            <div
+              class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
               <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider">Sales</span>
+                <span
+                  class="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider">Sales</span>
                 <h4 class="font-headline font-bold text-sm text-on-surface mt-2">B2B Cold Sales Outreach</h4>
-                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Direct, value-focused cold email proposing a quick 15-minute introductory call.</p>
+                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Direct, value-focused cold email
+                  proposing a quick 15-minute introductory call.</p>
               </div>
-              <button class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all" data-template-id="sales-cold-outreach">
+              <button
+                class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all"
+                data-template-id="sales-cold-outreach">
                 Use Template
               </button>
             </div>
 
             <!-- Template Card 3 -->
-            <div class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
+            <div
+              class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
               <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider">Networking</span>
+                <span
+                  class="px-2.5 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 text-[10px] font-bold uppercase tracking-wider">Networking</span>
                 <h4 class="font-headline font-bold text-sm text-on-surface mt-2">Informational Coffee Chat</h4>
-                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Warm, respectful request for a short virtual chat with an industry mentor.</p>
+                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Warm, respectful request for a short
+                  virtual chat with an industry mentor.</p>
               </div>
-              <button class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all" data-template-id="networking-coffee-chat">
+              <button
+                class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all"
+                data-template-id="networking-coffee-chat">
                 Use Template
               </button>
             </div>
 
             <!-- Template Card 4 -->
-            <div class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
+            <div
+              class="bg-surface-lowest p-5 rounded-2xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-3 flex flex-col justify-between">
               <div>
-                <span class="px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 text-[10px] font-bold uppercase tracking-wider">Academic</span>
+                <span
+                  class="px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 text-[10px] font-bold uppercase tracking-wider">Academic</span>
                 <h4 class="font-headline font-bold text-sm text-on-surface mt-2">Assignment Extension Request</h4>
-                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Respectful, honest student request for a deadline extension from a professor.</p>
+                <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Respectful, honest student request for a
+                  deadline extension from a professor.</p>
               </div>
-              <button class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all" data-template-id="assignment-extension">
+              <button
+                class="quick-use-template-btn w-full py-2 bg-surface-container hover:bg-primary hover:text-on-primary rounded-xl text-xs font-bold text-on-surface transition-all"
+                data-template-id="assignment-extension">
                 Use Template
               </button>
             </div>
@@ -867,13 +1060,17 @@ Hasher Khan</div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative overflow-hidden">
         <div class="ambient-glow-orb orb-1 opacity-30"></div>
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 relative z-10">
-          <span class="px-3.5 py-1 bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">User Feedback</span>
-          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Loved by Professionals & Students</h2>
+          <span
+            class="px-3.5 py-1 bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">User
+            Feedback</span>
+          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl text-on-surface">Loved by Professionals &
+            Students</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
           <!-- Review 1 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -882,10 +1079,13 @@ Hasher Khan</div>
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed font-sans">
-              "fasterway.ai helped me write the exact right follow-up email after my technical interview. I received a job offer two days later! The tone selection is incredible."
+              "fasterway.ai helped me write the exact right follow-up email after my technical interview. I received a
+              job offer two days later! The tone selection is incredible."
             </p>
             <div class="flex items-center gap-3 pt-2 border-t border-surface-container">
-              <div class="w-9 h-9 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shadow-sm">HK</div>
+              <div
+                class="w-9 h-9 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-xs shadow-sm">
+                HK</div>
               <div>
                 <h5 class="text-xs font-bold text-on-surface">Hasher K.</h5>
                 <p class="text-[10px] text-on-surface-variant">Software Engineer</p>
@@ -894,7 +1094,8 @@ Hasher Khan</div>
           </div>
 
           <!-- Review 2 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -903,10 +1104,13 @@ Hasher Khan</div>
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed font-sans">
-              "The real-time grammar audit saves me so much time. I use it every day for my client communication and sales outreach. Zero typos guaranteed."
+              "The real-time grammar audit saves me so much time. I use it every day for my client communication and
+              sales outreach. Zero typos guaranteed."
             </p>
             <div class="flex items-center gap-3 pt-2 border-t border-surface-container">
-              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">SL</div>
+              <div
+                class="w-9 h-9 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                SL</div>
               <div>
                 <h5 class="text-xs font-bold text-on-surface">Sarah L.</h5>
                 <p class="text-[10px] text-on-surface-variant">Sales Specialist</p>
@@ -915,7 +1119,8 @@ Hasher Khan</div>
           </div>
 
           <!-- Review 3 -->
-          <div class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
+          <div
+            class="bg-surface-lowest p-6 rounded-3xl border border-outline-variant/60 shadow-xs glow-card-hover space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               <span class="material-symbols-outlined text-[18px]">star</span>
               <span class="material-symbols-outlined text-[18px]">star</span>
@@ -924,10 +1129,13 @@ Hasher Khan</div>
               <span class="material-symbols-outlined text-[18px]">star</span>
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed font-sans">
-              "As a student, writing emails to professors used to be nerve-wracking. The academic templates and formal tone settings give me complete confidence."
+              "As a student, writing emails to professors used to be nerve-wracking. The academic templates and formal
+              tone settings give me complete confidence."
             </p>
             <div class="flex items-center gap-3 pt-2 border-t border-surface-container">
-              <div class="w-9 h-9 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">MA</div>
+              <div
+                class="w-9 h-9 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                MA</div>
               <div>
                 <h5 class="text-xs font-bold text-on-surface">Michael A.</h5>
                 <p class="text-[10px] text-on-surface-variant">University Student</p>
@@ -941,52 +1149,72 @@ Hasher Khan</div>
       <div class="bg-surface-container-low py-16 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div class="text-center space-y-3">
-            <span class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Frequently Asked Questions</span>
-            <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-on-surface">Have Questions? We Have Answers</h2>
+            <span
+              class="px-3.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-extrabold uppercase tracking-wider inline-block">Frequently
+              Asked Questions</span>
+            <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-on-surface">Have Questions? We Have
+              Answers</h2>
           </div>
 
           <div class="space-y-3" id="landing-faq-accordion">
             <!-- FAQ 1 -->
-            <div class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
-              <button class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
+            <div
+              class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
+              <button
+                class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
                 <span>Is fasterway.ai completely free to use?</span>
                 <span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
               </button>
-              <div class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
-                Yes! fasterway.ai provides free access to Google Gemini AI email generation, real-time grammar checks, and our complete library of email templates.
+              <div
+                class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
+                Yes! fasterway.ai provides free access to Google Gemini AI email generation, real-time grammar checks,
+                and our complete library of email templates.
               </div>
             </div>
 
             <!-- FAQ 2 -->
-            <div class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
-              <button class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
+            <div
+              class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
+              <button
+                class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
                 <span>How is my email data protected?</span>
                 <span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
               </button>
-              <div class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
-                Your data security is guaranteed by Firebase Authentication and Firestore security rules. All user activity is stored strictly under your isolated user UID (`users/{user.uid}`) so no other user can ever access your drafts.
+              <div
+                class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
+                Your data security is guaranteed by Firebase Authentication and Firestore security rules. All user
+                activity is stored strictly under your isolated user UID (`users/{user.uid}`) so no other user can ever
+                access your drafts.
               </div>
             </div>
 
             <!-- FAQ 3 -->
-            <div class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
-              <button class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
+            <div
+              class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
+              <button
+                class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
                 <span>Does the AI invent fake metrics or false claims?</span>
                 <span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
               </button>
-              <div class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
-                No. Our AI backend runs strict system prompt guardrails that enforce zero-fact-invention rules. Placeholders are used for unprovided details so your emails remain 100% truthful.
+              <div
+                class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
+                No. Our AI backend runs strict system prompt guardrails that enforce zero-fact-invention rules.
+                Placeholders are used for unprovided details so your emails remain 100% truthful.
               </div>
             </div>
 
             <!-- FAQ 4 -->
-            <div class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
-              <button class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
+            <div
+              class="faq-item bg-surface-lowest rounded-2xl border border-outline-variant/60 overflow-hidden shadow-xs glow-card-hover">
+              <button
+                class="faq-toggle w-full p-4 text-left font-headline font-bold text-sm text-on-surface flex items-center justify-between gap-2">
                 <span>Can I use fasterway.ai on my mobile phone?</span>
                 <span class="material-symbols-outlined text-[20px] transition-transform duration-200">expand_more</span>
               </button>
-              <div class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
-                Absolutely! The platform is built mobile-first with a bottom navigation bar, tap-friendly targets, and seamless responsive design for iOS and Android web browsers.
+              <div
+                class="faq-answer hidden p-4 pt-0 text-xs text-on-surface-variant border-t border-surface-container leading-relaxed">
+                Absolutely! The platform is built mobile-first with a bottom navigation bar, tap-friendly targets, and
+                seamless responsive design for iOS and Android web browsers.
               </div>
             </div>
           </div>
@@ -995,21 +1223,28 @@ Hasher Khan</div>
 
       <!-- HIGH-IMPACT BOTTOM CTA BANNER WITH ANIMATED LIGHTING AURA -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="bg-gradient-to-r from-primary via-blue-600 to-sky-600 rounded-3xl p-8 sm:p-12 text-on-primary text-center space-y-6 animated-banner-lighting relative overflow-hidden">
-          <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-white/15 rounded-full blur-2xl pointer-events-none"></div>
-          <div class="absolute -top-10 -right-10 w-48 h-48 bg-sky-300/20 rounded-full blur-2xl pointer-events-none"></div>
-          
-          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl leading-tight">Elevate Your Email Communication Today</h2>
+        <div
+          class="bg-gradient-to-r from-primary via-blue-600 to-sky-600 rounded-3xl p-8 sm:p-12 text-on-primary text-center space-y-6 animated-banner-lighting relative overflow-hidden">
+          <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-white/15 rounded-full blur-2xl pointer-events-none">
+          </div>
+          <div class="absolute -top-10 -right-10 w-48 h-48 bg-sky-300/20 rounded-full blur-2xl pointer-events-none">
+          </div>
+
+          <h2 class="font-headline font-extrabold text-2xl sm:text-4xl leading-tight">Elevate Your Email Communication
+            Today</h2>
           <p class="text-sm sm:text-base text-blue-100 max-w-xl mx-auto leading-relaxed">
-            Join thousands of students, job seekers, and business leaders drafting error-free, high-impact emails in seconds.
+            Join thousands of students, job seekers, and business leaders drafting error-free, high-impact emails in
+            seconds.
           </p>
 
           <div class="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
-            <button data-path="email-generator" class="px-7 py-3.5 bg-white text-primary hover:bg-blue-50 font-extrabold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+            <button data-path="email-generator"
+              class="px-7 py-3.5 bg-white text-primary hover:bg-blue-50 font-extrabold text-sm rounded-2xl glow-button-lighting transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
               <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
               Launch Email Generator
             </button>
-            <button data-path="grammar-checker" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-sm rounded-2xl border border-white/30 backdrop-blur-md transition-all flex items-center gap-2">
+            <button data-path="grammar-checker"
+              class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-sm rounded-2xl border border-white/30 backdrop-blur-md transition-all flex items-center gap-2">
               <span class="material-symbols-outlined text-[20px]">spellcheck</span>
               Try Live Grammar Audit
             </button>
@@ -1061,7 +1296,8 @@ Hasher Khan</div>
               <div>
                 <label class="form-label flex items-center justify-between">
                   <span>Custom AI Prompt</span>
-                  <span class="text-label-sm text-primary font-semibold bg-primary-fixed px-2 py-0.5 rounded-full">Quick Generate</span>
+                  <span class="text-label-sm text-primary font-semibold bg-primary-fixed px-2 py-0.5 rounded-full">Quick
+                    Generate</span>
                 </label>
                 <textarea id="email-custom-prompt" rows="3"
                   placeholder="e.g. Highlight my 5 years experience, mention Marketing Manager role, propose a 15-minute call..."
@@ -1072,10 +1308,13 @@ Hasher Khan</div>
               <div id="quick-generate-hint"
                 class="flex items-start gap-2.5 px-3.5 py-3 rounded-xl border border-primary/30 bg-primary/8 text-on-surface"
                 style="background:rgba(var(--md-sys-color-primary-rgb,99,102,241),.09);">
-                <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">tips_and_updates</span>
+                <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5"
+                  style="font-variation-settings:'FILL' 1;">tips_and_updates</span>
                 <div class="flex-1 min-w-0">
                   <p class="text-label-md font-semibold text-primary leading-tight mb-0.5">Quick Generate Tip</p>
-                  <p class="text-body-sm text-on-surface-variant leading-snug">First add your prompt in the <strong class="text-on-surface font-semibold">Quick Generate</strong> field above, then click Generate Email.</p>
+                  <p class="text-body-sm text-on-surface-variant leading-snug">First add your prompt in the <strong
+                      class="text-on-surface font-semibold">Quick Generate</strong> field above, then click Generate
+                    Email.</p>
                 </div>
                 <button type="button" onclick="document.getElementById('quick-generate-hint').style.display='none'"
                   class="shrink-0 text-on-surface-variant hover:text-on-surface transition-colors p-0.5 rounded-lg hover:bg-surface-container-high"
@@ -1179,7 +1418,8 @@ Hasher Khan</div>
               </div>
               <h3 class="text-headline-sm font-semibold text-on-surface mb-2">Ready to draft your email</h3>
               <p class="text-body-sm text-on-surface-variant max-w-xs">Fill in the details on the Compose tab, then tap
-                <strong>Generate Email</strong>.</p>
+                <strong>Generate Email</strong>.
+              </p>
               <!-- Mobile hint -->
               <button
                 class="mt-4 flex md:hidden items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl text-label-md font-bold"
@@ -1439,16 +1679,20 @@ Hasher Khan</div>
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
           <div>
             <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-1 bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 rounded-full text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+              <span
+                class="px-2.5 py-1 bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 rounded-full text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
                 <span class="material-symbols-outlined text-[14px]">picture_as_pdf</span> PDF Document Engine
               </span>
             </div>
-            <h1 class="text-headline-lg md:text-3xl font-headline font-bold text-on-surface">Text to Proper Notes PDF</h1>
-            <p class="text-body-sm text-on-surface-variant mt-0.5 hidden sm:block">Turn raw transcripts, messy notes, lectures & articles into clean, structured, printable PDF notes.</p>
+            <h1 class="text-headline-lg md:text-3xl font-headline font-bold text-on-surface">Text to Proper Notes PDF
+            </h1>
+            <p class="text-body-sm text-on-surface-variant mt-0.5 hidden sm:block">Turn raw transcripts, messy notes,
+              lectures & articles into clean, structured, printable PDF notes.</p>
           </div>
-          
+
           <div class="flex items-center gap-2">
-            <button id="btn-load-sample-transcript" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
+            <button id="btn-load-sample-transcript" type="button"
+              class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
               <span class="material-symbols-outlined text-[16px]">description</span>
               <span>Load Sample Text</span>
             </button>
@@ -1462,7 +1706,7 @@ Hasher Khan</div>
         <!-- LEFT COLUMN: Input Form & Customization Options (5 cols) -->
         <div class="lg:col-span-5 flex flex-col gap-5">
           <div class="card p-5 space-y-4">
-            
+
             <!-- Section Title & File Upload Box -->
             <div class="flex items-center justify-between">
               <label class="text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
@@ -1473,20 +1717,24 @@ Hasher Khan</div>
             </div>
 
             <!-- Drag & Drop File Upload Area -->
-            <div id="notes-file-dropzone" class="border-2 border-dashed border-outline-variant/80 rounded-2xl p-4 text-center hover:border-primary hover:bg-primary/5 transition-all cursor-pointer relative">
-              <input type="file" id="notes-file-input" accept=".txt,.docx" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" />
+            <div id="notes-file-dropzone"
+              class="border-2 border-dashed border-outline-variant/80 rounded-2xl p-4 text-center hover:border-primary hover:bg-primary/5 transition-all cursor-pointer relative">
+              <input type="file" id="notes-file-input" accept=".txt,.docx"
+                class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" />
               <div class="flex flex-col items-center gap-1.5 pointer-events-none">
                 <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                   <span class="material-symbols-outlined text-xl">cloud_upload</span>
                 </div>
-                <p class="text-xs font-bold text-on-surface">Drop .txt or .docx file here or <span class="text-primary hover:underline">browse</span></p>
+                <p class="text-xs font-bold text-on-surface">Drop .txt or .docx file here or <span
+                    class="text-primary hover:underline">browse</span></p>
                 <p class="text-[11px] text-on-surface-variant">Supports raw text files & Microsoft Word documents</p>
               </div>
             </div>
 
             <!-- Text Input Area -->
             <div class="relative">
-              <textarea id="notes-input-text" rows="10" placeholder="Paste your raw lecture notes, meeting transcript, study material, or article text here..."
+              <textarea id="notes-input-text" rows="10"
+                placeholder="Paste your raw lecture notes, meeting transcript, study material, or article text here..."
                 class="w-full p-3.5 bg-surface border border-outline-variant rounded-2xl text-xs text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary leading-relaxed resize-y font-mono"></textarea>
             </div>
 
@@ -1498,11 +1746,12 @@ Hasher Khan</div>
               </h3>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                
+
                 <!-- Notes Style -->
                 <div>
                   <label class="block text-[11px] font-bold text-on-surface-variant mb-1">Notes Style</label>
-                  <select id="notes-style-select" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
+                  <select id="notes-style-select"
+                    class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
                     <option value="detailed_notes" selected>Detailed Notes (Comprehensive)</option>
                     <option value="short_summary">Short Summary (Executive)</option>
                     <option value="bullet_points">Bullet Points Only</option>
@@ -1513,7 +1762,8 @@ Hasher Khan</div>
                 <!-- Output Language -->
                 <div>
                   <label class="block text-[11px] font-bold text-on-surface-variant mb-1">Language</label>
-                  <select id="notes-language-select" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
+                  <select id="notes-language-select"
+                    class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl text-xs text-on-surface focus:outline-none focus:border-primary">
                     <option value="english" selected>English</option>
                     <option value="urdu">Urdu (اردو Script)</option>
                     <option value="roman_urdu">Roman Urdu</option>
@@ -1526,13 +1776,19 @@ Hasher Khan</div>
               <div>
                 <label class="block text-[11px] font-bold text-on-surface-variant mb-1">PDF Visual Theme</label>
                 <div class="grid grid-cols-3 gap-2">
-                  <button type="button" class="notes-theme-btn active p-2 rounded-xl border border-primary bg-primary/10 text-primary text-xs font-bold text-center transition-all" data-theme="simple">
+                  <button type="button"
+                    class="notes-theme-btn active p-2 rounded-xl border border-primary bg-primary/10 text-primary text-xs font-bold text-center transition-all"
+                    data-theme="simple">
                     Simple / Clean
                   </button>
-                  <button type="button" class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container" data-theme="colorful">
+                  <button type="button"
+                    class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container"
+                    data-theme="colorful">
                     Colorful / Modern
                   </button>
-                  <button type="button" class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container" data-theme="minimal">
+                  <button type="button"
+                    class="notes-theme-btn p-2 rounded-xl border border-outline-variant bg-surface text-on-surface text-xs font-bold text-center transition-all hover:bg-surface-container"
+                    data-theme="minimal">
                     Vibrant Emerald
                   </button>
                 </div>
@@ -1542,11 +1798,14 @@ Hasher Khan</div>
 
             <!-- Action Buttons -->
             <div class="pt-3 flex items-center gap-2">
-              <button id="btn-generate-notes" type="button" class="flex-1 py-3 px-4 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2">
+              <button id="btn-generate-notes" type="button"
+                class="flex-1 py-3 px-4 bg-primary text-on-primary hover:bg-primary-container rounded-xl text-xs font-bold transition-all shadow-sm flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
                 <span>Generate Notes PDF</span>
               </button>
-              <button id="btn-clear-notes-input" type="button" class="py-3 px-3 bg-surface-container-high text-on-surface hover:bg-surface-dim rounded-xl text-xs font-semibold transition-colors" title="Clear text">
+              <button id="btn-clear-notes-input" type="button"
+                class="py-3 px-3 bg-surface-container-high text-on-surface hover:bg-surface-dim rounded-xl text-xs font-semibold transition-colors"
+                title="Clear text">
                 <span class="material-symbols-outlined text-[18px]">delete</span>
               </button>
             </div>
@@ -1556,7 +1815,7 @@ Hasher Khan</div>
 
         <!-- RIGHT COLUMN: PDF Preview & Download Card (7 cols) -->
         <div class="lg:col-span-7 flex flex-col gap-4">
-          
+
           <!-- Top Action Toolbar -->
           <div class="card p-3 flex items-center justify-between flex-wrap gap-2">
             <div class="flex items-center gap-2">
@@ -1565,15 +1824,19 @@ Hasher Khan</div>
             </div>
 
             <div class="flex items-center gap-2">
-              <button id="btn-edit-preview-notes" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60" title="Click to edit notes content before export">
+              <button id="btn-edit-preview-notes" type="button"
+                class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60"
+                title="Click to edit notes content before export">
                 <span class="material-symbols-outlined text-[16px]">edit</span>
                 <span class="hidden sm:inline">Edit Preview</span>
               </button>
-              <button id="btn-copy-notes-text" type="button" class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
+              <button id="btn-copy-notes-text" type="button"
+                class="btn-action-sm bg-surface-container-high text-on-surface hover:bg-surface-dim border border-outline-variant/60">
                 <span class="material-symbols-outlined text-[16px]">content_copy</span>
                 <span class="hidden sm:inline">Copy Text</span>
               </button>
-              <button id="btn-download-notes-pdf" type="button" disabled class="btn-action-sm bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-xs">
+              <button id="btn-download-notes-pdf" type="button" disabled
+                class="btn-action-sm bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed shadow-xs">
                 <span class="material-symbols-outlined text-[16px]">download</span>
                 <span>Download PDF</span>
               </button>
@@ -1581,39 +1844,47 @@ Hasher Khan</div>
           </div>
 
           <!-- Printable Document Container Card -->
-          <div id="notes-pdf-container" class="card p-6 md:p-8 bg-surface-container-lowest shadow-lg border border-outline-variant/60 min-h-[600px] flex flex-col justify-between transition-all">
-            
+          <div id="notes-pdf-container"
+            class="card p-6 md:p-8 bg-surface-container-lowest shadow-lg border border-outline-variant/60 min-h-[600px] flex flex-col justify-between transition-all">
+
             <!-- Empty Placeholder State -->
-            <div id="notes-output-placeholder" class="my-auto py-16 flex flex-col items-center justify-center text-center space-y-3">
+            <div id="notes-output-placeholder"
+              class="my-auto py-16 flex flex-col items-center justify-center text-center space-y-3">
               <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
                 <span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
               </div>
               <h3 class="text-base font-bold text-on-surface">No Notes Generated Yet</h3>
-              <p class="text-xs text-on-surface-variant max-w-sm">Paste your lecture or meeting transcript on the left and click "Generate Notes PDF" to create structured notes.</p>
+              <p class="text-xs text-on-surface-variant max-w-sm">Paste your lecture or meeting transcript on the left
+                and click "Generate Notes PDF" to create structured notes.</p>
             </div>
 
             <!-- Active Rendered PDF Content Sheet -->
             <div id="notes-pdf-document-card" class="hidden space-y-6 text-on-surface theme-simple">
-              
+
               <!-- Document Header Strip -->
               <div class="pb-4 border-b-2 border-primary/20 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold text-xs">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold text-xs">
                     FA
                   </div>
                   <div>
-                    <span class="font-extrabold text-sm text-on-surface tracking-tight">fasterway<span class="text-primary">.ai</span></span>
+                    <span class="font-extrabold text-sm text-on-surface tracking-tight">fasterway<span
+                        class="text-primary">.ai</span></span>
                     <p class="text-[10px] text-on-surface-variant font-medium">Smart AI Notes & Document Generator</p>
                   </div>
                 </div>
                 <div class="text-right">
-                  <span id="notes-doc-date-badge" class="px-2.5 py-1 rounded-full bg-surface-container text-[10px] font-bold text-on-surface-variant">Oct 7, 2026</span>
+                  <span id="notes-doc-date-badge"
+                    class="px-2.5 py-1 rounded-full bg-surface-container text-[10px] font-bold text-on-surface-variant">Oct
+                    7, 2026</span>
                 </div>
               </div>
 
               <!-- Document Title -->
               <div>
-                <h1 id="notes-doc-title" class="text-xl md:text-2xl font-extrabold text-on-surface leading-snug">Auto-Generated Notes Title</h1>
+                <h1 id="notes-doc-title" class="text-xl md:text-2xl font-extrabold text-on-surface leading-snug">
+                  Auto-Generated Notes Title</h1>
                 <div id="notes-doc-meta-tags" class="flex items-center gap-2 mt-2">
                   <!-- Badges injected dynamically -->
                 </div>
@@ -1636,8 +1907,10 @@ Hasher Khan</div>
               </div>
 
               <!-- Important Definitions Box -->
-              <div id="notes-doc-definitions-box" class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 space-y-2">
-                <h4 class="text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
+              <div id="notes-doc-definitions-box"
+                class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 space-y-2">
+                <h4
+                  class="text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">menu_book</span>
                   Key Terms & Definitions
                 </h4>
@@ -1647,8 +1920,10 @@ Hasher Khan</div>
               </div>
 
               <!-- Examples Box (If any) -->
-              <div id="notes-doc-examples-box" class="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 space-y-2">
-                <h4 class="text-xs font-extrabold uppercase tracking-wider text-blue-800 dark:text-blue-300 flex items-center gap-1.5">
+              <div id="notes-doc-examples-box"
+                class="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 space-y-2">
+                <h4
+                  class="text-xs font-extrabold uppercase tracking-wider text-blue-800 dark:text-blue-300 flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">lightbulb</span>
                   Practical Examples & Case Studies
                 </h4>
@@ -1658,8 +1933,10 @@ Hasher Khan</div>
               </div>
 
               <!-- Q&A Flashcards Section -->
-              <div id="notes-doc-qa-box" class="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 space-y-2">
-                <h4 class="text-xs font-extrabold uppercase tracking-wider text-purple-800 dark:text-purple-300 flex items-center gap-1.5">
+              <div id="notes-doc-qa-box"
+                class="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 space-y-2">
+                <h4
+                  class="text-xs font-extrabold uppercase tracking-wider text-purple-800 dark:text-purple-300 flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">quiz</span>
                   Study Q&A Flashcards
                 </h4>
@@ -1669,18 +1946,22 @@ Hasher Khan</div>
               </div>
 
               <!-- Key Takeaways Highlight Box -->
-              <div id="notes-doc-takeaways-box" class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 space-y-2">
-                <h4 class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+              <div id="notes-doc-takeaways-box"
+                class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 space-y-2">
+                <h4
+                  class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-[16px]">verified</span>
                   Key Takeaways
                 </h4>
-                <ul id="notes-doc-takeaways" class="list-disc list-inside space-y-1 text-xs text-on-surface font-semibold">
+                <ul id="notes-doc-takeaways"
+                  class="list-disc list-inside space-y-1 text-xs text-on-surface font-semibold">
                   <!-- Injected dynamically -->
                 </ul>
               </div>
 
               <!-- Printable Footer -->
-              <div class="pt-6 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-on-surface-variant font-medium">
+              <div
+                class="pt-6 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-on-surface-variant font-medium">
                 <span>Generated by fasterway.ai Notes Engine</span>
                 <span>Page 1 of 1</span>
               </div>
@@ -1843,16 +2124,21 @@ Hasher Khan</div>
       </div>
 
       <!-- DEVELOPER PROFILE CARD -->
-      <div class="card p-6 sm:p-8 bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-primary-fixed/20 border border-primary/20 shadow-md rounded-3xl relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
-        
+      <div
+        class="card p-6 sm:p-8 bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-primary-fixed/20 border border-primary/20 shadow-md rounded-3xl relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl pointer-events-none">
+        </div>
+
         <div class="flex flex-col md:flex-row items-center md:items-start gap-6 relative z-10">
           <!-- Developer Avatar -->
           <div class="relative shrink-0">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-primary to-blue-600 text-on-primary font-headline font-extrabold text-2xl sm:text-3xl flex items-center justify-center shadow-lg border-2 border-white/40">
+            <div
+              class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-primary to-blue-600 text-on-primary font-headline font-extrabold text-2xl sm:text-3xl flex items-center justify-center shadow-lg border-2 border-white/40">
               HK
             </div>
-            <span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white" title="Active Developer">
+            <span
+              class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white"
+              title="Active Developer">
               <span class="material-symbols-outlined text-[14px]">code</span>
             </span>
           </div>
@@ -1860,15 +2146,19 @@ Hasher Khan</div>
           <!-- Developer Info -->
           <div class="flex-1 text-center md:text-left space-y-3">
             <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
-              <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wider">Lead AI Developer</span>
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1">
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wider">Lead
+                AI Developer</span>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1">
                 <span class="material-symbols-outlined text-[12px]">location_on</span> Malir District, Sindh, Pakistan
               </span>
             </div>
 
             <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-on-surface">Hashir Khan</h2>
             <p class="text-xs sm:text-sm font-semibold text-primary leading-relaxed">
-              AI Developer (Python | Claude) | Building Smart Web Apps, Interactive Dashboards & Autonomous AI Agents | Optimizing Processes for Maximum Efficiency
+              AI Developer (Python | Claude) | Building Smart Web Apps, Interactive Dashboards & Autonomous AI Agents |
+              Optimizing Processes for Maximum Efficiency
             </p>
 
             <div class="grid grid-cols-1 gap-3 pt-2 text-xs">
@@ -1877,27 +2167,35 @@ Hasher Khan</div>
                   <span class="material-symbols-outlined text-[16px] text-blue-500">psychology</span> Top Skills
                 </p>
                 <div class="flex flex-wrap gap-1 mt-1">
-                  <span class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Artificial Intelligence (AI)</span>
-                  <span class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Data Analysis</span>
-                  <span class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Python</span>
-                  <span class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Claude AI</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Artificial
+                    Intelligence (AI)</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Data
+                    Analysis</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Python</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container-high rounded text-[11px] font-medium text-on-surface">Claude
+                    AI</span>
                 </div>
               </div>
             </div>
 
             <!-- Action Buttons: LinkedIn Profile & Email -->
             <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-3">
-              <a href="https://www.linkedin.com/in/hashir-khan-53a800389" target="_blank" rel="noopener noreferrer" 
-                 class="px-4 py-2 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-2 group">
+              <a href="https://www.linkedin.com/in/hashir-khan-53a800389" target="_blank" rel="noopener noreferrer"
+                class="px-4 py-2 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-2 group">
                 <svg class="w-4 h-4 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                 </svg>
                 Connect on LinkedIn
                 <span class="material-symbols-outlined text-[14px]">open_in_new</span>
               </a>
 
-              <a href="mailto:thhashirkha081@gmail.com" 
-                 class="px-4 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface rounded-xl text-xs font-semibold transition-colors flex items-center gap-2">
+              <a href="mailto:thhashirkha081@gmail.com"
+                class="px-4 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface rounded-xl text-xs font-semibold transition-colors flex items-center gap-2">
                 <span class="material-symbols-outlined text-[16px] text-primary">mail</span>
                 thhashirkha081@gmail.com
               </a>
@@ -2061,7 +2359,8 @@ Hasher Khan</div>
         <section class="space-y-2">
           <h3 class="font-headline font-bold text-sm text-on-surface">5. Contact Information</h3>
           <p>If you have questions regarding this Privacy Policy, please contact our privacy compliance team at
-            <strong>privacy@fasterway.ai</strong>.</p>
+            <strong>privacy@fasterway.ai</strong>.
+          </p>
         </section>
       </div>
     </section>
@@ -2181,15 +2480,18 @@ Hasher Khan</div>
       <div class="space-y-6 mb-6">
         <!-- Section: Appearance / Theme Selector -->
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-3 flex items-center gap-1.5">
+          <label
+            class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-3 flex items-center gap-1.5">
             <span class="material-symbols-outlined text-[16px] text-primary">palette</span>
             Appearance Theme
           </label>
           <div class="grid grid-cols-3 gap-3" id="theme-options-grid">
-            
+
             <!-- Light Theme Card -->
-            <button type="button" data-theme-value="light" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
-              <div class="w-10 h-10 rounded-xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <button type="button" data-theme-value="light"
+              class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div
+                class="w-10 h-10 rounded-xl bg-white text-slate-800 shadow-sm border border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-[22px] text-amber-500">light_mode</span>
               </div>
               <div>
@@ -2199,8 +2501,10 @@ Hasher Khan</div>
             </button>
 
             <!-- Dark Theme Card -->
-            <button type="button" data-theme-value="dark" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
-              <div class="w-10 h-10 rounded-xl bg-slate-900 text-white shadow-sm border border-slate-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <button type="button" data-theme-value="dark"
+              class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div
+                class="w-10 h-10 rounded-xl bg-slate-900 text-white shadow-sm border border-slate-700 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-[22px] text-blue-400">dark_mode</span>
               </div>
               <div>
@@ -2210,8 +2514,10 @@ Hasher Khan</div>
             </button>
 
             <!-- System Theme Card -->
-            <button type="button" data-theme-value="system" class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-white to-slate-900 text-slate-800 shadow-sm border border-slate-300 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <button type="button" data-theme-value="system"
+              class="theme-option-btn p-3 rounded-2xl border border-outline-variant bg-surface-container-low hover:border-primary transition-all flex flex-col items-center gap-2 text-center group cursor-pointer">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-white to-slate-900 text-slate-800 shadow-sm border border-slate-300 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-[22px] text-indigo-500">desktop_windows</span>
               </div>
               <div>
@@ -2230,13 +2536,15 @@ Hasher Khan</div>
               <span class="material-symbols-outlined text-primary text-[18px]">psychology</span>
               AI Processing Engine
             </span>
-            <span class="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-[11px] flex items-center gap-1">
+            <span
+              class="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold text-[11px] flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
               Online
             </span>
           </div>
           <p class="text-[11px] text-on-surface-variant leading-relaxed">
-            Powered by Google Gemini AI with real-time grammar detection, tone optimization, and factual response grounding.
+            Powered by Google Gemini AI with real-time grammar detection, tone optimization, and factual response
+            grounding.
           </p>
         </div>
 
@@ -2247,7 +2555,8 @@ Hasher Khan</div>
           </div>
           <div>
             <h4 class="text-xs font-bold text-on-surface">Data Privacy Guarantee</h4>
-            <p class="text-[11px] text-on-surface-variant">Your written text is encrypted and never trained on public models.</p>
+            <p class="text-[11px] text-on-surface-variant">Your written text is encrypted and never trained on public
+              models.</p>
           </div>
         </div>
 
@@ -2280,8 +2589,8 @@ Hasher Khan</div>
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
         <img src="logo.png" alt="" class="brand-mark w-12 h-12 mx-auto mb-2 bg-white/10 rounded-2xl p-1.5 shadow-xs" />
-        <h2 class="font-headline font-extrabold text-2xl tracking-tight">fasterway<span
-            class="text-blue-200">.ai</span></h2>
+        <h2 class="font-headline font-extrabold text-2xl tracking-tight">fasterway<span class="text-blue-200">.ai</span>
+        </h2>
         <p class="text-xs text-blue-100 mt-1 font-medium">Sign in to save emails & history isolated to your UID</p>
       </div>
 
@@ -2407,8 +2716,7 @@ Hasher Khan</div>
       <div class="md:col-span-5 space-y-3">
         <div class="brand-lockup">
           <img src="logo.png" alt="" class="brand-mark w-7 h-7" />
-          <span class="brand-name text-lg text-on-surface">fasterway<span
-              class="text-primary">.ai</span></span>
+          <span class="brand-name text-lg text-on-surface">fasterway<span class="text-primary">.ai</span></span>
         </div>
         <p class="text-xs leading-relaxed max-w-sm text-on-surface-variant">
           Professional AI Writing Assistant grounded in system prompt rules for factual accuracy, respectful tone, and
@@ -2443,7 +2751,8 @@ Hasher Khan</div>
                 class="material-symbols-outlined text-[16px] text-primary">info</span> About Us & Developer</a></li>
           <li><a href="https://www.linkedin.com/in/hashir-khan-53a800389" target="_blank" rel="noopener noreferrer"
               class="hover:text-primary transition-colors flex items-center gap-1.5"><span
-                class="material-symbols-outlined text-[16px] text-[#0A66C2]">account_box</span> Developer LinkedIn</a></li>
+                class="material-symbols-outlined text-[16px] text-[#0A66C2]">account_box</span> Developer LinkedIn</a>
+          </li>
           <li><a href="#" data-path="terms" class="hover:text-primary transition-colors flex items-center gap-1.5"><span
                 class="material-symbols-outlined text-[16px] text-slate-500">gavel</span> Terms of Service</a></li>
           <li><a href="#" data-path="privacy"
